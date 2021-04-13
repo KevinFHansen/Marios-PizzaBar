@@ -57,11 +57,4 @@ public class Pizza {
         return produktionstid;
     }
 
-
-    public static void opretNyPizza(){
-        System.out.println("Tast pris, navn, nummer, fyld og fyld på din nye Pizza");
-        Scanner scanNewPizza = new Scanner(System.in);
-        Pizza nyPizza = new Pizza(scanNewPizza.nextInt(), scanNewPizza.nextLine(), scanNewPizza.nextInt(), scanNewPizza.nextLine());
-        pizzaListe.add(nyPizza);
-    }
 }
