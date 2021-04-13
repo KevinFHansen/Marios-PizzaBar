@@ -1,6 +1,7 @@
 package Menukort_Pizza;
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Menukort{
     private String dato;
@@ -73,6 +74,9 @@ public class Menukort{
         pizzaListe.add(pizza30);
     }
 
+    public static void main(String[] args) {
+        System.out.println(pizzaListe);
+    }
     public ArrayList<Pizza> getPizzaListe(){
         return this.pizzaListe;
     }
@@ -86,5 +90,14 @@ public class Menukort{
     getPizzaListe().remove(indexAfPizza);
     return indexAfPizza;
     }
+    public String toString(){
+        return toString();
+    }
 
+    public static void opretNyPizza(){
+        System.out.println("Tast pris, navn, nummer, fyld og fyld på din nye Pizza");
+        Scanner scanNewPizza = new Scanner(System.in);
+        Pizza nyPizza = new Pizza(scanNewPizza.nextInt(), scanNewPizza.nextLine(), scanNewPizza.nextInt(), scanNewPizza.nextLine());
+        pizzaListe.add(nyPizza);
+    }
 }
