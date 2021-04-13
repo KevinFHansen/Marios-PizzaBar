@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Pizza {
     private int pris;
     private String navn;
@@ -60,6 +62,9 @@ public class Pizza {
     }
 
     public static void opretNyPizza(){
+        Scanner scanNewPizza = new Scanner(System.in);
+        Pizza nyPizza = new Pizza(scanNewPizza.nextInt(), scanNewPizza.nextLine(), scanNewPizza.nextInt(), scanNewPizza.nextLine(), scanNewPizza.nextInt());
+
 
 
     }
