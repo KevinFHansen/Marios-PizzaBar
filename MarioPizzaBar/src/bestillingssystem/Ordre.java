@@ -18,10 +18,10 @@ public class Ordre {
     private ArrayList<Pizza> ordreListe = new ArrayList<Pizza>();
 
     // Constructor
-    public Ordre(int ordreId, int samletProduktionstid,
+    public Ordre(int ordreId, LocalTime bestillingstidspunkt, int samletProduktionstid,
                  int afhentningstidspunkt, ArrayList<Pizza> ordreListe){
         this.ordreId = ordreId;
-        this.bestillingstidspunkt = bestillingstidspunkt.now();
+        this.bestillingstidspunkt = bestillingstidspunkt;
         this.samletProduktionstid = samletProduktionstid;
         this.afhentningstidspunkt = afhentningstidspunkt;
         this.ordreListe = ordreListe;
@@ -33,7 +33,7 @@ public class Ordre {
         return this.ordreId;
     }
 
-    public int getBestillingstidspunkt(){
+    public LocalTime getBestillingstidspunkt(){
         return this.bestillingstidspunkt;
     }
 
