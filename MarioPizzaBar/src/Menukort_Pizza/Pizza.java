@@ -1,3 +1,5 @@
+package Menukort_Pizza;
+
 import java.util.Scanner;
 
 public class Pizza {
