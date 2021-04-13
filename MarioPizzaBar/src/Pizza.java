@@ -61,7 +61,7 @@ public class Pizza {
 
     }
 
-    public static void opretNyPizza(){
+    public static void opretNyPizza1(){
         Scanner scanNewPizza = new Scanner(System.in);
         Pizza nyPizza = new Pizza(scanNewPizza.nextInt(), scanNewPizza.nextLine(), scanNewPizza.nextInt(), scanNewPizza.nextLine(), scanNewPizza.nextInt());
 
