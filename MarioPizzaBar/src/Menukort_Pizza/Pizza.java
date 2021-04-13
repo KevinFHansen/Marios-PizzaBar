@@ -1,5 +1,6 @@
 package Menukort_Pizza;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Pizza {
@@ -57,17 +58,10 @@ public class Pizza {
     }
 
 
-
-
-    public static void skiftPizza(){
-
-    }
-
-    public static void opretNyPizza1(){
+    public static void opretNyPizza(){
+        System.out.println("Tast pris, navn, nummer, fyld og fyld på din nye Pizza");
         Scanner scanNewPizza = new Scanner(System.in);
         Pizza nyPizza = new Pizza(scanNewPizza.nextInt(), scanNewPizza.nextLine(), scanNewPizza.nextInt(), scanNewPizza.nextLine());
-        System.out.println("Tast pris, navn, nummer, fyld, produktionstid på din nye Pizza");
-
-
+        pizzaListe.add(nyPizza);
     }
 }
