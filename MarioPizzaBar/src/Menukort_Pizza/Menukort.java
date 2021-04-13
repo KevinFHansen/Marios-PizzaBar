@@ -1,5 +1,4 @@
 package Menukort_Pizza;
-
 import java.util.ArrayList;
 
 public class Menukort {
