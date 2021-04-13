@@ -1,6 +1,7 @@
 package bestillingssystem;
 
 import java.util.ArrayList;
+import Menukort_Pizza.Pizza;
 
 public class Ordre {
     // Atributter
@@ -8,7 +9,7 @@ public class Ordre {
     private int bestillingstidspunkt;
     private int samletProduktionstid;
     private int afhentningstidspunkt;
-    private ArrayList<Pizza> ordreListe = new ArrayList<>;
+    private ArrayList<Pizza> ordreListe = new ArrayList<Pizza>();
 
     // Constructor
     public Ordre(int ordreId, int bestillingstidspunkt, int samletProduktionstid,
@@ -21,5 +22,23 @@ public class Ordre {
 
     }
 
+    public void tilføjPizza(){
 
+    }
+
+    public void anullerPizza(){
+
+    }
+
+    public void afslutOrdre(){
+
+    }
+
+    public void ændreAfhentningstidspunkt(){
+
+    }
+
+    public void ordreKommentar(){
+
+    }
 }
