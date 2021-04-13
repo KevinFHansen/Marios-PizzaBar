@@ -2,8 +2,11 @@ package bestillingssystem;
 
 import java.util.ArrayList;
 import Menukort_Pizza.Pizza;
+import java.util.Scanner;
 
 public class Ordre {
+    Scanner sc = new Scanner(System.in);
+
     // Atributter
     private int ordreId;
     private int bestillingstidspunkt;
@@ -13,12 +16,17 @@ public class Ordre {
 
     // Constructor
     public Ordre(int ordreId, int bestillingstidspunkt, int samletProduktionstid,
-                 int afhentningstidspunkt, ArrayList<Pizza> ordreListe;){
+                 int afhentningstidspunkt, ArrayList<Pizza> ordreListe){
         this.ordreId = ordreId;
         this.bestillingstidspunkt = bestillingstidspunkt;
         this.samletProduktionstid = samletProduktionstid;
         this.afhentningstidspunkt = afhentningstidspunkt;
         this.ordreListe = ordreListe;
+
+    }
+
+    public void opretOrdre(){
+        Ordre nyOrdre = new Ordre();
 
     }
 
