@@ -16,9 +16,9 @@ public class Menukort {
         System.out.println(getPizzaListe());
     }
 
-    public int fjernPizza(int fjern){
-    getPizzaListe().remove(fjern);
-    return fjern;
+    public int fjernPizza(int indexAfPizza){
+    getPizzaListe().remove(indexAfPizza);
+    return indexAfPizza;
     }
 
 
