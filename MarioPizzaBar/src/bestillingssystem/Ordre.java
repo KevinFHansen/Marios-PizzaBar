@@ -11,15 +11,14 @@ public class Ordre {
     Scanner sc = new Scanner(System.in);
 
     // Atributter
-    private int ordreId;
+    private String ordreId;
     private LocalTime bestillingstidspunkt;
     private int samletProduktionstid;
     private int afhentningstidspunkt;
     private ArrayList<Pizza> ordreListe = new ArrayList<Pizza>();
 
     // Constructor
-    public Ordre(int ordreId, LocalTime bestillingstidspunkt, int samletProduktionstid,
-                 int afhentningstidspunkt, ArrayList<Pizza> ordreListe){
+    public Ordre(){
         this.ordreId = ordreId;
         this.bestillingstidspunkt = bestillingstidspunkt;
         this.samletProduktionstid = samletProduktionstid;
@@ -29,7 +28,7 @@ public class Ordre {
     }
 
     // Getters
-    public int getOrdreId(){
+    public String getOrdreId(){
         return this.ordreId;
     }
 
@@ -50,11 +49,11 @@ public class Ordre {
     }
 
     // Setters
-    public void setOrdreId(int ordreId){
+    public void setOrdreId(String ordreId){
         this.ordreId = ordreId;
     }
 
-    public void setBestillingstidspunkt(int bestillingstidspunkt){
+    public void setBestillingstidspunkt(LocalTime bestillingstidspunkt){
         this.bestillingstidspunkt = bestillingstidspunkt;
     }
 
@@ -68,10 +67,9 @@ public class Ordre {
 
 
     public void opretOrdre(){
-
-        System.out.println(pizzaListe);
-
+        String navn = sc.nextLine();
         Ordre nyOrdre = new Ordre();
+
 
     }
 
