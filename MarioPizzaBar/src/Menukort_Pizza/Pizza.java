@@ -7,14 +7,16 @@ public class Pizza {
     private String navn;
     private int pizzaNummer;
     private String fyld;
-    private int produktionstid;
+    private final int produktionstid = 10;
 
-    public Pizza (int pris, String navn, int pizzaNummer, String fyld, int produktionstid){
+
+
+    public Pizza (int pris, String navn, int pizzaNummer, String fyld){
         this.pris = pris;
         this.navn = navn;
         this.pizzaNummer = pizzaNummer;
         this.fyld = fyld;
-        this.produktionstid = produktionstid;
+
     }
 
 
@@ -54,9 +56,7 @@ public class Pizza {
         return produktionstid;
     }
 
-    public void setProduktionstid(int produktionstid) {
-        this.produktionstid = produktionstid;
-    }
+
 
 
     public static void skiftPizza(){
@@ -65,8 +65,8 @@ public class Pizza {
 
     public static void opretNyPizza1(){
         Scanner scanNewPizza = new Scanner(System.in);
-        Pizza nyPizza = new Pizza(scanNewPizza.nextInt(), scanNewPizza.nextLine(), scanNewPizza.nextInt(), scanNewPizza.nextLine(), scanNewPizza.nextInt());
-
+        Pizza nyPizza = new Pizza(scanNewPizza.nextInt(), scanNewPizza.nextLine(), scanNewPizza.nextInt(), scanNewPizza.nextLine());
+        System.out.println("Tast pris, navn, nummer, fyld, produktionstid på din nye Pizza");
 
 
     }
