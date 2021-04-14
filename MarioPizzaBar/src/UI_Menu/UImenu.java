@@ -13,8 +13,6 @@ public class UImenu {
     Ordre ordre = new Ordre();
 
 
-
-
     public void presentMenuOptions(){
 
         System.out.println("Du har følgende muligheder :");
@@ -67,7 +65,14 @@ public class UImenu {
             case 6:
                 System.out.println("Du har valgt at afslutte");
                 exitProgram = true;
+
         }
+
         }
+    }
+
+    public static void main(String[] args) {
+        UImenu uImenu = new UImenu();
+        uImenu.startUI();
     }
 }
