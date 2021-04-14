@@ -24,6 +24,7 @@ public class Ordre {
         this.bestillingstidspunkt = bestillingstidspunkt;
         this.samletProduktionstid = samletProduktionstid;
         this.afhentningstidspunkt = afhentningstidspunkt;
+        this.kommentar = kommentar;
         this.ordreListe = ordreListe;
 
     }
@@ -49,6 +50,10 @@ public class Ordre {
         return this.ordreListe;
     }
 
+    public String getKommentar(){
+        return this.kommentar;
+    }
+
     // Setters
     public void setOrdreId(String ordreId){
         this.ordreId = ordreId;
@@ -64,6 +69,10 @@ public class Ordre {
 
     public void setAfhentningstidspunkt(LocalTime afhentningstidspunkt){
         this.afhentningstidspunkt = afhentningstidspunkt;
+    }
+
+    public void setKommentar(String ordreKommentar){
+        this.kommentar = ordreKommentar;
     }
 
 
@@ -82,11 +91,25 @@ public class Ordre {
         int samletTid = (nyOrdre.ordreListe.size() - 1) * 2 + 10;
         nyOrdre.setSamletProduktionstid(samletTid);
 
+        // Tilføj kommentar
+        nyOrdre.ordreKommentar();
+
         // afhentningstidspunkt - mangler ventetid
+        nyOrdre.setAfhentningstidspunkt(bestillingstidspunkt.plusMinutes(nyOrdre.getSamletProduktionstid()));
 
-        LocalTime tidFærdig = bestillingstidspunkt.plusMinutes(nyOrdre.samletProduktionstid);
+        // godkend afhentningstidspunkt
+        System.out.println("1. for at godkende afhentningstidspunktet \n2. for at ændre afhentningstidspunktet");
 
-        nyOrdre.setAfhentningstidspunkt(tidFærdig);
+        if(sc.nextInt() == 2){
+            nyOrdre.ændreAfhentningstidspunkt();
+        }
+
+        // Send ordre til bestillingsListe
+        System.out.println("Godkend ordre og send til køkken");
+        nyOrdre.visOrdre();
+
+        int valg = sc.nextInt();
+
 
 
     }
@@ -107,24 +130,34 @@ public class Ordre {
         }
     }
 
-    public void anullerPizza(){
-
-    }
-
     public void afslutOrdre(){
 
     }
 
     public void ændreAfhentningstidspunkt(){
 
+        System.out.println("Indtast antal minutter til ordren skal afhentes");
+
+        LocalTime bestemtTidFærdig = bestillingstidspunkt.plusMinutes(sc.nextInt());
+
+        setAfhentningstidspunkt(bestemtTidFærdig);
     }
 
     public void ordreKommentar(){
 
+        System.out.println("Indtast kommentar til ordre");
+        String kommentar = (sc.nextLine());
+
+        setKommentar(kommentar);
     }
 
-    @Override
-    public String toString() {
-        return
+    public void visOrdre(){
+        System.out.println("[" + getOrdreId() + "] Afhentes: " + getAfhentningstidspunkt());
+
+        for(int i = 0; i < ordreListe.size(); i++){
+            System.out.println(ordreListe.get(i).toString());
+        }
+
+        System.out.println("Kommentar: " + getKommentar());
     }
 }
