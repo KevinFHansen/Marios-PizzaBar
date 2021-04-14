@@ -67,14 +67,39 @@ public class Ordre {
 
 
     public void opretOrdre(){
-        String navn = sc.nextLine();
+
         Ordre nyOrdre = new Ordre();
+
+        System.out.println("Indtast kundens navn");
+        nyOrdre.setOrdreId(sc.nextLine());
+        nyOrdre.setBestillingstidspunkt(bestillingstidspunkt.now());
+
+        // ordreListe
+        nyOrdre.tilføjPizza();
+
+        // samletProduktionstid
+        int samletTid = (nyOrdre.ordreListe.size() - 1) * 2 + nyOrdre.ordreListe(0).getProduktionstid;
+        nyOrdre.setSamletProduktionstid();
+
+        // afhentningstidspunkt
 
 
     }
 
     public void tilføjPizza(){
+        boolean flag = true;
 
+        while (flag) {
+
+            System.out.println("1. Tilføj pizza til ordren \n2. Godkend ordren");
+
+            if(sc.nextInt() == 1) {
+                System.out.println("Tast nr. på den pizza du vil tilføje ordren");
+                ordreListe.add(pizzaListe.get(sc.nextInt() - 1));
+
+            }
+            else {flag = false;}
+        }
     }
 
     public void anullerPizza(){
