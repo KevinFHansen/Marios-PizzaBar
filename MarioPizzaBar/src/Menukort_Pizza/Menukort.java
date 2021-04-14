@@ -1,4 +1,5 @@
 package Menukort_Pizza;
+import javax.sound.midi.SysexMessage;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -6,6 +7,7 @@ import java.util.Scanner;
 public class Menukort{
     private String dato;
     public static ArrayList<Pizza> pizzaListe = new ArrayList<>();
+
 
     static {
         Pizza pizza1 = new Pizza(57, "Vesuvio", 1, "tomatsauce, ost, skinke og oregano");
@@ -75,8 +77,11 @@ public class Menukort{
     }
 
     public static void main(String[] args) {
-        System.out.println(pizzaListe);
+        Menukort psv = new Menukort();
+        System.out.println(psv.getPizzaListe());
+        psv.skiftPizza();
     }
+
     public ArrayList<Pizza> getPizzaListe(){
         return this.pizzaListe;
     }
@@ -90,14 +95,34 @@ public class Menukort{
     getPizzaListe().remove(indexAfPizza);
     return indexAfPizza;
     }
+
+    @Override
     public String toString(){
-        return toString();
+        return pizzaListe.toString();
     }
 
+
     public static void opretNyPizza(){
-        System.out.println("Tast pris, navn, nummer, fyld og fyld på din nye Pizza");
+        System.out.println("Tast pris, navn, nummer, og fyld på din nye Pizza");
         Scanner scanNewPizza = new Scanner(System.in);
-        Pizza nyPizza = new Pizza(scanNewPizza.nextInt(), scanNewPizza.nextLine(), scanNewPizza.nextInt(), scanNewPizza.nextLine());
+        Pizza nyPizza = new Pizza(scanNewPizza.nextInt(), scanNewPizza.next(), scanNewPizza.nextInt(), scanNewPizza.next());
         pizzaListe.add(nyPizza);
+        System.out.println("Dette er ny pizza: " + nyPizza);
     }
+
+    public static void skiftPizza(){
+        Scanner scn = new Scanner(System.in);
+        System.out.println("Indtast nr på pizza der skal ændres");
+        int pizzaNr = scn.nextInt();
+
+        pizzaListe.remove(pizzaListe.get(pizzaNr));
+
+        System.out.println("Tast pris, navn, nummer og fyld på den ændret Pizza");
+        Pizza pizzaÆndring = new Pizza(scn.nextInt(), scn.next(), scn.nextInt(),scn.next());
+
+        pizzaListe.add(pizzaNr,pizzaÆndring);
+
+        System.out.println(pizzaListe);
+    }
+
 }

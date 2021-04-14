@@ -20,7 +20,6 @@ public class Pizza {
 
     }
 
-
     public int getPris() {
         return pris;
     }
