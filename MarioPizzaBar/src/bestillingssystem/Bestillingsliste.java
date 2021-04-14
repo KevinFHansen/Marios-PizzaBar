@@ -9,7 +9,7 @@ public class Bestillingsliste {
 
     // attributter
     private ArrayList<Ordre> bestillinger = new ArrayList<Ordre>();
-    private int ventetid = 10;
+    private int ventetid;
 
 
     // constructor
@@ -18,16 +18,29 @@ public class Bestillingsliste {
         this.ventetid = ventetid;
     }
 
-    // metoder
+
+    public int getVentetid() {
+        return ventetid;
+    }
+
+    public void setVentetid(int ventetid) {
+        this.ventetid = ventetid;
+    }
+
+
+    // metoder afslut ordre
     public void tilføjOrdreTilBestillinger(Ordre ordreTilBestilling){
         bestillinger.add(ordreTilBestilling);
     }
 
-    public int beregnVentetid(){
-        int ventetid = 10;
+    public int beregnVentetid(ArrayList<Ordre> bestillinger){
+        int ventetid = 0;
+        for (int i = 0; i < bestillinger.size(); i++){
+            ventetid = ventetid + bestillinger.get(i).getSamletProduktionstid();
+        }
+
         return ventetid;
     }
-
 
     public void visBestillinger(){
         Collections.sort(bestillinger, new Comparator<Ordre>() {
@@ -41,6 +54,16 @@ public class Bestillingsliste {
                     bestillinger.get(i).getOrdreListe() + " ordreID: " + bestillinger.get(i).getOrdreId());
 
         }
+
+    }
+
+    public void afslutOrdre(Ordre ordreAfslut){
+        // tilføj ordre til statistik
+        bestillinger.remove(ordreAfslut);
+
+
+
+
 
     }
 
