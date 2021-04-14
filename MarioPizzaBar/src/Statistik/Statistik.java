@@ -14,6 +14,7 @@ public class Statistik {
     public static ArrayList<Pizza> listeAfSolgtePizza = new ArrayList<>();
 
     Ordre Ordre = new Ordre();
+    Pizza Pizza = new Pizza();
 
 
     public void visOmsætning(){
@@ -21,13 +22,15 @@ public class Statistik {
 
     }
 
-    public void beregnOmsætning(){
+    /*public void beregnOmsætning(){
 
-        listeAfSolgtePizza.get()
-        Ordre.getOrdreListe();
+        listeAfSolgtePizza.add(Pizza);
+       // listeAfSolgtePizza.
+       // Ordre.getOrdreListe();
+      //  Pizza.getPris();
 
 
-    }
+    }*/
 
     public void visAntalPizza(){
 

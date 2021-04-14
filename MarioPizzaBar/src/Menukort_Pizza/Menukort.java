@@ -78,8 +78,9 @@ public class Menukort{
 
     public static void main(String[] args) {
         Menukort psv = new Menukort();
-        System.out.println(psv.getPizzaListe());
+        psv.visPizzaListe();
         psv.skiftPizza();
+
     }
 
     public ArrayList<Pizza> getPizzaListe(){
@@ -88,37 +89,43 @@ public class Menukort{
 
 
     public void visPizzaListe(){
-        System.out.println(getPizzaListe());
+        int stride = pizzaListe.size() / 3;
+        /*for(int i = 0; i < pizzaListe.size(); i++){
+            System.out.println(String.format("%20s %20s %12s", pizzaListe.get(i), pizzaListe.get(i + stride), pizzaListe.get(i + stride * 2)));
+        }*/
+        System.out.println(pizzaListe);
     }
 
-    public int fjernPizza(int indexAfPizza){
-    getPizzaListe().remove(indexAfPizza);
-    return indexAfPizza;
-    }
-
-    @Override
-    public String toString(){
-        return pizzaListe.toString();
+    public void fjernPizza(){
+    Scanner scn = new Scanner(System.in);
+        System.out.print("Indtast nummer på pizza der skal fjernes: ");
+        int fjern = scn.nextInt();
+        pizzaListe.remove(fjern);
+        System.out.println(pizzaListe);
     }
 
 
     public static void opretNyPizza(){
-        System.out.println("Tast pris, navn, nummer, og fyld på din nye Pizza");
         Scanner scanNewPizza = new Scanner(System.in);
-        Pizza nyPizza = new Pizza(scanNewPizza.nextInt(), scanNewPizza.next(), scanNewPizza.nextInt(), scanNewPizza.next());
-        pizzaListe.add(nyPizza);
+        System.out.println("Tast hvor på menu kortet den nye pizza skal placeres");
+        int hvor = scanNewPizza.nextInt()-1;
+
+        System.out.println("Tast pris, navn, nummer, og fyld på din nye Pizza");
+
+        Pizza nyPizza = new Pizza(scanNewPizza.nextInt(), scanNewPizza.next(), hvor+1, scanNewPizza.next());
+        pizzaListe.add(hvor, nyPizza);
         System.out.println("Dette er ny pizza: " + nyPizza);
     }
 
     public static void skiftPizza(){
         Scanner scn = new Scanner(System.in);
         System.out.println("Indtast nr på pizza der skal ændres");
-        int pizzaNr = scn.nextInt();
+        int pizzaNr = scn.nextInt()-1;
 
         pizzaListe.remove(pizzaListe.get(pizzaNr));
 
         System.out.println("Tast pris, navn, nummer og fyld på den ændret Pizza");
-        Pizza pizzaÆndring = new Pizza(scn.nextInt(), scn.next(), scn.nextInt(),scn.next());
+        Pizza pizzaÆndring = new Pizza(scn.nextInt(), scn.next(), pizzaNr+1,scn.next());
 
         pizzaListe.add(pizzaNr,pizzaÆndring);
 
