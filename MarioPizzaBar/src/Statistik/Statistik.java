@@ -22,7 +22,7 @@ public class Statistik {
 
     }
 
-    /*public void beregnOmsætning(){
+    public void beregnOmsætning(){
 
         listeAfSolgtePizza.add(Pizza);
        // listeAfSolgtePizza.
@@ -30,7 +30,7 @@ public class Statistik {
       //  Pizza.getPris();
 
 
-    }*/
+    }
 
     public void visAntalPizza(){
 
