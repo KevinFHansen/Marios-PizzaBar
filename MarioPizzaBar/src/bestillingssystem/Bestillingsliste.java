@@ -2,6 +2,8 @@ package bestillingssystem;
 
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class Bestillingsliste {
 
@@ -21,16 +23,21 @@ public class Bestillingsliste {
         bestillinger.add(ordreTilBestilling);
     }
 
-    public static int beregnAfhentningsTidspunkt(int ventetid, int produktionstid, LocalTime bestillingstidspunkt){
-        //LocalTime afhentningstidspunkt = bestillingstidspunkt + ventetid + produktionstid;
-        //return afhentningstidspunkt;
-    }
 
     public void visBestillinger(){
-        System.out.println(bestillinger);
+        Collections.sort(bestillinger, new Comparator<Ordre>() {
+            @Override
+            public int compare(Ordre o1, Ordre o2) {
+                return Integer.valueOf(o1.getAfhentningstidspunkt().compareTo(o2.getAfhentningstidspunkt()));
+            }
+        });
+        for (int i = 0; i < bestillinger.size(); i++){
+            System.out.println("Afhentningstidspunkt: " + bestillinger.get(i).getBestillingstidspunkt() + " Bestillinger: " +
+                    bestillinger.get(i).getOrdreListe() + " ordreID: " + bestillinger.get(i).getOrdreId());
+
+        }
+
     }
-
-
 
 
 }
