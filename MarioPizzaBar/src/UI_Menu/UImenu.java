@@ -35,6 +35,7 @@ public class UImenu {
         //Valg 1
             case 1:
                 System.out.println("Her er menukortet");
+                menukort.visPizzaListe();
                 break;
 
         //Valg 2
