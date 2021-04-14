@@ -23,6 +23,11 @@ public class Bestillingsliste {
         bestillinger.add(ordreTilBestilling);
     }
 
+    public int beregnVentetid(){
+        int ventetid = 10;
+        return ventetid;
+    }
+
 
     public void visBestillinger(){
         Collections.sort(bestillinger, new Comparator<Ordre>() {
