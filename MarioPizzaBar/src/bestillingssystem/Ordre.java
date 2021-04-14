@@ -14,7 +14,8 @@ public class Ordre {
     private String ordreId;
     private LocalTime bestillingstidspunkt;
     private int samletProduktionstid;
-    private int afhentningstidspunkt;
+    private LocalTime afhentningstidspunkt;
+    private String kommentar;
     private ArrayList<Pizza> ordreListe = new ArrayList<Pizza>();
 
     // Constructor
@@ -40,7 +41,7 @@ public class Ordre {
         return this.samletProduktionstid;
     }
 
-    public int getAfhentningstidspunkt(){
+    public LocalTime getAfhentningstidspunkt(){
         return this.afhentningstidspunkt;
     }
 
@@ -61,7 +62,7 @@ public class Ordre {
         this.samletProduktionstid = samletProduktionstid;
     }
 
-    public void setAfhentningstidspunkt(int afhentningstidspunkt){
+    public void setAfhentningstidspunkt(LocalTime afhentningstidspunkt){
         this.afhentningstidspunkt = afhentningstidspunkt;
     }
 
@@ -78,10 +79,14 @@ public class Ordre {
         nyOrdre.tilføjPizza();
 
         // samletProduktionstid
-        int samletTid = (nyOrdre.ordreListe.size() - 1) * 2 + nyOrdre.ordreListe(0).getProduktionstid;
-        nyOrdre.setSamletProduktionstid();
+        int samletTid = (nyOrdre.ordreListe.size() - 1) * 2 + 10;
+        nyOrdre.setSamletProduktionstid(samletTid);
 
-        // afhentningstidspunkt
+        // afhentningstidspunkt - mangler ventetid
+
+        LocalTime tidFærdig = bestillingstidspunkt.plusMinutes(nyOrdre.samletProduktionstid);
+
+        nyOrdre.setAfhentningstidspunkt(tidFærdig);
 
 
     }
@@ -116,5 +121,10 @@ public class Ordre {
 
     public void ordreKommentar(){
 
+    }
+
+    @Override
+    public String toString() {
+        return
     }
 }
