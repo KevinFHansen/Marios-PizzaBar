@@ -56,4 +56,14 @@ public class Pizza {
         return produktionstid;
     }
 
+    @Override
+    public String toString() {
+        return "Pizza{" +
+                "pris=" + pris +
+                ", navn='" + navn + '\'' +
+                ", pizzaNummer=" + pizzaNummer +
+                ", fyld='" + fyld + '\'' +
+                ", produktionstid=" + produktionstid +
+                '}';
+    }
 }
