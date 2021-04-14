@@ -58,12 +58,10 @@ public class Pizza {
 
     @Override
     public String toString() {
-        return "Pizza{" +
-                "pris=" + pris +
-                ", navn='" + navn + '\'' +
-                ", pizzaNummer=" + pizzaNummer +
-                ", fyld='" + fyld + '\'' +
-                ", produktionstid=" + produktionstid +
-                '}';
+        return "" +
+                "" + pizzaNummer +
+                " " + navn +
+                " " + fyld +
+                " " + pris + "kr";
     }
 }
