@@ -14,10 +14,10 @@ public class Bestillingsliste {
 
 
     // metoder
-    public int beregnAfhentningstidspunkt(int ventetid, int getsamletProduktionstid){
+    /*public int beregnAfhentningstidspunkt(int ventetid, int getsamletProduktionstid){
         int afhentningstidspunkt = bestillingstidspunkt + ventetid + getsamletProduktionstid;
         return afhentningstidspunkt;
-    }
+    }*/
 
 
 

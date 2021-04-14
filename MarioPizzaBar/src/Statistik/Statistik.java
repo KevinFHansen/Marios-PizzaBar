@@ -21,13 +21,13 @@ public class Statistik {
 
     }
 
-    public void beregnOmsætning(){
+    /*public void beregnOmsætning(){
 
         listeAfSolgtePizza.get()
         Ordre.getOrdreListe();
 
 
-    }
+    }*/
 
     public void visAntalPizza(){
 
