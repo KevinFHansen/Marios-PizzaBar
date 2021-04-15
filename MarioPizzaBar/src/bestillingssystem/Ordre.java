@@ -77,8 +77,8 @@ public class Ordre {
         nyOrdre.tilføjPizza();
 
         // samletProduktionstid
-        int samletTid = (nyOrdre.ordreListe.size() - 1) * 2 + 10;
-        nyOrdre.setSamletProduktionstid(samletTid);
+
+
 
         // Tilføj kommentar
         nyOrdre.ordreKommentar();
@@ -138,5 +138,18 @@ public class Ordre {
         }
 
         System.out.println("Kommentar: " + getKommentar());
+    }
+
+
+    @Override
+    public String toString() {
+        return "Ordre{" +
+                "ordreId='" + ordreId + '\'' +
+                ", bestillingstidspunkt=" + bestillingstidspunkt +
+                ", samletProduktionstid=" + samletProduktionstid +
+                ", afhentningstidspunkt=" + afhentningstidspunkt +
+                ", kommentar='" + kommentar + '\'' +
+                ", ordreListe=" + ordreListe +
+                '}';
     }
 }
