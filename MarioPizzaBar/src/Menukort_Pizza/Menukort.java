@@ -1,9 +1,6 @@
 package Menukort_Pizza;
-import javax.sound.midi.SysexMessage;
-import java.awt.*;
 import java.io.*;
 import java.util.ArrayList;
-import java.util.NoSuchElementException;
 import java.util.Scanner;
 import java.io.ObjectOutputStream;
 
@@ -11,8 +8,11 @@ public class Menukort{
     private String dato;
     public ArrayList<Pizza> pizzaListe = new ArrayList<>();
 
+    Scanner scn = new Scanner(System.in);
 
-    public ArrayList<Pizza> instans()throws FileNotFoundException{
+
+
+    public ArrayList<Pizza> indlæsMenukort()throws FileNotFoundException{
 
         File pizzaer = new File("MarioPizzaBar/Ressourcer/PizzaListe.csv");
         Scanner filScanner = new Scanner(pizzaer);
@@ -37,11 +37,14 @@ public class Menukort{
     }
 
     public static void main(String[] args) throws IOException {
-        Menukort psv = new Menukort();
-        psv.setPizzaListe(psv.instans());
-        System.out.println(psv.pizzaListe);
+        Menukort menukort = new Menukort();
+        menukort.setPizzaListe(menukort.indlæsMenukort());
 
-        psv.omPizza(psv.pizzaListe);
+        System.out.println(menukort.pizzaListe);
+
+        menukort.omPizza();
+
+        System.out.println(menukort.pizzaListe);
     }
 
     public ArrayList<Pizza> getPizzaListe(){
@@ -133,24 +136,37 @@ public class Menukort{
     }
 
     public void omPizza() throws IOException {
-        Scanner scn = new Scanner(System.in);
+        //Scanner scn = new Scanner(System.in);
         File fout = new File("MarioPizzaBar/Ressourcer/PizzaListe.csv");
 
         PrintWriter writer = new PrintWriter(fout);
-        writer.println("");
-        writer.close();
+        writer.print("");
+        writer.println("pris;navn;nummer;fyld");
 
         System.out.println("Indtast nr på pizza der skal ændres");
         int pizzaNr = scn.nextInt()-1;
+        scn.nextLine();
         pizzaListe.remove(pizzaNr);
-        Pizza pizzaFix = new Pizza(scn.nextInt(), scn.next(), pizzaNr+1, scn.next());
+
+        System.out.println("Indtast navn på pizza");
+        String nyPizzaNavn = scn.nextLine();
+
+        System.out.println("Indtast fyld");
+        String nyPizzaFyld = scn.nextLine();
+
+        System.out.println("Indtast pris");
+        int nyPizzaPris = scn.nextInt();
+
+        Pizza pizzaFix = new Pizza(nyPizzaPris, nyPizzaNavn, pizzaNr+1, nyPizzaFyld);
         pizzaListe.add(pizzaNr, pizzaFix);
 
         for(int i = 0; i < pizzaListe.size(); i++){
-            writer.println(pizzaListe.get(i).toString());
+            writer.print(pizzaListe.get(i).getPris() + ";");
+            writer.print(pizzaListe.get(i).getNavn() + ";");
+            writer.print(pizzaListe.get(i).getPizzaNummer() + ";");
+            writer.println(pizzaListe.get(i).getFyld());
         }
-
-
+        writer.close();
     }
 
 }
