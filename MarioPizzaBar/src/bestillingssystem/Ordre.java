@@ -1,5 +1,6 @@
 package bestillingssystem;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 import Menukort_Pizza.Menukort;
@@ -65,7 +66,7 @@ public class Ordre {
     }
 
 
-    public void opretOrdre(){
+    public Ordre opretOrdre()throws FileNotFoundException{
 
         Ordre nyOrdre = new Ordre();
 
@@ -77,8 +78,7 @@ public class Ordre {
         nyOrdre.tilføjPizza();
 
         // samletProduktionstid
-        int samletTid = (nyOrdre.ordreListe.size() - 1) * 2 + 10;
-        nyOrdre.setSamletProduktionstid(samletTid);
+        nyOrdre.setSamletProduktionstid(8 + (ordreListe.size() * 2));
 
         // Tilføj kommentar
         nyOrdre.ordreKommentar();
@@ -92,13 +92,16 @@ public class Ordre {
         if(sc.nextInt() == 2){
             nyOrdre.ændreAfhentningstidspunkt();
         }
+
+        return nyOrdre;
     }
 
-    public void tilføjPizza(){
+    public void tilføjPizza()throws FileNotFoundException {
         boolean flag = true;
 
         Menukort menukort = new Menukort();
-        ArrayList<Pizza> pizzaListe = menukort.pizzaListe;
+
+        ArrayList<Pizza> pizzaListe = menukort.indlæsMenukort();
 
         while (flag) {
 
@@ -138,5 +141,18 @@ public class Ordre {
         }
 
         System.out.println("Kommentar: " + getKommentar());
+    }
+
+
+    @Override
+    public String toString() {
+        return "Ordre{" +
+                "ordreId='" + ordreId + '\'' +
+                ", bestillingstidspunkt=" + bestillingstidspunkt +
+                ", samletProduktionstid=" + samletProduktionstid +
+                ", afhentningstidspunkt=" + afhentningstidspunkt +
+                ", kommentar='" + kommentar + '\'' +
+                ", ordreListe=" + ordreListe +
+                '}';
     }
 }

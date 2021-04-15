@@ -1,5 +1,7 @@
 package bestillingssystem;
 
+import Statistik.Statistik;
+
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -38,12 +40,12 @@ public class Bestillingsliste {
         bestillinger.add(ordreTilBestillingsListe);
     }
 
-    public void beregnVentetid(){
+    public int beregnVentetid(){
         int ventetid = 0;
         for (int i = 0; i < bestillinger.size(); i++){
             ventetid = ventetid + bestillinger.get(i).getSamletProduktionstid();
             setVentetid(ventetid);
-        }
+        } return ventetid;
     }
 
     public void visBestillinger(){
@@ -54,7 +56,7 @@ public class Bestillingsliste {
             }
         });
         for (int i = 0; i < bestillinger.size(); i++){
-            System.out.println("Afhentningstidspunkt: " + bestillinger.get(i).getBestillingstidspunkt() + " Bestillinger: " +
+            System.out.println("Afhentningstidspunkt: " + bestillinger.get(i).getAfhentningstidspunkt() + " Ordre: " +
                     bestillinger.get(i).getOrdreListe() + " ordreID: " + bestillinger.get(i).getOrdreId());
 
         }
@@ -62,26 +64,17 @@ public class Bestillingsliste {
     }
 
     public void afslutOrdre(Ordre ordreAfslut){
-
         bestillinger.remove(ordreAfslut);
 
     }
 
-
-   /* public static void main(String[] args) {
-        Ordre førsteOrdre = new Ordre();
-
-        Ordre andenOrdre = new Ordre();
-
-
-        Bestillingsliste nyBest = new Bestillingsliste();
-
-        nyBest.tilføjOrdreTilBestillinger(førsteOrdre);
-
-        nyBest.tilføjOrdreTilBestillinger();*/
-
-
-
+    @Override
+    public String toString() {
+        return " Bestillingsliste{" +
+                "bestillinger=" + bestillinger +
+                ", ventetid=" + ventetid +
+                '}';
+    }
 
 
 
