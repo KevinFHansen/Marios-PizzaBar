@@ -11,11 +11,23 @@ public class Statistik {
     private int omsætning;
     private Time periode;
     private int antalPizzaSolgt;
-    public static ArrayList<Pizza> listeAfSolgtePizza = new ArrayList<>();
+    public static ArrayList<Ordre> listeAfOrdre = new ArrayList<>();
 
-    Ordre Ordre = new Ordre();
-    Pizza Pizza = new Pizza();
 
+    public void opretStatistik(){
+        Statistik nyStatistik = new Statistik();
+
+    }
+
+
+    public void tilføjOrdreTilStatisk(Ordre ordreTilStatistik){
+
+
+
+        listeAfOrdre.add(ordreTilStatistik);
+
+
+    }
 
     public void visOmsætning(){
 
@@ -24,7 +36,7 @@ public class Statistik {
 
     public void beregnOmsætning(){
 
-        listeAfSolgtePizza.add(Pizza);
+
        // listeAfSolgtePizza.
        // Ordre.getOrdreListe();
       //  Pizza.getPris();

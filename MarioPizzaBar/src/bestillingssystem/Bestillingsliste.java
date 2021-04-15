@@ -29,7 +29,6 @@ public class Bestillingsliste {
 
     // metoder
     public void opretBestillingsliste(){
-
         Bestillingsliste nyBestillingsliste = new Bestillingsliste();
 
 
@@ -37,7 +36,6 @@ public class Bestillingsliste {
 
 
     public void tilføjOrdreTilBestillinger(Ordre ordreTilBestillingsListe){
-
         bestillinger.add(ordreTilBestillingsListe);
     }
 
@@ -65,8 +63,19 @@ public class Bestillingsliste {
     }
 
     public void afslutOrdre(Ordre ordreAfslut){
-        // tilføj ordre til statistik
+
         bestillinger.remove(ordreAfslut);
+
+    }
+
+
+    public static void main(String[] args) {
+        Ordre førsteOrdre = new Ordre();
+
+        Ordre andenOrdre = new Ordre();
+
+
+        System.out.println(førsteOrdre);
 
 
     }
