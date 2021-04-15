@@ -18,17 +18,6 @@ public class Ordre {
     private String kommentar;
     private ArrayList<Pizza> ordreListe = new ArrayList<Pizza>();
 
-    // Constructor
-    public Ordre(){
-        this.ordreId = ordreId;
-        this.bestillingstidspunkt = bestillingstidspunkt;
-        this.samletProduktionstid = samletProduktionstid;
-        this.afhentningstidspunkt = afhentningstidspunkt;
-        this.kommentar = kommentar;
-        this.ordreListe = ordreListe;
-
-    }
-
     // Getters
     public String getOrdreId(){
         return this.ordreId;
@@ -103,15 +92,6 @@ public class Ordre {
         if(sc.nextInt() == 2){
             nyOrdre.ændreAfhentningstidspunkt();
         }
-
-        // Send ordre til bestillingsListe
-        System.out.println("Godkend ordre og send til køkken");
-        nyOrdre.visOrdre();
-
-        int valg = sc.nextInt();
-
-
-
     }
 
     public void tilføjPizza(){
@@ -128,10 +108,6 @@ public class Ordre {
             }
             else {flag = false;}
         }
-    }
-
-    public void afslutOrdre(){
-
     }
 
     public void ændreAfhentningstidspunkt(){

@@ -1,17 +1,19 @@
 package Menukort_Pizza;
 import javax.sound.midi.SysexMessage;
 import java.awt.*;
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.util.ArrayList;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
+import java.io.ObjectOutputStream;
 
 public class Menukort{
     private String dato;
     public static ArrayList<Pizza> pizzaListe = new ArrayList<>();
 
 
-    public void instans()throws FileNotFoundException {
+    public void instans()throws FileNotFoundException{
+
         File pizzaer = new File("MarioPizzaBar/Ressourcer/PizzaListe.csv.txt");
         Scanner filScanner = new Scanner(pizzaer);
 
@@ -32,7 +34,7 @@ public class Menukort{
         }
     }
 
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) throws IOException {
         Menukort psv = new Menukort();
         psv.instans();
         psv.visPizzaListe();
@@ -69,19 +71,60 @@ public class Menukort{
         System.out.println("Dette er ny pizza: " + nyPizza);
     }
 
-    public static void skiftPizza(){
+    public void skiftPizza () throws IOException {
         Scanner scn = new Scanner(System.in);
+        File fout = new File("MarioPizzaBar/Ressourcer/PizzaListe.csv.txt");
+
         System.out.println("Indtast nr på pizza der skal ændres");
         int pizzaNr = scn.nextInt()-1;
+        Pizza ny = new Pizza(2,"2",2,"2");
+        pizzaListe.remove(pizzaNr);
 
-        pizzaListe.remove(pizzaListe.get(pizzaNr));
+
+        try {
+            FileOutputStream filUd = new FileOutputStream(fout);
+            ObjectOutputStream objektUd = new ObjectOutputStream(filUd);
+            System.out.println("Skriv pris, navn og fyld på den pizza der skal ændres");
+            Pizza pizzaFix = new Pizza(scn.nextInt(), scn.next(), pizzaNr, scn.next());
+            objektUd.writeObject(pizzaFix);
+            pizzaListe.add(pizzaNr, pizzaFix);
+            objektUd.close();
+
+        } catch (FileNotFoundException e) {
+
+        } catch (IOException e) {
+
+        }
+
+
+
+        /*
+        int pris1;
+        String navn2;
+        int nummer3;
+        String fyld4;
+        try {
+            Pizza pizza = new Pizza(pris1 = scn.nextInt(), navn2  = scn.nextLine(), nummer3 = scn.nextInt(), fyld4 = scn.next());
+            out.write(pris1);
+            out.write(navn2);
+            out.write(nummer3);
+            out.write(fyld4);
+            pizzaListe.add(pizzaNr,pizza);
+            out.close();
+        }catch (Exception e){
+            return;
+        }
+        */
+
+        /*
+        System.out.println(pizzaListe);
+
+
 
         System.out.println("Tast pris, navn og fyld på den ændret Pizza");
         Pizza pizzaÆndring = new Pizza(scn.nextInt(), scn.next(), pizzaNr+1,scn.next());
+        */
 
-        pizzaListe.add(pizzaNr,pizzaÆndring);
-
-        System.out.println(pizzaListe);
     }
 
 }
