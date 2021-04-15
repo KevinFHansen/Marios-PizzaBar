@@ -44,6 +44,7 @@ public class UImenu {
                     System.out.println();
                     System.out.println("Her er din nuværende ordre");
                     ordre.visOrdre();
+                    continue;
                 }
 
                 else if (choice == 2) {
@@ -119,7 +120,7 @@ public class UImenu {
         System.out.println("Du har følgende valg:");
         System.out.println("Tast 1 - Se Menukort");
         System.out.println("Tast 2 - Håndter ordrer");
-        System.out.println("Tast 3 - Håndte Menukortet");
+        System.out.println("Tast 3 - Håndter Menukortet");
         System.out.println("Tast 4 - Afslut");
     }
 
@@ -129,14 +130,14 @@ public class UImenu {
         System.out.println("Tast 2 - Opret ordre");
         System.out.println("Tast 3 - Slet ordre");
         System.out.println("Tast 4 - Afslut ordre");
-        System.out.println("Tast 5 - Gå til Hovedmenu");
+        System.out.println("Tast 5 - Gå tilbage");
     }
     public void subMenuPizza (){
         System.out.println("Håndter menukortet - Du har følgende valg:");
         System.out.println("Tast 1 - Tilføj ny Pizza til Menukortet");
         System.out.println("Tast 2 - Slet Pizza fra Menukortet");
         System.out.println("Tast 3 - Ændre en Pizza på Menukortet");
-        System.out.println("Tast 4 - Gå til Hovedmenu");
+        System.out.println("Tast 4 - Gå tilbage");
     }
 
     public void printLogo (){
@@ -152,13 +153,23 @@ public class UImenu {
         System.out.println("        /  %o%%%%%=@%%|  /%%o%%@=%%  \\");
         System.out.println("       |  (_)%(_)%%o%%| /%%%=@(_)%%%  |");
         System.out.println("       | %%o%%%%o%%%(_|/%o%%o%%%%o%%% |");
-        System.out.println("       | % ---> MARIO'S PIZZABAR <--- |");
+        System.out.println("       | M A R I O'S - P I Z Z A B A R|");
         System.out.println("       |  (_)%%=@%(_)%o%o%%(_)%o(_)%  |");
         System.out.println("        \\ ~%%o%%%%%o%o%=@%%o%%@%%o%~ /");
         System.out.println("         \\. ~o%%(_)%%%o%(_)%%(_)o~ ,/");
         System.out.println("           \\_ ~o%=@%(_)%o%%(_)%~ _/");
         System.out.println("             `\\_~~o%%%o%%%%%~~_/'");
         System.out.println("                `--..____,,--'");
+    }
+
+
+    public void drikkevareMenu(){
+        System.out.println("Tilføj Drikkevare");
+        System.out.println("Tast 1 - Tilføj Sodavand (20 kr.)");
+        System.out.println("Tast 2 - Tilføj Vin (25 kr.)");
+        System.out.println("Tast 3 - Tilføj Øl (25 kr.)");
+        System.out.println("Tast 4 - Tilføj Vand (20 kr.)");
+        System.out.println("Tast 5 - Gå tilbage");
     }
 
     public static void main(String[] args) throws IOException {

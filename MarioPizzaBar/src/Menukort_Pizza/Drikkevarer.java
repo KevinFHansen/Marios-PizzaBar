@@ -2,23 +2,43 @@ package Menukort_Pizza;
 
 public class Drikkevarer {
     private String typeDrikkevare;
-    private double pris;
+    private int sodavandPris = 20;
+    private int vinPris = 25;
+    private int flaskeØlPris = 25;
+    private int kandeVandPris = 20;
 
-    public Drikkevarer (String typeDrikkevare, double pris){
+    public Drikkevarer (String typeDrikkevare){
         this.typeDrikkevare = typeDrikkevare;
-        this.pris = pris;
     }
     public String getTypeDrikkevare(){
-        return this.typeDrikkevare = typeDrikkevare;
+        return this.typeDrikkevare;
     }
-
     public void setTypeDrikkevare(){
         this.typeDrikkevare = typeDrikkevare;
     }
-    public double getPris (){
-        return this.pris = pris;
+
+    public int getSodavandPris(){
+        return this.sodavandPris;
     }
-    public void setPris(){
-        this.pris = pris;
+    public void setSodavandPris(){
+        this.sodavandPris = sodavandPris;
     }
+    public int getVinPris(){
+        return this.vinPris = vinPris;
+    }
+    public void setVinPris(){
+        this.vinPris = vinPris;
+    }
+    public int getFlaskeØlPris(){
+        return this.flaskeØlPris;
+    }
+    public void setFlaskeØlPris(){
+        this.flaskeØlPris = flaskeØlPris;
+    }
+    public int getKandeVandPris(){
+        this.kandeVandPris = kandeVandPris;
+        return this.kandeVandPris;
+    }
+
+
 }
