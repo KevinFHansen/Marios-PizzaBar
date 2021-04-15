@@ -99,7 +99,8 @@ public class Ordre {
     public void tilføjPizza()throws FileNotFoundException {
         boolean flag = true;
 
-        Menukort menukort = new Menukort;
+        Menukort menukort = new Menukort();
+
         ArrayList<Pizza> pizzaListe = menukort.indlæsMenukort();
 
         while (flag) {
