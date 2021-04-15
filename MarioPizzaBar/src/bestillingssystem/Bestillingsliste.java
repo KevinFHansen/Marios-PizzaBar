@@ -56,7 +56,7 @@ public class Bestillingsliste {
             }
         });
         for (int i = 0; i < bestillinger.size(); i++){
-            System.out.println("Afhentningstidspunkt: " + bestillinger.get(i).getBestillingstidspunkt() + " Bestillinger: " +
+            System.out.println("Afhentningstidspunkt: " + bestillinger.get(i).getAfhentningstidspunkt() + " Ordre: " +
                     bestillinger.get(i).getOrdreListe() + " ordreID: " + bestillinger.get(i).getOrdreId());
 
         }
@@ -70,34 +70,12 @@ public class Bestillingsliste {
 
     @Override
     public String toString() {
-        return "Bestillingsliste{" +
+        return " Bestillingsliste{" +
                 "bestillinger=" + bestillinger +
                 ", ventetid=" + ventetid +
                 '}';
     }
 
-    public static void main(String[] args) {
-        Ordre førsteOrdre = new Ordre();
-
-        Ordre andenOrdre = new Ordre();
-
-
-        andenOrdre.setAfhentningstidspunkt();
-
-
-        Bestillingsliste nyBest = new Bestillingsliste();
-
-        nyBest.tilføjOrdreTilBestillinger(førsteOrdre);
-
-        nyBest.tilføjOrdreTilBestillinger(andenOrdre);
-
-        Statistik nyStat = new Statistik();
-
-        nyStat.tilføjOrdreTilStatisk(førsteOrdre);
-
-        nyStat.tilføjOrdreTilStatisk(andenOrdre);
-
-        System.out.println(nyStat);
 
 
 }
