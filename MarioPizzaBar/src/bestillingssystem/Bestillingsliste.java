@@ -31,7 +31,6 @@ public class Bestillingsliste {
     public void opretBestillingsliste(){
         Bestillingsliste nyBestillingsliste = new Bestillingsliste();
 
-
     }
 
 
@@ -69,13 +68,21 @@ public class Bestillingsliste {
     }
 
 
-    public static void main(String[] args) {
+   /* public static void main(String[] args) {
         Ordre førsteOrdre = new Ordre();
 
         Ordre andenOrdre = new Ordre();
 
 
-        System.out.println(førsteOrdre);
+        Bestillingsliste nyBest = new Bestillingsliste();
+
+        nyBest.tilføjOrdreTilBestillinger(førsteOrdre);
+
+        nyBest.tilføjOrdreTilBestillinger();*/
+
+
+
+
 
 
     }
