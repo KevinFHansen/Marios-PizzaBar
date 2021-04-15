@@ -60,7 +60,6 @@ public class UImenu {
                 else if (choice == 4) {
                     System.out.println("Du har valgt af afslutte ordren");
                     //afslut ordre metode();
-
                 }
 
                 else if (choice == 5) {
