@@ -14,7 +14,7 @@ public class Menukort{
 
     public ArrayList<Pizza> instans()throws FileNotFoundException{
 
-        File pizzaer = new File("MarioPizzaBar/Ressourcer/PizzaListe.csv.txt");
+        File pizzaer = new File("MarioPizzaBar/Ressourcer/PizzaListe.csv");
         Scanner filScanner = new Scanner(pizzaer);
 
         filScanner.nextLine();
@@ -38,13 +38,18 @@ public class Menukort{
 
     public static void main(String[] args) throws IOException {
         Menukort psv = new Menukort();
-        ArrayList<Pizza> pizzaListe =  psv.instans();
-        pizzaListe.toString();
-        psv.instans();
+        psv.setPizzaListe(psv.instans());
+        System.out.println(psv.pizzaListe);
+
+        psv.omPizza(psv.pizzaListe);
     }
 
     public ArrayList<Pizza> getPizzaListe(){
         return this.pizzaListe;
+    }
+
+    public void setPizzaListe(ArrayList<Pizza> pizzaListe){
+        this.pizzaListe = pizzaListe;
     }
 
 
@@ -75,7 +80,7 @@ public class Menukort{
 
     public void skiftPizza () throws IOException {
         Scanner scn = new Scanner(System.in);
-        File fout = new File("MarioPizzaBar/Ressourcer/PizzaListe.csv.txt");
+        File fout = new File("MarioPizzaBar/Ressourcer/PizzaListe.csv");
 
         System.out.println("Indtast nr på pizza der skal ændres");
         int pizzaNr = scn.nextInt()-1;
@@ -127,15 +132,23 @@ public class Menukort{
 
     }
 
-    public void omPizza() throws FileNotFoundException {
+    public void omPizza() throws IOException {
         Scanner scn = new Scanner(System.in);
-        File fout = new File("MarioPizzaBar/Ressourcer/PizzaListe.csv.txt");
+        File fout = new File("MarioPizzaBar/Ressourcer/PizzaListe.csv");
 
         PrintWriter writer = new PrintWriter(fout);
         writer.println("");
         writer.close();
 
+        System.out.println("Indtast nr på pizza der skal ændres");
+        int pizzaNr = scn.nextInt()-1;
+        pizzaListe.remove(pizzaNr);
+        Pizza pizzaFix = new Pizza(scn.nextInt(), scn.next(), pizzaNr+1, scn.next());
+        pizzaListe.add(pizzaNr, pizzaFix);
 
+        for(int i = 0; i < pizzaListe.size(); i++){
+            writer.println(pizzaListe.get(i).toString());
+        }
 
 
     }
