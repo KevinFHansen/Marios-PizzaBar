@@ -1,11 +1,11 @@
 package bestillingssystem;
 
 import java.util.ArrayList;
+
+import Menukort_Pizza.Menukort;
 import Menukort_Pizza.Pizza;
 import java.util.Scanner;
 import java.time.LocalTime;
-
-import static Menukort_Pizza.Menukort.pizzaListe;
 
 public class Ordre {
     Scanner sc = new Scanner(System.in);
@@ -96,6 +96,9 @@ public class Ordre {
 
     public void tilføjPizza(){
         boolean flag = true;
+
+        Menukort menukort = new Menukort();
+        ArrayList<Pizza> pizzaListe = menukort.pizzaListe;
 
         while (flag) {
 

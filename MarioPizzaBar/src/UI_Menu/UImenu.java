@@ -80,7 +80,7 @@ public class UImenu {
 
                 if (choice1 == 1) {
                     System.out.println("Du har valgt at tilføje en ny pizza til menukortet");
-                    Menukort.opretNyPizza();
+                    menukort.opretNyPizza();
                 }
 
                 else if (choice1 == 2){
