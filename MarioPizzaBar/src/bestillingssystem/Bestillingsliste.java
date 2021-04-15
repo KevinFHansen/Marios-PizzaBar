@@ -8,14 +8,13 @@ import java.util.Comparator;
 public class Bestillingsliste {
 
     // attributter
-    private ArrayList<Ordre> bestillinger = new ArrayList<Ordre>();
+    private ArrayList<Ordre> bestillinger;
     private int ventetid;
 
 
     // constructor
-    public Bestillingsliste(ArrayList<Ordre> bestillinger, int ventetid){
-        this.bestillinger = bestillinger;
-        this.ventetid = ventetid;
+    public Bestillingsliste(){
+        this.bestillinger = new ArrayList<>();
     }
 
 
@@ -28,18 +27,26 @@ public class Bestillingsliste {
     }
 
 
-    // metoder afslut ordre
-    public void tilføjOrdreTilBestillinger(Ordre ordreTilBestilling){
-        bestillinger.add(ordreTilBestilling);
+    // metoder
+    public void opretBestillingsliste(){
+
+        Bestillingsliste nyBestillingsliste = new Bestillingsliste();
+
+
     }
 
-    public int beregnVentetid(ArrayList<Ordre> bestillinger){
+
+    public void tilføjOrdreTilBestillinger(Ordre ordreTilBestillingsListe){
+
+        bestillinger.add(ordreTilBestillingsListe);
+    }
+
+    public void beregnVentetid(){
         int ventetid = 0;
         for (int i = 0; i < bestillinger.size(); i++){
             ventetid = ventetid + bestillinger.get(i).getSamletProduktionstid();
+            setVentetid(ventetid);
         }
-
-        return ventetid;
     }
 
     public void visBestillinger(){
@@ -62,10 +69,6 @@ public class Bestillingsliste {
         bestillinger.remove(ordreAfslut);
 
 
-
-
-
     }
-
 
 }
