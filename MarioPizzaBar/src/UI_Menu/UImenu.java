@@ -79,7 +79,7 @@ public class UImenu {
 
                 if (scn.nextInt() == 1) {
                     System.out.println("Du har valgt at tilføje en ny pizza til menukortet");
-                    Menukort.opretNyPizza();
+                    //Menukort.opretNyPizza();
                 }
 
                 else if (scn.nextInt() == 2){
@@ -89,7 +89,7 @@ public class UImenu {
 
                 else if (scn.nextInt() == 3){
                     System.out.println("Du har valgt at ændre en pizza på menukortet");
-                    Menukort.skiftPizza();
+                    //Menukort.skiftPizza();
                 }
                 else if (scn.nextInt() == 4)
                     break;
@@ -115,7 +115,7 @@ public class UImenu {
         //Valg 5
             case 5:
                 System.out.println("Ændre Pizza");
-                Menukort.skiftPizza();
+                //Menukort.skiftPizza();
                 break;*/
 
 

@@ -9,10 +9,10 @@ import java.io.ObjectOutputStream;
 
 public class Menukort{
     private String dato;
-    public static ArrayList<Pizza> pizzaListe = new ArrayList<>();
+    public ArrayList<Pizza> pizzaListe = new ArrayList<>();
 
 
-    public void instans()throws FileNotFoundException{
+    public ArrayList<Pizza> instans()throws FileNotFoundException{
 
         File pizzaer = new File("MarioPizzaBar/Ressourcer/PizzaListe.csv.txt");
         Scanner filScanner = new Scanner(pizzaer);
@@ -32,13 +32,15 @@ public class Menukort{
             Pizza tmpPizza = new Pizza(pris,pizzaNavne,nummer,fyld);
             pizzaListe.add(tmpPizza);
         }
+
+        return pizzaListe;
     }
 
     public static void main(String[] args) throws IOException {
         Menukort psv = new Menukort();
+        ArrayList<Pizza> pizzaListe =  psv.instans();
+        pizzaListe.toString();
         psv.instans();
-        psv.visPizzaListe();
-        psv.skiftPizza();
     }
 
     public ArrayList<Pizza> getPizzaListe(){
@@ -59,7 +61,7 @@ public class Menukort{
     }
 
 
-    public static void opretNyPizza(){
+    public void opretNyPizza(){
         Scanner scanNewPizza = new Scanner(System.in);
         System.out.println("Tast hvor på menu kortet den nye pizza skal placeres");
         int hvor = scanNewPizza.nextInt()-1;
@@ -77,9 +79,7 @@ public class Menukort{
 
         System.out.println("Indtast nr på pizza der skal ændres");
         int pizzaNr = scn.nextInt()-1;
-        Pizza ny = new Pizza(2,"2",2,"2");
         pizzaListe.remove(pizzaNr);
-
 
         try {
             FileOutputStream filUd = new FileOutputStream(fout);
@@ -124,6 +124,19 @@ public class Menukort{
         System.out.println("Tast pris, navn og fyld på den ændret Pizza");
         Pizza pizzaÆndring = new Pizza(scn.nextInt(), scn.next(), pizzaNr+1,scn.next());
         */
+
+    }
+
+    public void omPizza() throws FileNotFoundException {
+        Scanner scn = new Scanner(System.in);
+        File fout = new File("MarioPizzaBar/Ressourcer/PizzaListe.csv.txt");
+
+        PrintWriter writer = new PrintWriter(fout);
+        writer.println("");
+        writer.close();
+
+
+
 
     }
 
