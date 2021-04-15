@@ -88,11 +88,11 @@ public class Menukort{
 
     public void lavOmPåPizza() throws IOException {
         //Scanner scn = new Scanner(System.in);
-        File fout = new File("MarioPizzaBar/Ressourcer/PizzaListe.csv");
+        //File fout = new File("MarioPizzaBar/Ressourcer/PizzaListe.csv");
 
-        PrintWriter writer = new PrintWriter(fout);
-        writer.print("");
-        writer.println("pris;navn;nummer;fyld");
+        //PrintWriter writer = new PrintWriter(fout);
+        //writer.print("");
+        //writer.println("pris;navn;nummer;fyld");
 
         System.out.println("Indtast nr på pizza der skal ændres");
         int pizzaNr = scn.nextInt()-1;
@@ -111,13 +111,15 @@ public class Menukort{
         Pizza pizzaFix = new Pizza(nyPizzaPris, nyPizzaNavn, pizzaNr+1, nyPizzaFyld);
         pizzaListe.add(pizzaNr, pizzaFix);
 
+        lavNytKort();
+        /*
         for(int i = 0; i < pizzaListe.size(); i++){
             writer.print(pizzaListe.get(i).getPris() + ";");
             writer.print(pizzaListe.get(i).getNavn() + ";");
             writer.print(pizzaListe.get(i).getPizzaNummer() + ";");
             writer.println(pizzaListe.get(i).getFyld());
         }
-        writer.close();
+        writer.close(); */
     }
 
     public void lavNytKort() throws FileNotFoundException {
