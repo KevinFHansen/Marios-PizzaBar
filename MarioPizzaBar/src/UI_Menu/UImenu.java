@@ -3,6 +3,7 @@ package UI_Menu;
 import Menukort_Pizza.Menukort;
 import bestillingssystem.Ordre;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class UImenu {
@@ -15,7 +16,7 @@ public class UImenu {
 
 
 
-    public void startUI (){
+    public void startUI () throws IOException {
         printLogo();
         while (!exitProgram){
         presentMenuOptions();
@@ -42,7 +43,7 @@ public class UImenu {
                 if (choice == 1) {
                     System.out.println();
                     System.out.println("Her er din nuværende ordre");
-                    //se din nuværende ordrer metode();
+                    ordre.visOrdre();
                 }
 
                 else if (choice == 2) {
@@ -90,7 +91,8 @@ public class UImenu {
 
                 else if (choice1 == 3){
                     System.out.println("Du har valgt at ændre en pizza på menukortet");
-                    Menukort.skiftPizza();
+                    menukort.skiftPizza();
+
                 }
                 else if (choice1 == 4) {
                     break;
@@ -107,7 +109,6 @@ public class UImenu {
             case 4:
                 System.out.println("Du har valgt at afslutte");
                 exitProgram = true;
-
         }
 
         }
@@ -136,7 +137,7 @@ public class UImenu {
         System.out.println("Tast 1 - Tilføj ny Pizza til Menukortet");
         System.out.println("Tast 2 - Slet Pizza fra Menukortet");
         System.out.println("Tast 3 - Ændre en Pizza på Menukortet");
-        System.out.println("Tast 4 for at vende tilbage til Hovedmenu");
+        System.out.println("Tast 4 - Gå til Hovedmenu");
     }
 
     public void printLogo (){
@@ -161,7 +162,7 @@ public class UImenu {
         System.out.println("                `--..____,,--'");
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         UImenu uImenu = new UImenu();
         uImenu.startUI();
 
