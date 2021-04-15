@@ -7,7 +7,6 @@ import java.io.ObjectOutputStream;
 public class Menukort{
     private String dato;
     public ArrayList<Pizza> pizzaListe = new ArrayList<>();
-
     Scanner scn = new Scanner(System.in);
 
 
@@ -42,8 +41,7 @@ public class Menukort{
 
         System.out.println(menukort.pizzaListe);
 
-        menukort.omPizza();
-
+        menukort.opretNyPizza();
         System.out.println(menukort.pizzaListe);
     }
 
@@ -60,82 +58,35 @@ public class Menukort{
         System.out.println(pizzaListe);
     }
 
-    public void fjernPizza(){
-    Scanner scn = new Scanner(System.in);
-        System.out.print("Indtast nummer på pizza der skal fjernes: ");
-        int fjern = scn.nextInt();
-        pizzaListe.remove(fjern);
-        System.out.println(pizzaListe);
+
+    public void fjernPizza() throws FileNotFoundException {
+        System.out.println("Skriv nummer på pizza der skal fjernes");
+        int fjernNummer = scn.nextInt();
+        pizzaListe.remove(fjernNummer-1);
+        lavNytKort();
+
     }
 
-
-    public void opretNyPizza(){
-        Scanner scanNewPizza = new Scanner(System.in);
-        System.out.println("Tast hvor på menu kortet den nye pizza skal placeres");
-        int hvor = scanNewPizza.nextInt()-1;
-
-        System.out.println("Tast pris, navn, nummer, og fyld på din nye Pizza");
-
-        Pizza nyPizza = new Pizza(scanNewPizza.nextInt(), scanNewPizza.next(), hvor+1, scanNewPizza.next());
-        pizzaListe.add(hvor, nyPizza);
-        System.out.println("Dette er ny pizza: " + nyPizza);
-    }
-
-    public void skiftPizza () throws IOException {
-        Scanner scn = new Scanner(System.in);
-        File fout = new File("MarioPizzaBar/Ressourcer/PizzaListe.csv");
-
-        System.out.println("Indtast nr på pizza der skal ændres");
+    public void opretNyPizza() throws FileNotFoundException {
+        System.out.println("Indtast nr på pizza der skal laves");
         int pizzaNr = scn.nextInt()-1;
-        pizzaListe.remove(pizzaNr);
+        scn.nextLine();
 
-        try {
-            FileOutputStream filUd = new FileOutputStream(fout);
-            ObjectOutputStream objektUd = new ObjectOutputStream(filUd);
-            System.out.println("Skriv pris, navn og fyld på den pizza der skal ændres");
-            Pizza pizzaFix = new Pizza(scn.nextInt(), scn.next(), pizzaNr, scn.next());
-            objektUd.writeObject(pizzaFix);
-            pizzaListe.add(pizzaNr, pizzaFix);
-            objektUd.close();
+        System.out.println("Indtast navn på pizza");
+        String nyPizzaNavn = scn.nextLine();
 
-        } catch (FileNotFoundException e) {
+        System.out.println("Indtast fyld");
+        String nyPizzaFyld = scn.nextLine();
 
-        } catch (IOException e) {
+        System.out.println("Indtast pris");
+        int nyPizzaPris = scn.nextInt();
 
-        }
-
-
-
-        /*
-        int pris1;
-        String navn2;
-        int nummer3;
-        String fyld4;
-        try {
-            Pizza pizza = new Pizza(pris1 = scn.nextInt(), navn2  = scn.nextLine(), nummer3 = scn.nextInt(), fyld4 = scn.next());
-            out.write(pris1);
-            out.write(navn2);
-            out.write(nummer3);
-            out.write(fyld4);
-            pizzaListe.add(pizzaNr,pizza);
-            out.close();
-        }catch (Exception e){
-            return;
-        }
-        */
-
-        /*
-        System.out.println(pizzaListe);
-
-
-
-        System.out.println("Tast pris, navn og fyld på den ændret Pizza");
-        Pizza pizzaÆndring = new Pizza(scn.nextInt(), scn.next(), pizzaNr+1,scn.next());
-        */
-
+        Pizza pizzaFix = new Pizza(nyPizzaPris, nyPizzaNavn, pizzaNr+1, nyPizzaFyld);
+        pizzaListe.add(pizzaNr, pizzaFix);
+        lavNytKort();
     }
 
-    public void omPizza() throws IOException {
+    public void lavOmPåPizza() throws IOException {
         //Scanner scn = new Scanner(System.in);
         File fout = new File("MarioPizzaBar/Ressourcer/PizzaListe.csv");
 
@@ -159,6 +110,22 @@ public class Menukort{
 
         Pizza pizzaFix = new Pizza(nyPizzaPris, nyPizzaNavn, pizzaNr+1, nyPizzaFyld);
         pizzaListe.add(pizzaNr, pizzaFix);
+
+        for(int i = 0; i < pizzaListe.size(); i++){
+            writer.print(pizzaListe.get(i).getPris() + ";");
+            writer.print(pizzaListe.get(i).getNavn() + ";");
+            writer.print(pizzaListe.get(i).getPizzaNummer() + ";");
+            writer.println(pizzaListe.get(i).getFyld());
+        }
+        writer.close();
+    }
+
+    public void lavNytKort() throws FileNotFoundException {
+        File fout = new File("MarioPizzaBar/Ressourcer/PizzaListe.csv");
+
+        PrintWriter writer = new PrintWriter(fout);
+        writer.print("");
+        writer.println("pris;navn;nummer;fyld");
 
         for(int i = 0; i < pizzaListe.size(); i++){
             writer.print(pizzaListe.get(i).getPris() + ";");
