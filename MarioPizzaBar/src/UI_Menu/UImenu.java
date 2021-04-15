@@ -85,7 +85,7 @@ public class UImenu {
 
                 else if (choice1 == 2){
                     System.out.println("Du har valgt at fjerne en pizza fra menukortet");
-                    menukort.fjernPizza();
+                    menukort.fjernPizza ();
                     }
 
                 else if (choice1 == 3){
