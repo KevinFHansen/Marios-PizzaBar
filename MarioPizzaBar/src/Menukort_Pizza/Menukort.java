@@ -10,7 +10,7 @@ public class Menukort{
     Scanner scn = new Scanner(System.in);
 
 
-
+    //indlæsning af menukort og drikkevarer
     public ArrayList<Pizza> indlæsMenukort()throws FileNotFoundException{
 
         File pizzaer = new File("MarioPizzaBar/Ressourcer/PizzaListe.csv");
@@ -59,6 +59,7 @@ public class Menukort{
         return drikkevarerListe;
     }
 
+
     public static void main(String[] args) throws IOException {
         Menukort menukort = new Menukort();
         /*
@@ -75,8 +76,11 @@ public class Menukort{
         System.out.println(menukort.drikkevarerListe);
 
         menukort.lavOmPåDrikkevare();
-
     }
+
+
+
+    //Pizza getters og setters
 
     public ArrayList<Pizza> getPizzaListe(){
         return this.pizzaListe;
@@ -90,10 +94,13 @@ public class Menukort{
         this.drikkevarerListe = drikkevarerListe;
     }
 
+
+
+    //Pizza metoder:
+
     public void visPizzaListe(){
         System.out.println(pizzaListe);
     }
-
 
     public void fjernPizza() throws FileNotFoundException {
         System.out.println("Skriv nummer på pizza der skal fjernes");
@@ -160,19 +167,12 @@ public class Menukort{
         writer.close();
     }
 
-    public void lavNytDrikkevarerKort() throws FileNotFoundException{
-        File fout = new File("MarioPizzaBar/Ressourcer/Drikkevarer.csv");
 
-        PrintWriter writer = new PrintWriter(fout);
-        writer.print("");
-        writer.println("nummerPåDrikkevare;typeDrikkevare;prisPåDrikkevare");
 
-        for(int i = 0; i < drikkevarerListe.size(); i++){
-            writer.print(drikkevarerListe.get(i).getNummerPåDrikkevare() + ";");
-            writer.print(drikkevarerListe.get(i).getTypeDrikkevare() + ";");
-            writer.println(drikkevarerListe.get(i).getPrisPåDrikkevare());
-        }
-        writer.close();
+    //Drikkevare metoder
+
+    public void visDrikkevarer(){
+        System.out.println(drikkevarerListe);
     }
 
     public void fjernDrikkevarer() throws FileNotFoundException {
@@ -214,5 +214,20 @@ public class Menukort{
         Drikkevarer drikkevarerFix = new Drikkevarer(drikkeVareNr+1, nyDrikkevareNavn, nyDrikkevarePris);
         drikkevarerListe.add(drikkeVareNr, drikkevarerFix);
         lavNytDrikkevarerKort();
+    }
+
+    public void lavNytDrikkevarerKort() throws FileNotFoundException{
+        File fout = new File("MarioPizzaBar/Ressourcer/Drikkevarer.csv");
+
+        PrintWriter writer = new PrintWriter(fout);
+        writer.print("");
+        writer.println("nummerPåDrikkevare;typeDrikkevare;prisPåDrikkevare");
+
+        for(int i = 0; i < drikkevarerListe.size(); i++){
+            writer.print(drikkevarerListe.get(i).getNummerPåDrikkevare() + ";");
+            writer.print(drikkevarerListe.get(i).getTypeDrikkevare() + ";");
+            writer.println(drikkevarerListe.get(i).getPrisPåDrikkevare());
+        }
+        writer.close();
     }
 }
