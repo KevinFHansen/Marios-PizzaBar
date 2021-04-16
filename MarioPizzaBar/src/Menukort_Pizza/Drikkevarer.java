@@ -1,14 +1,26 @@
 package Menukort_Pizza;
 
+import java.util.ArrayList;
+
 public class Drikkevarer {
     private String typeDrikkevare;
+    private int prisPåDrikkevare;
     private int sodavandPris = 20;
     private int vinPris = 25;
     private int flaskeØlPris = 25;
     private int kandeVandPris = 20;
 
-    public Drikkevarer (String typeDrikkevare){
+    //Constructor
+    public Drikkevarer (String typeDrikkevare, int prisPåDrikkevare){
         this.typeDrikkevare = typeDrikkevare;
+    }
+
+    //Getters og setters
+    public int getPrisPåDrikkevare(){
+        return this.prisPåDrikkevare;
+    }
+    public void setPrisPåDrikkevare(){
+        this.prisPåDrikkevare = prisPåDrikkevare;
     }
     public String getTypeDrikkevare(){
         return this.typeDrikkevare;
