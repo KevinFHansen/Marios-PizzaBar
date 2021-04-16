@@ -1,14 +1,29 @@
 package Menukort_Pizza;
 
+import java.util.ArrayList;
+
 public class Drikkevarer {
     private String typeDrikkevare;
-    private int sodavandPris = 20;
+    private int prisPåDrikkevare;
+    private int nummerPåDrikkevare;
+    /*private int sodavandPris = 20;
     private int vinPris = 25;
     private int flaskeØlPris = 25;
-    private int kandeVandPris = 20;
+    private int kandeVandPris = 20;*/
 
-    public Drikkevarer (String typeDrikkevare){
+    //Constructor
+    public Drikkevarer (int nummerPåDrikkevare, String typeDrikkevare, int prisPåDrikkevare){
         this.typeDrikkevare = typeDrikkevare;
+        this.prisPåDrikkevare = prisPåDrikkevare;
+        this.nummerPåDrikkevare = nummerPåDrikkevare;
+    }
+
+    //Getters og setters
+    public int getPrisPåDrikkevare(){
+        return this.prisPåDrikkevare;
+    }
+    public void setPrisPåDrikkevare(){
+        this.prisPåDrikkevare = prisPåDrikkevare;
     }
     public String getTypeDrikkevare(){
         return this.typeDrikkevare;
@@ -17,7 +32,12 @@ public class Drikkevarer {
         this.typeDrikkevare = typeDrikkevare;
     }
 
-    public int getSodavandPris(){
+    public int getNummerPåDrikkevare(){
+        return this.nummerPåDrikkevare;
+    }
+
+
+    /*public int getSodavandPris(){
         return this.sodavandPris;
     }
     public void setSodavandPris(){
@@ -40,5 +60,13 @@ public class Drikkevarer {
         return this.kandeVandPris;
     }
 
+     */
+    @Override
+    public String toString() {
+        return "" +
+                "" + nummerPåDrikkevare +
+                " " + typeDrikkevare +
+                " " + prisPåDrikkevare;
+    }
 
 }
