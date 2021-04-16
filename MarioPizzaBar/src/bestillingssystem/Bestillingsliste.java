@@ -30,9 +30,11 @@ public class Bestillingsliste {
 
 
     // metoder
+
+    // opretter instans af Bestillingsliste
+
     public void opretBestillingsliste(){
         Bestillingsliste nyBestillingsliste = new Bestillingsliste();
-
     }
 
 
@@ -58,14 +60,13 @@ public class Bestillingsliste {
         for (int i = 0; i < bestillinger.size(); i++){
             System.out.println("Afhentningstidspunkt: " + bestillinger.get(i).getAfhentningstidspunkt() + " Ordre: " +
                     bestillinger.get(i).getOrdreListe() + " ordreID: " + bestillinger.get(i).getOrdreId());
-
         }
-
     }
 
     public void afslutOrdre(Ordre ordreAfslut){
+        Statistik nyStatistik = new Statistik();
+        nyStatistik.tilføjOrdreTilStatisk(ordreAfslut);
         bestillinger.remove(ordreAfslut);
-
     }
 
     @Override
@@ -75,8 +76,5 @@ public class Bestillingsliste {
                 ", ventetid=" + ventetid +
                 '}';
     }
-
-
-
 }
 

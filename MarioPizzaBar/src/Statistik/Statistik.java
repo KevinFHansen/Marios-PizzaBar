@@ -1,8 +1,11 @@
 package Statistik;
 import Menukort_Pizza.Pizza;
+import bestillingssystem.Bestillingsliste;
 import bestillingssystem.Ordre;
 
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.sql.Time;
 import java.util.ArrayList;
 
@@ -11,11 +14,16 @@ public class Statistik {
     private int omsætning = 0;
     private Time periode;
     private int antalPizzaSolgt = 0;
-    private ArrayList<Ordre> listeAfOrdre = new ArrayList<>();
+    private ArrayList<Ordre> ordreStatistik = new ArrayList<>();
 
+
+    public void setPeriode(Time periode) {
+        this.periode = periode;
+    }
 
     public void opretStatistik(){
         Statistik nyStatistik = new Statistik();
+
 
     }
 
@@ -27,8 +35,16 @@ public class Statistik {
         this.antalPizzaSolgt = antalPizzaSolgt;
     }
 
+    public ArrayList<Ordre> indlæsStatistik()throws FileNotFoundException{
+        File Statistik = new File(MarioPizzaBar/Ressourcer/Statistik.csv);
+    }
+
+
+
+
+
     public void tilføjOrdreTilStatisk(Ordre ordreTilStatistik){
-        listeAfOrdre.add(ordreTilStatistik);
+        ordreStatistik.add(ordreTilStatistik);
         int countPizza = 0;
         int countOmsætning = 0;
         for (int i = 0; i < ordreTilStatistik.getOrdreListe().size(); i++){
@@ -48,16 +64,20 @@ public class Statistik {
 
     public void beregnOmsætning(){
 
-
        // listeAfSolgtePizza.
        // Ordre.getOrdreListe();
       //  Pizza.getPris();
 
-
     }
 
-    public void visAntalPizza(){
+    public ArrayList<Integer> visAntalPizza(){
 
+        ArrayList<Integer> pizzaNrListe = new ArrayList<>();
+
+        for (int i = 0; i < ordreStatistik.size(); i ++){
+            pizzaNrListe.add(ordreStatistik.get(i).getOrdreListe().get(i).getPizzaNummer());
+        }
+        return pizzaNrListe;
 
     }
 
@@ -69,5 +89,7 @@ public class Statistik {
                 ", antalPizzaSolgt=" + antalPizzaSolgt +
                 '}';
     }
+
+
 }
 
