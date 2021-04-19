@@ -18,10 +18,6 @@ public class Statistik {
     private ArrayList<Ordre> ordreStatistik = new ArrayList<>();
 
 
-    Ordre ins = new Ordre();
-
-
-
 
     public void setPeriode(Time periode) {
         this.periode = periode;

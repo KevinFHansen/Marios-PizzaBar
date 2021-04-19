@@ -67,7 +67,10 @@ public class Bestillingsliste {
 
     public void afslutOrdre(Ordre ordreAfslut){
         Statistik nyStatistik = new Statistik();
-        nyStatistik.tilføjOrdreTilStatisk(ordreAfslut);
+
+        for (int i = 0; i < bestillinger.size(); i ++ ){
+            nyStatistik.tilføjOrdreTilStatisk(bestillinger.get(i));
+        }
         bestillinger.remove(ordreAfslut);
     }
 
