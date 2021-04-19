@@ -18,7 +18,6 @@ public class Statistik {
     private ArrayList<Ordre> ordreStatistik = new ArrayList<>();
 
 
-
     public void setPeriode(Time periode) {
         this.periode = periode;
     }
@@ -46,16 +45,18 @@ public class Statistik {
         Ordre n = new Ordre();
         n.tilføjPizza();
         Bestillingsliste b = new Bestillingsliste();
-        b.afslutOrdre(n);
-        System.out.println(sta.ordreStatistik);
+        b.tilføjOrdreTilBestillinger(n);
+        System.out.println(b.afslutOrdre(n));
         sta.tilføjOrdreTilCsv();
+
+
     }
 
 
 
 
 
-    public void tilføjOrdreTilStatisk(Ordre ordreTilStatistik){
+   /* public void tilføjOrdreTilStatisk(ArrayList<Ordre> ordreTilStatistik){
         ordreStatistik.add(ordreTilStatistik);
         /*int countPizza = 0;
         int countOmsætning = 0;
@@ -65,8 +66,8 @@ public class Statistik {
             countOmsætning = countOmsætning + ordreTilStatistik.getOrdreListe().get(i).getPris();
         }
         setAntalPizzaSolgt(countPizza);
-        setOmsætning(countOmsætning);*/
-    }
+        setOmsætning(countOmsætning);
+    }*/
 
     public void visOmsætning(){
         System.out.println(omsætning);

@@ -1,5 +1,6 @@
 package bestillingssystem;
 
+import Menukort_Pizza.Pizza;
 import Statistik.Statistik;
 
 import java.time.LocalTime;
@@ -65,13 +66,16 @@ public class Bestillingsliste {
         }
     }
 
-    public void afslutOrdre(Ordre ordreAfslut){
-        Statistik nyStatistik = new Statistik();
+    public ArrayList<Pizza> afslutOrdre(Ordre ordreAfslut){
+
+        ArrayList<Pizza> pizzaTilStatistik = new ArrayList<>();
 
         for (int i = 0; i < bestillinger.size(); i ++ ){
-            nyStatistik.tilføjOrdreTilStatisk(bestillinger.get(i));
+            pizzaTilStatistik.add(bestillinger.get(i).getOrdreListe().get(i));
         }
+
         bestillinger.remove(ordreAfslut);
+        return pizzaTilStatistik;
     }
 
     @Override
