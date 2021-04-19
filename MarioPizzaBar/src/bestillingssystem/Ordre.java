@@ -3,6 +3,7 @@ package bestillingssystem;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
+import Menukort_Pizza.Drikkevarer;
 import Menukort_Pizza.Menukort;
 import Menukort_Pizza.Pizza;
 import java.util.Scanner;
@@ -149,7 +150,7 @@ public class Ordre {
         String pizzaer = ordreListe.get(0).toString();
 
         for (int i = 1; i < ordreListe.size(); i++) {
-            pizzaer = pizzaer + "\n" +  ordreListe.get(i).toString();
+            pizzaer = pizzaer + "%n" +  ordreListe.get(i).toString();
         }
 
         String ordreStreng[] = {String.valueOf(afhentningstidspunkt), ordreId, pizzaer, kommentar};
