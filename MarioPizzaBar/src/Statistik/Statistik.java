@@ -13,14 +13,16 @@ import java.util.Scanner;
 
 public class Statistik {
 
+    private int pizzaNr;
     private int omsætning;
-    private Time periode;
-    private ArrayList<Pizza> pizzaFraCSV = new ArrayList<>();
+    //private Time periode;
+
     private ArrayList<Pizza> pizzaStatistik = new ArrayList<>();
 
-    public void setPeriode(Time periode, int omsætning) {
-        this.periode = periode;
+    public Statistik(int pizzaNr, int omsætning) {
+        //this.periode = periode;
         this.omsætning = omsætning;
+        this.pizzaNr = pizzaNr;
     }
 
 
@@ -35,7 +37,8 @@ public class Statistik {
 
 
     public static void main(String[] args) throws FileNotFoundException {
-        Statistik sta = new Statistik();
+        Statistik sta = new Statistik(0,0);
+        /*
         Ordre ordre = new Ordre();
         ordre.tilføjPizza();
         Bestillingsliste b = new Bestillingsliste();
@@ -50,8 +53,10 @@ public class Statistik {
 
         System.out.println(sta.pizzaStatistik);
 
-        sta.tilføjPizzaTilCsv();
+        */
 
+        System.out.println(sta.læsStatistikFraFil());
+        System.out.println(sta.getOmsætningFraFil(sta.læsStatistikFraFil()));
 
     }
 
@@ -80,11 +85,13 @@ public class Statistik {
         writer.close();
     }
 
-    public ArrayList<Pizza> læsPizzaFraFil() throws FileNotFoundException{
+    public ArrayList<Statistik> læsStatistikFraFil() throws FileNotFoundException{
 
         File pizzaFil = new File("MarioPizzaBar/Ressourcer/Statistik.csv");
 
         Scanner filScanner = new Scanner(pizzaFil);
+
+        ArrayList<Statistik> nummerOgPris = new ArrayList<Statistik>();
 
         filScanner.nextLine();
 
@@ -96,23 +103,30 @@ public class Statistik {
             int nummer = Integer.parseInt(linjeSomArray[0].trim());
             int pris = Integer.parseInt(linjeSomArray[1].trim());
 
-            Pizza tmpPizza = new Pizza();
-            pizzaFraCSV.add(tmpPizza);
+            Statistik tmpStat = new Statistik(nummer, pris);
+            nummerOgPris.add(tmpStat);
+
+
         }
-
-
+        return nummerOgPris;
 
     }
 
+    public int getOmsætningFraFil(ArrayList<Statistik> priserFraFil){
+        int omsætningFraFil = 0;
+        for (int i = 0; i < priserFraFil.size(); i ++){
+            omsætningFraFil = omsætningFraFil + priserFraFil.get(i).getOmsætning();
+        }
+        return omsætningFraFil;
+
+    }
 
     @Override
     public String toString() {
-        return "Statistik{" +
-                "omsætning=" + omsætning +
-                ", periode=" + periode +
-                ", Pizzaer=" + pizzaNumre;
+        return "Statistik { " +
+                " omsætning = " + omsætning +
+                ", pizzaNr = " + pizzaNr +
+                '}';
     }
-
-
 }
 
