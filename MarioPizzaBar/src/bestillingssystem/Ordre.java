@@ -6,8 +6,6 @@ import java.util.ArrayList;
 import Menukort_Pizza.Drikkevarer;
 import Menukort_Pizza.Menukort;
 import Menukort_Pizza.Pizza;
-import UI_Menu.UImenu;
-
 import java.util.Scanner;
 import java.time.LocalTime;
 
@@ -88,7 +86,7 @@ public class Ordre {
         nyOrdre.ordreKommentar();
 
         // afhentningstidspunkt - mangler ventetid
-        nyOrdre.setAfhentningstidspunkt(bestillingstidspunkt.plusMinutes(nyOrdre.getSamletProduktionstid()));
+        nyOrdre.setAfhentningstidspunkt(bestillingstidspunkt.plusMinutes(Bestillingsliste.ventetid + nyOrdre.getSamletProduktionstid()));
 
         // godkend afhentningstidspunkt
         System.out.println("1. for at godkende afhentningstidspunktet \n2. for at ændre afhentningstidspunktet");
@@ -144,7 +142,20 @@ public class Ordre {
         for(int i = 0; i < ordreListe.size(); i++){
             System.out.println(ordreListe.get(i).toString());
         }
+
         System.out.println("Kommentar: " + getKommentar());
+    }
+
+    public String[] ordreStreng() {
+        String pizzaer = ordreListe.get(0).toString();
+
+        for (int i = 1; i < ordreListe.size(); i++) {
+            pizzaer = pizzaer + "%n" +  ordreListe.get(i).toString();
+        }
+
+        String ordreStreng[] = {String.valueOf(afhentningstidspunkt), ordreId, pizzaer, kommentar};
+
+        return ordreStreng;
     }
 
     public void tilføjDrikkevare(){

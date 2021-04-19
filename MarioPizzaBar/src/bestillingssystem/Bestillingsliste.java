@@ -12,7 +12,7 @@ public class Bestillingsliste {
 
     // attributter
     private ArrayList<Ordre> bestillinger;
-    private int ventetid;
+    static int ventetid;
 
 
     // constructor
@@ -76,7 +76,6 @@ public class Bestillingsliste {
         }
 
         bestillinger.remove(ordreAfslut);
-        return pizzaTilStatistik;
     }
 
     @Override
