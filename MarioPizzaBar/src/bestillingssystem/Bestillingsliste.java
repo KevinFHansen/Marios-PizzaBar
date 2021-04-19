@@ -68,7 +68,8 @@ public class Bestillingsliste {
 
     public ArrayList<Pizza> afslutOrdre(Ordre ordreAfslut){
 
-        ArrayList<Pizza> pizzaTilStatistik = new ArrayList<>();
+        Statistik ny = new Statistik();
+
 
         for (int i = 0; i < bestillinger.size(); i ++ ){
             pizzaTilStatistik.add(bestillinger.get(i).getOrdreListe().get(i));

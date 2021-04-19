@@ -15,8 +15,7 @@ public class Statistik {
     private int omsætning = 0;
     private Time periode;
     private int antalPizzaSolgt = 0;
-    private ArrayList<Ordre> ordreStatistik = new ArrayList<>();
-
+    private ArrayList<Pizza> ordreStatistik = new ArrayList<>();
 
     public void setPeriode(Time periode) {
         this.periode = periode;
@@ -47,7 +46,7 @@ public class Statistik {
         Bestillingsliste b = new Bestillingsliste();
         b.tilføjOrdreTilBestillinger(n);
         System.out.println(b.afslutOrdre(n));
-        sta.tilføjOrdreTilCsv();
+
 
 
     }
@@ -82,7 +81,7 @@ public class Statistik {
 
     }
 
-    public ArrayList<Integer> visAntalPizza() throws FileNotFoundException {
+    /*public ArrayList<Integer> visAntalPizza() throws FileNotFoundException {
 
 
         ArrayList<Integer> pizzaNrListe = new ArrayList<>();
@@ -92,15 +91,19 @@ public class Statistik {
         return pizzaNrListe;
 
     }
+     */
 
-    public void tilføjOrdreTilCsv() throws FileNotFoundException {
+    public void tilføjPizzaTilCsv() throws FileNotFoundException {
         File fout = new File("MarioPizzaBar/Ressourcer/Statistik.csv");
+        Bestillingsliste asd = new Bestillingsliste();
+
 
         PrintWriter writer = new PrintWriter(fout);
 
         for(int i = 0; i < ordreStatistik.size(); i++){
             writer.print(ordreStatistik.get(i).getOrdreListe().get(i).getPizzaNummer() + ";");
             writer.println(ordreStatistik.get(i).getOrdreListe().get(i).getPris());
+
         }
         writer.close();
     }
