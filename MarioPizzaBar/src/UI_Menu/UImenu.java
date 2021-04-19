@@ -86,7 +86,7 @@ public class UImenu {
 
                 else if (choice1 == 2){
                     System.out.println("Du har valgt at fjerne en pizza fra menukortet");
-                    menukort.fjernPizza ();
+                    menukort.fjernPizza();
                     }
 
                 else if (choice1 == 3){
@@ -130,14 +130,14 @@ public class UImenu {
         System.out.println("Tast 2 - Opret ordre");
         System.out.println("Tast 3 - Slet ordre");
         System.out.println("Tast 4 - Afslut ordre");
-        System.out.println("Tast 5 - Gå tilbage");
+        System.out.println("Tast 5 - Gå til Hovedmenu");
     }
     public void subMenuPizza (){
         System.out.println("Håndter menukortet - Du har følgende valg:");
         System.out.println("Tast 1 - Tilføj ny Pizza til Menukortet");
         System.out.println("Tast 2 - Slet Pizza fra Menukortet");
         System.out.println("Tast 3 - Ændre en Pizza på Menukortet");
-        System.out.println("Tast 4 - Gå tilbage");
+        System.out.println("Tast 4 - Gå til Hovedmenu");
     }
 
     public void printLogo (){
