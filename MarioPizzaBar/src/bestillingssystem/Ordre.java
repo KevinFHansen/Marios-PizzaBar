@@ -146,13 +146,13 @@ public class Ordre {
 
     @Override
     public String toString() {
-        return "Ordre{" +
-                "ordreId='" + ordreId + '\'' +
-                ", bestillingstidspunkt=" + bestillingstidspunkt +
-                ", samletProduktionstid=" + samletProduktionstid +
-                ", afhentningstidspunkt=" + afhentningstidspunkt +
-                ", kommentar='" + kommentar + '\'' +
-                ", ordreListe=" + ordreListe +
+        return " Ordre {" +
+                "ordre Id=' " + ordreId + '\'' +
+                ", bestillingstidspunkt= " + bestillingstidspunkt +
+                ", samletProduktionstid= " + samletProduktionstid +
+                ", afhentningstidspunkt= " + afhentningstidspunkt +
+                ", kommentar=' " + kommentar + '\'' +
+                ", ordreListe= " + ordreListe +
                 '}';
     }
 }

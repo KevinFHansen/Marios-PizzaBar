@@ -35,11 +35,9 @@ public class Statistik {
         this.antalPizzaSolgt = antalPizzaSolgt;
     }
 
-    public ArrayList<Ordre> indlæsStatistik()throws FileNotFoundException{
-        File Statistik = new File(MarioPizzaBar/Ressourcer/Statistik.csv);
-    }
 
 
+    // indlæs statistik
 
 
 
@@ -62,11 +60,14 @@ public class Statistik {
 
     }
 
-    public void beregnOmsætning(){
+    public int beregnOmsætning(){
+        int omsætning = 0;
+        for(int i = 0; i < ordreStatistik.size(); i++){
+            omsætning = omsætning + ordreStatistik.get(i).getOrdreListe().get(i).getPris();
+        }
+        return omsætning;
 
-       // listeAfSolgtePizza.
-       // Ordre.getOrdreListe();
-      //  Pizza.getPris();
+
 
     }
 
@@ -89,7 +90,6 @@ public class Statistik {
                 ", antalPizzaSolgt=" + antalPizzaSolgt +
                 '}';
     }
-
 
 }
 
