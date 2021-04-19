@@ -66,16 +66,16 @@ public class Bestillingsliste {
         }
     }
 
-    public ArrayList<Pizza> afslutOrdre(Ordre ordreAfslut){
+    public ArrayList<Pizza> afslutOrdre(Ordre ordreTilAfslut){
 
-        Statistik ny = new Statistik();
+        ArrayList<Pizza> pizTilStat = new ArrayList<>();
 
+        for (int i = 0; i < ordreTilAfslut.getOrdreListe().size(); i ++){
+            pizTilStat.add(ordreTilAfslut.getOrdreListe().get(i));
 
-        for (int i = 0; i < bestillinger.size(); i ++ ){
-            pizzaTilStatistik.add(bestillinger.get(i).getOrdreListe().get(i));
         }
-
-        bestillinger.remove(ordreAfslut);
+        bestillinger.remove(ordreTilAfslut);
+        return pizTilStat;
     }
 
     @Override
