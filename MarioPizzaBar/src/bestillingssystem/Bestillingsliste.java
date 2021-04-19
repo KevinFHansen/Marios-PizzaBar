@@ -1,4 +1,5 @@
 package bestillingssystem;
+
 import Statistik.Statistik;
 
 import java.time.LocalTime;
@@ -18,11 +19,12 @@ public class Bestillingsliste {
         this.bestillinger = new ArrayList<>();
     }
 
-
+    // getter
     public int getVentetid() {
         return ventetid;
     }
 
+    // setter
     public void setVentetid(int ventetid) {
         this.ventetid = ventetid;
     }
@@ -40,6 +42,7 @@ public class Bestillingsliste {
     public void tilføjOrdreTilBestillinger(Ordre ordreTilBestillingsListe){
         bestillinger.add(ordreTilBestillingsListe);
     }
+
 
     public int beregnVentetid(){
         int ventetid = 0;
@@ -62,9 +65,14 @@ public class Bestillingsliste {
         }
     }
 
-    public void afslutOrdre(Ordre ordreAfslut){
-        Statistik nyStatistik = new Statistik();
-        nyStatistik.tilføjOrdreTilStatisk(ordreAfslut);
+    public ArrayList<Pizza> afslutOrdre(Ordre ordreAfslut){
+
+        ArrayList<Pizza> pizzaTilStatistik = new ArrayList<>();
+
+        for (int i = 0; i < bestillinger.size(); i ++ ){
+            pizzaTilStatistik.add(bestillinger.get(i).getOrdreListe().get(i));
+        }
+
         bestillinger.remove(ordreAfslut);
     }
 
@@ -76,3 +84,4 @@ public class Bestillingsliste {
                 '}';
     }
 }
+

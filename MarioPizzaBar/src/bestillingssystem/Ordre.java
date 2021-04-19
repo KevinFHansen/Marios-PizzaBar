@@ -18,7 +18,8 @@ public class Ordre {
     private LocalTime afhentningstidspunkt;
     private String kommentar;
     private ArrayList<Pizza> ordreListe = new ArrayList<Pizza>();
-
+    private ArrayList<Drikkevarer> salgAfDrikkeVare = new ArrayList<>();
+    boolean stopDrikkevare = false;
     // Getters
     public String getOrdreId(){
         return this.ordreId;
@@ -111,7 +112,8 @@ public class Ordre {
                 System.out.println("Tast nr. på den pizza du vil tilføje ordren");
                 ordreListe.add(pizzaListe.get(sc.nextInt() - 1));
 
-            }
+                }
+
             else {flag = false;}
         }
     }
@@ -155,16 +157,63 @@ public class Ordre {
         return ordreStreng;
     }
 
+    public void tilføjDrikkevare(){
+        int valgDrikkevare = sc.nextInt();
+
+
+        while (!stopDrikkevare)
+
+
+        switch (valgDrikkevare){
+
+        }
+        Menukort menukort = new Menukort();
+        ArrayList<Drikkevarer> drikkevareListe = menukort.drikkevarerListe;
+
+        System.out.println("Vil du tilføje drikkevare?");
+        System.out.println("Tast 1 - JA");
+        System.out.println("Tast 2 - NEJ");
+        sc.nextInt();
+        if (sc.nextInt() == 1) {
+            drikkevareMenu();
+            System.out.println("Tast nr. på den drikkevare du vil tilføje ordren");
+            salgAfDrikkeVare.add(drikkevareListe.get(sc.nextInt() - 1));
+
+        }
+    }
+
+    public void vælgDrikkevare(){
+
+        Menukort menukort = new Menukort();
+
+        ArrayList<Drikkevarer> drikkevareListe = menukort.drikkevarerListe;
+
+        drikkevareMenu();
+        sc.nextInt();
+        if (sc.nextInt() == 1){
+
+        }
+
+    }
+
+    public void drikkevareMenu(){
+        System.out.println("Tilføj Drikkevare");
+        System.out.println("Tast 1 - Tilføj Sodavand (20 kr.)");
+        System.out.println("Tast 2 - Tilføj Vin (25 kr.)");
+        System.out.println("Tast 3 - Tilføj Øl (25 kr.)");
+        System.out.println("Tast 4 - Tilføj Vand (20 kr.)");
+        System.out.println("Tast 5 - Gå tilbage");
+    }
 
     @Override
     public String toString() {
-        return "Ordre{" +
-                "ordreId='" + ordreId + '\'' +
-                ", bestillingstidspunkt=" + bestillingstidspunkt +
-                ", samletProduktionstid=" + samletProduktionstid +
-                ", afhentningstidspunkt=" + afhentningstidspunkt +
-                ", kommentar='" + kommentar + '\'' +
-                ", ordreListe=" + ordreListe +
+        return " Ordre {" +
+                "ordre Id=' " + ordreId + '\'' +
+                ", bestillingstidspunkt= " + bestillingstidspunkt +
+                ", samletProduktionstid= " + samletProduktionstid +
+                ", afhentningstidspunkt= " + afhentningstidspunkt +
+                ", kommentar=' " + kommentar + '\'' +
+                ", ordreListe= " + ordreListe +
                 '}';
     }
 }
