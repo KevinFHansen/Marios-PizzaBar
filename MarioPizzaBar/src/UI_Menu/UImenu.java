@@ -61,10 +61,11 @@ public class UImenu {
 
                 }
 
-                else if (choice== 3) {
+                else if (choice == 3) {
                     System.out.println();
                     System.out.println("Du har valgt at slette en ordre - Her er din ordre liste");
                     //slet ordre metode();
+
                 }
 
                 else if (choice == 4) {
@@ -95,6 +96,7 @@ public class UImenu {
                     Menukort menukort1 = new Menukort();
                     menukort1.setPizzaListe(menukort1.indlæsMenukort());
                     menukort1.opretNyPizza();
+                    break;
                 }
 
                 else if (choice1 == 2){
