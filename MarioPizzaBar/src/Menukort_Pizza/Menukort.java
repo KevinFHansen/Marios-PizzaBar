@@ -67,8 +67,7 @@ public class Menukort{
         menukort.setPizzaListe(menukort.indlæsMenukort());
 
 
-        menukort.visPizzaListe();
-        menukort.visDrikkevarer();
+        menukort.opretNyPizza();
 
         /*
         menukort.setDrikkevarerListe(menukort.indlæsDrikkevare());
