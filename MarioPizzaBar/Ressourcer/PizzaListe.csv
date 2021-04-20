@@ -1,5 +1,5 @@
 pris;navn;nummer;fyld
-57;Vesuvino;1;ost, skinke, tomat
+60;Vesuvino;1;ost, skinke
 53;Amerikaner;2;tomatsauce, ost, oksefars og oregano
 57;Cacciatore;3;tomatsauce, ost, kødsauce, cocktailpølser og oregano
 63;Carbona;4;tomatsauce, ost, skinke, pepperoni, cocktailpøler og oregano
@@ -29,34 +29,3 @@ pris;navn;nummer;fyld
 74;Torino;28;tomatsauce, ost, kødstrimler og løg
 70;Nemrut;29;tomatsauce, ost, pepperoni og dressing
 72;Finale;30;ost, skinke, bacon, bearnaise og dressing
-57;Vesuvino;1;ost, skinke, tomat
-53;Amerikaner;2;tomatsauce, ost, oksefars og oregano
-57;Cacciatore;3;tomatsauce, ost, kødsauce, cocktailpølser og oregano
-63;Carbona;4;tomatsauce, ost, skinke, pepperoni, cocktailpøler og oregano
-57;Bertil;5;tomatsauce, ost, bacon og oregano
-63;Dennis;6;tomatsauce, ost, pepperoni og oregano
-61;Silva;7;tomatsauce, ost, pepperoni, rød peber, løg, oliven og oregano
-61;Victoria;8;tomatsauce, ost, skinke, ananas, champignon og oregano
-61;Toronfo;9;tomatsauce, ost, skinke, bacon kebab, chili og oregano
-61;Capricciosa;10;tomatsauce, ost, skinke, champignon og oregano
-61;Hawaii;11;tomatsauce, ost, skinke, ananas og oregano
-61;Le Blissola;12;tomatsauce, ost, skinke, rejer og oregano
-61;Venezia;13;tomatsauce, ost, skinke, bacon og oregano
-64;Mafia;14;tomatsauce, ost, pepperoni, bacon, løg og oregano
-59;Roma;15;tomatsauce, ost, skinke, bacon og æg
-66;Quatro;16;tomatsauce, ost, skinke, oliven og rejer
-70;Ramo;17;tomatsauce, ost og  løg
-60;Gorgonzola;18;tomatsauce, ost, champignon, paprika og gorgonzola
-62;Berfin;19;tomatsauce, ost, pepperoni, bacon og dressing
-70;Frederikssund;20;tomatsauce, ost, kebab, salat og dressing
-72;Nachos;21;tomatsauce, ost, kylling, nachos, jalapenos og dressing
-68;Pizza Spinat;22;tomatsauce, ost, spinat, kebab, paprika og fetaost
-70;Amigo;23;tomatsauce, ost, kebab, kylling og tacosauce
-72;Botan;24;tomatsauce, ost, kylling, hvidløg og dressing
-75;Apo;25;tomatsauce, ost, skinke og oksemørbrad
-80;Sepp;26;tomatsauce, ost, kødstrimler og bearnaise
-79;Parma;27;tomatsauce, ost, parmaskinke, pesto og salat
-74;Torino;28;tomatsauce, ost, kødstrimler og løg
-70;Nemrut;29;tomatsauce, ost, pepperoni og dressing
-72;Finale;30;ost, skinke, bacon, bearnaise og dressing
-60;cheeso;31;ost

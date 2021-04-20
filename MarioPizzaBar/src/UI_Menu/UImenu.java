@@ -97,7 +97,7 @@ public class UImenu {
                     System.out.println("Du har valgt at tilføje en ny pizza til menukortet");
                     menukort.setPizzaListe(menukort.indlæsMenukort());
                     menukort.opretNyPizza();
-                    break;
+
                 }
 
                 else if (choice1 == 2){
@@ -113,13 +113,14 @@ public class UImenu {
                 }
 
                 else if (choice1 == 4) {
-                    break;
+
                 }
 
                 else {
                     System.out.println("Forkert indtastning - Tast 1, 2, 3 eller 4");
-                    break;
+
                 }
+                break;
 
             case 4:
                 drikkevareMenu();
@@ -155,6 +156,7 @@ public class UImenu {
 
                 }
                 break;
+
         //Valg 5 - Afslut ordre
             case 5:
                 System.out.println("Du har valgt at afslutte");
