@@ -119,8 +119,8 @@ public class UImenu {
                 }
 
 
-        //Valg 4 - Afslut ordre
-            case 4:
+        //Valg 5 - Afslut ordre
+            case 5:
                 System.out.println("Du har valgt at afslutte");
                 exitProgram = true;
         }
@@ -135,7 +135,8 @@ public class UImenu {
         System.out.println("Tast 1 - Se Menukort");
         System.out.println("Tast 2 - Håndter ordrer");
         System.out.println("Tast 3 - Håndter Menukortet");
-        System.out.println("Tast 4 - Afslut");
+        System.out.println("Tast 4 - Se eller håndter drikkevarer");
+        System.out.println("Tast 5 - Afslut");
     }
 
     public void subMenuOrdre (){
