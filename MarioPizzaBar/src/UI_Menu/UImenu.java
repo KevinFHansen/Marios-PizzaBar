@@ -4,6 +4,8 @@ import Menukort_Pizza.Menukort;
 import bestillingssystem.Bestillingsliste;
 import bestillingssystem.Ordre;
 
+import java.awt.*;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -90,9 +92,9 @@ public class UImenu {
 
                 if (choice1 == 1) {
                     System.out.println("Du har valgt at tilføje en ny pizza til menukortet");
-                    Menukort menukort = new Menukort();
-                    menukort.setPizzaListe(menukort.indlæsMenukort());
-                    menukort.opretNyPizza();
+                    Menukort menukort1 = new Menukort();
+                    menukort1.setPizzaListe(menukort1.indlæsMenukort());
+                    menukort1.opretNyPizza();
                 }
 
                 else if (choice1 == 2){
@@ -103,8 +105,8 @@ public class UImenu {
                 else if (choice1 == 3){
                     System.out.println("Du har valgt at ændre en pizza på menukortet");
                     menukort.lavOmPåPizza();
-
                 }
+
                 else if (choice1 == 4) {
                     break;
                 }
@@ -182,7 +184,7 @@ public class UImenu {
         System.out.println("Tast 5 - Gå tilbage");
     }
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, ArrayIndexOutOfBoundsException {
         UImenu uImenu = new UImenu();
         uImenu.startUI();
 

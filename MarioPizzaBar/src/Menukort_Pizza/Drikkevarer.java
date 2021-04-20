@@ -64,9 +64,8 @@ public class Drikkevarer {
     @Override
     public String toString() {
         return "" +
-                "" + nummerPåDrikkevare +
-                " " + typeDrikkevare +
-                " " + prisPåDrikkevare;
+                "Nr " + nummerPåDrikkevare + " " + typeDrikkevare +
+                " " + prisPåDrikkevare + "Kr";
     }
 
 }
