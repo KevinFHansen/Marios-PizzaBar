@@ -121,7 +121,40 @@ public class UImenu {
                     break;
                 }
 
+            case 4:
+                drikkevareMenu();
+                int choice2 = scn.nextInt();
 
+                if(choice2 == 1){
+                    menukort.visDrikkevarer();
+
+                }
+
+                if(choice2 == 2){
+                    System.out.println("Du har valgt at tilføje ny drikkevare");
+                    menukort.setDrikkevarerListe(menukort.indlæsDrikkevare());
+                    menukort.opretDrikkevarer();
+
+                }
+
+                if(choice2 == 3 ){
+                    System.out.println("Du har valgt at fjerne en drik");
+                    menukort.setDrikkevarerListe(menukort.indlæsDrikkevare());
+                    menukort.fjernDrikkevarer();
+
+                }
+
+                if(choice2 == 4){
+                    System.out.println("Du har valgt at ændre i drikkevarer");
+                    menukort.setDrikkevarerListe(menukort.indlæsDrikkevare());
+                    menukort.lavOmPåDrikkevare();
+
+                }
+
+                if(choice2 == 5){
+
+                }
+                break;
         //Valg 5 - Afslut ordre
             case 5:
                 System.out.println("Du har valgt at afslutte");
@@ -158,6 +191,14 @@ public class UImenu {
         System.out.println("Tast 4 - Gå til Hovedmenu");
     }
 
+    public void drikkevareMenu(){
+        System.out.println("Tast 1 - Vis drikkevarer");
+        System.out.println("Tast 2 - Tilføj en drik");
+        System.out.println("Tast 3 - Fjern en drik");
+        System.out.println("Tast 4 - Ændre i drikkevarer");
+        System.out.println("Tast 5 - Gå tilbage");
+    }
+
     public void printLogo (){
 
         System.out.println("                        ___");
@@ -181,14 +222,7 @@ public class UImenu {
     }
 
 
-    public void drikkevareMenu(){
-        System.out.println("Tilføj Drikkevare");
-        System.out.println("Tast 1 - Tilføj Sodavand (20 kr.)");
-        System.out.println("Tast 2 - Tilføj Vin (25 kr.)");
-        System.out.println("Tast 3 - Tilføj Øl (25 kr.)");
-        System.out.println("Tast 4 - Tilføj Vand (20 kr.)");
-        System.out.println("Tast 5 - Gå tilbage");
-    }
+
 
     public static void main(String[] args) throws IOException, ArrayIndexOutOfBoundsException {
         UImenu uImenu = new UImenu();
