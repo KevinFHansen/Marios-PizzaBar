@@ -8,6 +8,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.sql.Time;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -15,14 +16,13 @@ public class Statistik {
 
     private int pizzaNr;
     private int omsætning;
-    //private Time periode;
-
+    private LocalDate dato = LocalDate.now();
     private ArrayList<Pizza> pizzaStatistik = new ArrayList<>();
 
     public Statistik(int pizzaNr, int omsætning) {
-        //this.periode = periode;
         this.omsætning = omsætning;
         this.pizzaNr = pizzaNr;
+
     }
 
 
@@ -38,7 +38,7 @@ public class Statistik {
 
     public static void main(String[] args) throws FileNotFoundException {
         Statistik sta = new Statistik(0,0);
-        /*
+
         Ordre ordre = new Ordre();
         ordre.tilføjPizza();
         Bestillingsliste b = new Bestillingsliste();
@@ -53,10 +53,11 @@ public class Statistik {
 
         System.out.println(sta.pizzaStatistik);
 
-        */
 
-        System.out.println(sta.læsStatistikFraFil());
-        System.out.println(sta.getOmsætningFraFil(sta.læsStatistikFraFil()));
+        sta.tilføjPizzaTilFil();
+
+        //System.out.println(sta.læsStatistikFraFil());
+        //System.out.println(sta.getOmsætningFraFil(sta.læsStatistikFraFil()));
 
     }
 
@@ -68,19 +69,20 @@ public class Statistik {
    }
 
 
-    public void tilføjPizzaTilCsv() throws FileNotFoundException {
+    public void tilføjPizzaTilFil() throws FileNotFoundException {
 
         File fout = new File("MarioPizzaBar/Ressourcer/Statistik.csv");
 
 
         PrintWriter writer = new PrintWriter(fout);
         writer.print("");
-        writer.println("nummer;pris");
+        writer.println("nummer;pris;dato");
 
 
         for(int i = 0; i < pizzaStatistik.size(); i++){
             writer.print(pizzaStatistik.get(i).getPizzaNummer() + ";");
-            writer.println(pizzaStatistik.get(i).getPris());
+            writer.print(pizzaStatistik.get(i).getPris() + ";");
+            writer.println(dato);
         }
         writer.close();
     }
@@ -102,6 +104,7 @@ public class Statistik {
 
             int nummer = Integer.parseInt(linjeSomArray[0].trim());
             int pris = Integer.parseInt(linjeSomArray[1].trim());
+
 
             Statistik tmpStat = new Statistik(nummer, pris);
             nummerOgPris.add(tmpStat);

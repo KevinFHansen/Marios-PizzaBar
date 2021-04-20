@@ -11,14 +11,14 @@ import java.util.Comparator;
 public class Bestillingsliste {
 
     // attributter
-    private ArrayList<Ordre> bestillinger;
+    private ArrayList<Ordre> bestillinger = new ArrayList<>();
     static int ventetid;
 
-
     // constructor
-    public Bestillingsliste(){
-        this.bestillinger = new ArrayList<>();
+    public Bestillingsliste(int ventetid){
+        this.ventetid = ventetid;
     }
+
 
     // getter
     public int getVentetid() {
@@ -70,21 +70,28 @@ public class Bestillingsliste {
         }
     }
 
-    public ArrayList<Pizza> afslutOrdre(Ordre ordreTilAfslut){
+
+    public ArrayList<Pizza> afslutOrdre(Ordre ordreTilAfslut) {
+
+
+        System.out.print("Indtast navn på ordre der skal afsluttes: ");
+
 
         ArrayList<Pizza> pizTilStat = new ArrayList<>();
 
-        for (int i = 0; i < ordreTilAfslut.getOrdreListe().size(); i ++){
+        for (int i = 0; i < ordreTilAfslut.getOrdreListe().size(); i++) {
             pizTilStat.add(ordreTilAfslut.getOrdreListe().get(i));
-
         }
+
+
         bestillinger.remove(ordreTilAfslut);
         return pizTilStat;
+
     }
 
     @Override
     public String toString() {
-        return " Bestillingsliste{" +
+        return "Bestillingsliste{" +
                 "bestillinger=" + bestillinger +
                 ", ventetid=" + ventetid +
                 '}';
