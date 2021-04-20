@@ -90,9 +90,9 @@ public class UImenu {
 
                 if (choice1 == 1) {
                     System.out.println("Du har valgt at tilføje en ny pizza til menukortet");
-                    Menukort menukort1 = new Menukort();
-                    menukort1.setPizzaListe(menukort1.indlæsMenukort());
-                    menukort1.opretNyPizza();
+                    Menukort menukort = new Menukort();
+                    menukort.setPizzaListe(menukort.indlæsMenukort());
+                    menukort.opretNyPizza();
                 }
 
                 else if (choice1 == 2){
