@@ -18,13 +18,14 @@ public class UImenu {
     Scanner scn = new Scanner(System.in);
 
 
-
     public void startUI () throws IOException {
+        gui.opretVindue(bestillinger.getBestillinger());
 
         printLogo();
         while (!exitProgram){
             presentMenuOptions();
         int userInput = scn.nextInt();
+
 
         switch (userInput) {
 
@@ -55,7 +56,8 @@ public class UImenu {
                     Ordre nyOrdre = ordre.opretOrdre();
                     bestillinger.tilføjOrdreTilBestillinger(nyOrdre);
                     bestillinger.beregnVentetid();
-                    gui.opdaterVindue(bestillinger.getBestillinger());
+
+                    gui.opdaterVindue(bestillinger.getBestillinger(), gui.getTabel());
 
 
                 }
@@ -71,6 +73,7 @@ public class UImenu {
                     System.out.println("Indtast nr på den ordre du vil afslutte?");
                     int afslutNr = scn.nextInt()-1;
                     bestillinger.afslutOrdre(bestillinger.getBestillinger().get(afslutNr));
+                    gui.opdaterVindue(bestillinger.getBestillinger(), gui.getTabel());
                 }
 
                 else if (choice == 5) {

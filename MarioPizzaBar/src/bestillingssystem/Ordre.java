@@ -74,6 +74,7 @@ public class Ordre {
         Ordre nyOrdre = new Ordre();
 
         System.out.println("Indtast kundens navn");
+
         nyOrdre.setOrdreId(sc.nextLine());
 
         nyOrdre.setBestillingstidspunkt(bestillingstidspunkt.now());
