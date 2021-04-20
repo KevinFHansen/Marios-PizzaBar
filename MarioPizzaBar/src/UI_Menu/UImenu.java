@@ -92,19 +92,20 @@ public class UImenu {
 
                 if (choice1 == 1) {
                     System.out.println("Du har valgt at tilføje en ny pizza til menukortet");
-                    Menukort menukort1 = new Menukort();
-                    menukort1.setPizzaListe(menukort1.indlæsMenukort());
-                    menukort1.opretNyPizza();
+                    menukort.setPizzaListe(menukort.indlæsMenukort());
+                    menukort.opretNyPizza();
                     break;
                 }
 
                 else if (choice1 == 2){
                     System.out.println("Du har valgt at fjerne en pizza fra menukortet");
+                    menukort.setPizzaListe(menukort.indlæsMenukort());
                     menukort.fjernPizza();
                     }
 
                 else if (choice1 == 3){
                     System.out.println("Du har valgt at ændre en pizza på menukortet");
+                    menukort.setPizzaListe(menukort.indlæsMenukort());
                     menukort.lavOmPåPizza();
                 }
 

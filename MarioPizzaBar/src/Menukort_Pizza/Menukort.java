@@ -61,24 +61,6 @@ public class Menukort{
     }
 
 
-    public static void main(String[] args) throws IOException {
-        Menukort menukort = new Menukort();
-
-        menukort.setPizzaListe(menukort.indlæsMenukort());
-
-
-        menukort.opretNyPizza();
-
-        /*
-        menukort.setDrikkevarerListe(menukort.indlæsDrikkevare());
-        System.out.println(menukort.drikkevarerListe);
-
-
-
-         */
-    }
-
-
 
     //Pizza getters og setters
 
