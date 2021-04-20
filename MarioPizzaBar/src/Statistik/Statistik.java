@@ -35,6 +35,7 @@ public class Statistik {
 
 
     public static void main(String[] args) throws IOException {
+
         Statistik sta = new Statistik(0,0);
 
         Ordre ordre = new Ordre();
@@ -51,12 +52,17 @@ public class Statistik {
 
         System.out.println(sta.pizzaStatistik);
 
-
         sta.tilføjPizzaTilFil();
 
-        //System.out.println(sta.læsStatistikFraFil());
-        //System.out.println(sta.getOmsætningFraFil(sta.læsStatistikFraFil()));
+        System.out.println(sta.læsStatistikFraFil());
 
+        System.out.println();
+
+        System.out.println(sta.beregnOmsætningFraFil(sta.læsStatistikFraFil()));
+
+        System.out.println();
+
+        System.out.println(sta.mestSolgtePizza(sta.læsStatistikFraFil()));
     }
 
    public void tilføjPizzaTilStatistik(ArrayList<Pizza> pizzaTilStat) {
@@ -73,7 +79,6 @@ public class Statistik {
 
 
         FileWriter writer = new FileWriter(fout, true);
-
 
 
         for(int i = 0; i < pizzaStatistik.size(); i++){
@@ -112,13 +117,36 @@ public class Statistik {
 
     }
 
-    public String getOmsætningFraFil(ArrayList<Statistik> priserFraFil){
+
+    // indtast dato for omsætning
+    public String beregnOmsætningFraFil(ArrayList<Statistik> priserFraFil){
         int omsætningFraFil = 0;
         for (int i = 0; i < priserFraFil.size(); i ++){
             omsætningFraFil = omsætningFraFil + priserFraFil.get(i).getOmsætning();
         }
-        return "Omsætning: " + omsætningFraFil + "";
+        return "Omsætning: " + omsætningFraFil + " kr.";
+    }
 
+
+    public String mestSolgtePizza(ArrayList<Statistik> numreFraFil){
+        int element = 0;
+        int count = 0;
+
+        for( int i = 0 ; i < numreFraFil.size(); i ++){
+
+            int tempEl = numreFraFil.get(i).pizzaNr;
+            int tempCount = 0;
+
+            for (int j = 0; j < numreFraFil.size(); j++)
+                if (numreFraFil.get(i).pizzaNr == tempEl)
+                    tempCount++;
+            if (tempCount>count){
+                element = tempEl;
+                count = tempCount;
+            }
+
+        }
+    return "Den mest solgte pizza er nr: " + element + " Antal: " + count;
     }
 
     @Override
