@@ -1,5 +1,6 @@
 /*package bestillingssystem;
 
+import Menukort_Pizza.Pizza;
 import Statistik.Statistik;
 
 import java.time.LocalTime;
@@ -11,7 +12,7 @@ public class Bestillingsliste {
 
     // attributter
     private ArrayList<Ordre> bestillinger;
-    private int ventetid;
+    static int ventetid;
 
 
     // constructor
@@ -19,11 +20,16 @@ public class Bestillingsliste {
         this.bestillinger = new ArrayList<>();
     }
 
-
+    // getter
     public int getVentetid() {
         return ventetid;
     }
 
+    public ArrayList<Ordre> getBestillinger(){
+        return bestillinger;
+    }
+
+    // setter
     public void setVentetid(int ventetid) {
         this.ventetid = ventetid;
     }
@@ -42,6 +48,7 @@ public class Bestillingsliste {
         bestillinger.add(ordreTilBestillingsListe);
     }
 
+
     public int beregnVentetid(){
         int ventetid = 0;
         for (int i = 0; i < bestillinger.size(); i++){
@@ -58,15 +65,21 @@ public class Bestillingsliste {
             }
         });
         for (int i = 0; i < bestillinger.size(); i++){
-            System.out.println("Afhentningstidspunkt: " + bestillinger.get(i).getAfhentningstidspunkt() + " Ordre: " +
+            System.out.println((i+1) + ". " + "Afhentningstidspunkt: " + bestillinger.get(i).getAfhentningstidspunkt() + " Ordre: " +
                     bestillinger.get(i).getOrdreListe() + " ordreID: " + bestillinger.get(i).getOrdreId());
         }
     }
 
-    public void afslutOrdre(Ordre ordreAfslut){
-        Statistik nyStatistik = new Statistik();
-        nyStatistik.tilføjOrdreTilStatisk(ordreAfslut);
-        bestillinger.remove(ordreAfslut);
+    public ArrayList<Pizza> afslutOrdre(Ordre ordreTilAfslut){
+
+        ArrayList<Pizza> pizTilStat = new ArrayList<>();
+
+        for (int i = 0; i < ordreTilAfslut.getOrdreListe().size(); i ++){
+            pizTilStat.add(ordreTilAfslut.getOrdreListe().get(i));
+
+        }
+        bestillinger.remove(ordreTilAfslut);
+        return pizTilStat;
     }
 
     @Override
