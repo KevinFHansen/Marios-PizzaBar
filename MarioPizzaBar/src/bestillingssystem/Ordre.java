@@ -21,54 +21,55 @@ public class Ordre {
     private ArrayList<Pizza> ordreListe = new ArrayList<Pizza>();
     private ArrayList<Drikkevarer> salgAfDrikkeVare = new ArrayList<>();
     boolean stopDrikkevare = false;
+
     // Getters
-    public String getOrdreId(){
+    public String getOrdreId() {
         return this.ordreId;
     }
 
-    public LocalTime getBestillingstidspunkt(){
+    public LocalTime getBestillingstidspunkt() {
         return this.bestillingstidspunkt;
     }
 
-    public int getSamletProduktionstid(){
+    public int getSamletProduktionstid() {
         return this.samletProduktionstid;
     }
 
-    public LocalTime getAfhentningstidspunkt(){
+    public LocalTime getAfhentningstidspunkt() {
         return this.afhentningstidspunkt;
     }
 
-    public ArrayList<Pizza> getOrdreListe(){
+    public ArrayList<Pizza> getOrdreListe() {
         return this.ordreListe;
     }
 
-    public String getKommentar(){
+    public String getKommentar() {
         return this.kommentar;
     }
 
     // Setters
-    public void setOrdreId(String ordreId){
+    public void setOrdreId(String ordreId) {
         this.ordreId = ordreId;
     }
 
-    public void setBestillingstidspunkt(LocalTime bestillingstidspunkt){
+    public void setBestillingstidspunkt(LocalTime bestillingstidspunkt) {
         this.bestillingstidspunkt = bestillingstidspunkt;
     }
 
-    public void setSamletProduktionstid(int samletProduktionstid){
+    public void setSamletProduktionstid(int samletProduktionstid) {
         this.samletProduktionstid = samletProduktionstid;
     }
 
-    public void setAfhentningstidspunkt(LocalTime afhentningstidspunkt){
+    public void setAfhentningstidspunkt(LocalTime afhentningstidspunkt) {
         this.afhentningstidspunkt = afhentningstidspunkt;
     }
 
-    public void setKommentar(String ordreKommentar){
+    public void setKommentar(String ordreKommentar) {
         this.kommentar = ordreKommentar;
     }
 
 
-    public Ordre opretOrdre()throws FileNotFoundException{
+    public Ordre opretOrdre() throws FileNotFoundException {
 
         Ordre nyOrdre = new Ordre();
 
@@ -93,14 +94,14 @@ public class Ordre {
         // godkend afhentningstidspunkt
         System.out.println("1. for at godkende afhentningstidspunktet \n2. for at ændre afhentningstidspunktet");
 
-        if(sc.nextInt() == 2){
+        if (sc.nextInt() == 2) {
             nyOrdre.ændreAfhentningstidspunkt();
         }
 
         return nyOrdre;
     }
 
-    public void tilføjPizza()throws FileNotFoundException {
+    public void tilføjPizza() throws FileNotFoundException {
         boolean flag = true;
 
         Menukort menukort = new Menukort();
@@ -111,17 +112,17 @@ public class Ordre {
 
             System.out.println("1. Tilføj pizza til ordren \n2. Godkend ordren");
 
-            if(sc.nextInt() == 1) {
+            if (sc.nextInt() == 1) {
                 System.out.println("Tast nr. på den pizza du vil tilføje ordren");
                 ordreListe.add(pizzaListe.get(sc.nextInt() - 1));
 
-                }
-
-            else {flag = false;}
+            } else {
+                flag = false;
+            }
         }
     }
 
-    public void ændreAfhentningstidspunkt(){
+    public void ændreAfhentningstidspunkt() {
 
         System.out.println("Indtast antal minutter til ordren skal afhentes");
 
@@ -130,7 +131,7 @@ public class Ordre {
         setAfhentningstidspunkt(bestemtTidFærdig);
     }
 
-    public void ordreKommentar(){
+    public void ordreKommentar() {
 
         System.out.println("Indtast kommentar til ordre");
         String kommentar = sc.nextLine();
@@ -138,10 +139,10 @@ public class Ordre {
         setKommentar(kommentar);
     }
 
-    public void visOrdre(){
+    public void visOrdre() {
         System.out.println("[" + getOrdreId() + "] Afhentes: " + getAfhentningstidspunkt());
 
-        for(int i = 0; i < ordreListe.size(); i++){
+        for (int i = 0; i < ordreListe.size(); i++) {
             System.out.println(ordreListe.get(i).toString());
         }
 
@@ -152,26 +153,13 @@ public class Ordre {
         String pizzaer = ordreListe.get(0).toString();
 
         for (int i = 1; i < ordreListe.size(); i++) {
-            pizzaer = pizzaer + "\n" +  ordreListe.get(i).toString();
+            pizzaer = pizzaer + "\n" + ordreListe.get(i).toString();
         }
 
         String ordreStreng[] = {String.valueOf(afhentningstidspunkt), ordreId, pizzaer, kommentar};
 
         return ordreStreng;
     }
-
-    public void tilføjDrikkevare(){
-        int valgDrikkevare = sc.nextInt();
-
-
-        while (!stopDrikkevare)
-
-
-        switch (valgDrikkevare){
-
-        }
-        Menukort menukort = new Menukort();
-        ArrayList<Drikkevarer> drikkevareListe = menukort.drikkevarerListe;
 
     public void tilføjDrikkevare() throws FileNotFoundException {
         System.out.println("Vil du tilføje drikkevare?");
@@ -186,51 +174,50 @@ public class Ordre {
 
         while (!stopDrikkevare)
 
-        switch (valgDrikkevare){
+            switch (valgDrikkevare) {
 
-            case 1:
-                drikkevareMenu();
+                case 1:
+                    drikkevareMenu();
 
-                int valg1 = scanDrikkevare.nextInt();
+                    int valg1 = scanDrikkevare.nextInt();
 
-        if (valg1 < 5 || valg1 > 0){
-           // salgAfDrikkeVare.add(drikkevareListe.get(scanDrikkevare.nextInt() - 1));
-            salgAfDrikkeVare.add(drikkevareListe.get(scanDrikkevare.nextInt() - 1));
-            System.out.println(drikkevareListe);
-            break;
-        }
+                    if (valg1 < 5 || valg1 > 0) {
+                        // salgAfDrikkeVare.add(drikkevareListe.get(scanDrikkevare.nextInt() - 1));
+                        salgAfDrikkeVare.add(drikkevareListe.get(scanDrikkevare.nextInt() - 1));
+                        System.out.println(drikkevareListe);
+                        break;
+                    } else if (valg1 == 5) {
+                        break;
+                    }
 
-        else if (valg1 == 5){
-            break;
-        }
+                case 2: {
+                    stopDrikkevare = true;
 
-            case 2: {
-                stopDrikkevare = true;
-
+                }
             }
+    }
+
+
+
+        public void drikkevareMenu () {
+            System.out.println("Tast nr. på den drikkevare du vil tilføje ordren");
+            System.out.println("Tast 1 - Tilføj Sodavand (20 kr.)");
+            System.out.println("Tast 2 - Tilføj Vin (25 kr.)");
+            System.out.println("Tast 3 - Tilføj Øl (25 kr.)");
+            System.out.println("Tast 4 - Tilføj Vand (20 kr.)");
+            System.out.println("Tast 5 - Gå tilbage");
         }
-    }
 
-
-
-    public void drikkevareMenu(){
-        System.out.println("Tast nr. på den drikkevare du vil tilføje ordren");
-        System.out.println("Tast 1 - Tilføj Sodavand (20 kr.)");
-        System.out.println("Tast 2 - Tilføj Vin (25 kr.)");
-        System.out.println("Tast 3 - Tilføj Øl (25 kr.)");
-        System.out.println("Tast 4 - Tilføj Vand (20 kr.)");
-        System.out.println("Tast 5 - Gå tilbage");
-    }
-
-    @Override
-    public String toString() {
-        return " Ordre {" +
-                "ordre Id=' " + ordreId + '\'' +
-                ", bestillingstidspunkt= " + bestillingstidspunkt +
-                ", samletProduktionstid= " + samletProduktionstid +
-                ", afhentningstidspunkt= " + afhentningstidspunkt +
-                ", kommentar=' " + kommentar + '\'' +
-                ", ordreListe= " + ordreListe +
-                '}';
-    }
+        @Override
+        public String toString () {
+            return " Ordre {" +
+                    "ordre Id=' " + ordreId + '\'' +
+                    ", bestillingstidspunkt= " + bestillingstidspunkt +
+                    ", samletProduktionstid= " + samletProduktionstid +
+                    ", afhentningstidspunkt= " + afhentningstidspunkt +
+                    ", kommentar=' " + kommentar + '\'' +
+                    ", ordreListe= " + ordreListe +
+                    '}';
+        }
 }
+

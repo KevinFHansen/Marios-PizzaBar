@@ -1,4 +1,4 @@
-/*package bestillingssystem;
+package bestillingssystem;
 
 import Menukort_Pizza.Pizza;
 import Statistik.Statistik;
@@ -91,4 +91,3 @@ public class Bestillingsliste {
     }
 }
 
-*/
