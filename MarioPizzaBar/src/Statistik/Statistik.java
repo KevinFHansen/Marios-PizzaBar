@@ -4,9 +4,7 @@ import bestillingssystem.Bestillingsliste;
 import bestillingssystem.Ordre;
 
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.sql.Time;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -36,7 +34,7 @@ public class Statistik {
 
 
 
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) throws IOException {
         Statistik sta = new Statistik(0,0);
 
         Ordre ordre = new Ordre();
@@ -69,20 +67,19 @@ public class Statistik {
    }
 
 
-    public void tilføjPizzaTilFil() throws FileNotFoundException {
+    public void tilføjPizzaTilFil() throws IOException {
 
         File fout = new File("MarioPizzaBar/Ressourcer/Statistik.csv");
 
 
-        PrintWriter writer = new PrintWriter(fout);
-        writer.print("");
-        writer.println("nummer;pris;dato");
+        FileWriter writer = new FileWriter(fout, true);
+
 
 
         for(int i = 0; i < pizzaStatistik.size(); i++){
-            writer.print(pizzaStatistik.get(i).getPizzaNummer() + ";");
-            writer.print(pizzaStatistik.get(i).getPris() + ";");
-            writer.println(dato);
+            writer.append(pizzaStatistik.get(i).getPizzaNummer() + ";");
+            writer.append(pizzaStatistik.get(i).getPris() + ";");
+            writer.append(dato.toString() + "\n");
         }
         writer.close();
     }
@@ -115,12 +112,12 @@ public class Statistik {
 
     }
 
-    public int getOmsætningFraFil(ArrayList<Statistik> priserFraFil){
+    public String getOmsætningFraFil(ArrayList<Statistik> priserFraFil){
         int omsætningFraFil = 0;
         for (int i = 0; i < priserFraFil.size(); i ++){
             omsætningFraFil = omsætningFraFil + priserFraFil.get(i).getOmsætning();
         }
-        return omsætningFraFil;
+        return "Omsætning: " + omsætningFraFil + "";
 
     }
 
