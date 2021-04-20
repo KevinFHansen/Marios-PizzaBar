@@ -115,7 +115,6 @@ public class Menukort{
     }
 
     public void opretNyPizza() throws FileNotFoundException {
-
         System.out.println("Indtast nr på pizza der skal laves");
         int pizzaNr = scn.nextInt()-1;
         scn.nextLine();
