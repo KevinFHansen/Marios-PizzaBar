@@ -65,7 +65,7 @@ public class Bestillingsliste {
             }
         });
         for (int i = 0; i < bestillinger.size(); i++){
-            System.out.println("Afhentningstidspunkt: " + bestillinger.get(i).getAfhentningstidspunkt() + " Ordre: " +
+            System.out.println((i+1) + ". " + "Afhentningstidspunkt: " + bestillinger.get(i).getAfhentningstidspunkt() + " Ordre: " +
                     bestillinger.get(i).getOrdreListe() + " ordreID: " + bestillinger.get(i).getOrdreId());
         }
     }

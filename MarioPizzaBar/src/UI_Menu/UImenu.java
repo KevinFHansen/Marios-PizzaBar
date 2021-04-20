@@ -57,6 +57,7 @@ public class UImenu {
                     bestillinger.beregnVentetid();
                     gui.opdaterVindue(bestillinger.getBestillinger());
 
+
                 }
 
                 else if (choice== 3) {
@@ -66,8 +67,10 @@ public class UImenu {
                 }
 
                 else if (choice == 4) {
-                    System.out.println("Du har valgt af afslutte ordren");
-                    //afslut ordre metode();
+                    bestillinger.visBestillinger();
+                    System.out.println("Indtast nr på den ordre du vil afslutte?");
+                    int afslutNr = scn.nextInt()-1;
+                    bestillinger.afslutOrdre(bestillinger.getBestillinger().get(afslutNr));
                 }
 
                 else if (choice == 5) {
