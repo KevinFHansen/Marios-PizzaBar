@@ -77,7 +77,6 @@ public class UImenu {
 
                 else if (choice == 5) {
                     System.out.println("Her er hovedmenuen");
-                    continue;
                 }
 
                 else {
