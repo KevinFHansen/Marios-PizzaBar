@@ -25,6 +25,10 @@ public class Bestillingsliste {
         return ventetid;
     }
 
+    public ArrayList<Ordre> getBestillinger(){
+        return bestillinger;
+    }
+
     // setter
     public void setVentetid(int ventetid) {
         this.ventetid = ventetid;

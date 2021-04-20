@@ -1,6 +1,7 @@
 package UI_Menu;
 
 import Menukort_Pizza.Menukort;
+import bestillingssystem.Bestillingsliste;
 import bestillingssystem.Ordre;
 
 import java.io.IOException;
@@ -12,15 +13,17 @@ public class UImenu {
     boolean exitProgram = false;
     Menukort menukort = new Menukort();
     Ordre ordre = new Ordre();
-
+    Bestillingsliste bestillinger = new Bestillingsliste();
+    BestillingerGUI gui = new BestillingerGUI();
+    Scanner scn = new Scanner(System.in);
 
 
 
     public void startUI () throws IOException {
+
         printLogo();
         while (!exitProgram){
-        presentMenuOptions();
-        Scanner scn = new Scanner(System.in);
+            presentMenuOptions();
         int userInput = scn.nextInt();
 
         switch (userInput) {
@@ -49,7 +52,11 @@ public class UImenu {
 
                 else if (choice == 2) {
                     System.out.println("Du har valgt at oprette en ny ordre");
-                    ordre.opretOrdre();
+                    Ordre nyOrdre = ordre.opretOrdre();
+                    bestillinger.tilføjOrdreTilBestillinger(nyOrdre);
+                    bestillinger.beregnVentetid();
+                    gui.opdaterVindue(bestillinger.getBestillinger());
+
                 }
 
                 else if (choice== 3) {
@@ -100,9 +107,8 @@ public class UImenu {
 
                 else {
                     System.out.println("Forkert indtastning - Tast 1, 2, 3 eller 4");
-
+                    break;
                 }
-                break;
 
 
         //Valg 4 - Afslut ordre
