@@ -14,11 +14,6 @@ public class Bestillingsliste {
     private ArrayList<Ordre> bestillinger = new ArrayList<>();
     static int ventetid;
 
-    // constructor
-    public Bestillingsliste(int ventetid){
-        this.ventetid = ventetid;
-    }
-
 
     // getter
     public int getVentetid() {
@@ -72,10 +67,6 @@ public class Bestillingsliste {
 
 
     public ArrayList<Pizza> afslutOrdre(Ordre ordreTilAfslut) {
-
-
-        System.out.print("Indtast navn på ordre der skal afsluttes: ");
-
 
         ArrayList<Pizza> pizTilStat = new ArrayList<>();
 
