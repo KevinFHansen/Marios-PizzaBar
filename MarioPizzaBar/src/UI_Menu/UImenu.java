@@ -103,8 +103,8 @@ public class UImenu {
                 else if (choice1 == 3){
                     System.out.println("Du har valgt at ændre en pizza på menukortet");
                     menukort.lavOmPåPizza();
-
                 }
+
                 else if (choice1 == 4) {
                     break;
                 }
