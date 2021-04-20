@@ -3,6 +3,7 @@ package UI_Menu;
 import bestillingssystem.Ordre;
 
 import javax.swing.*;
+import java.awt.event.WindowEvent;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
@@ -30,6 +31,7 @@ public class BestillingerGUI {
         ramme.add(sp);
         ramme.setSize(600, 300);
         ramme.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //ramme.dispatchEvent(new WindowEvent(ramme, WindowEvent.WINDOW_CLOSING));
         ramme.setVisible(true);
 
     }
