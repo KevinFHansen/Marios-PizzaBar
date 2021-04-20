@@ -4,10 +4,9 @@ import bestillingssystem.Bestillingsliste;
 import bestillingssystem.Ordre;
 
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.sql.Time;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -15,14 +14,13 @@ public class Statistik {
 
     private int pizzaNr;
     private int omsætning;
-    //private Time periode;
-
+    private LocalDate dato = LocalDate.now();
     private ArrayList<Pizza> pizzaStatistik = new ArrayList<>();
 
     public Statistik(int pizzaNr, int omsætning) {
-        //this.periode = periode;
         this.omsætning = omsætning;
         this.pizzaNr = pizzaNr;
+
     }
 
 
@@ -36,9 +34,10 @@ public class Statistik {
 
 
 
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) throws IOException {
+
         Statistik sta = new Statistik(0,0);
-        /*
+
         Ordre ordre = new Ordre();
         ordre.tilføjPizza();
         Bestillingsliste b = new Bestillingsliste();
@@ -53,11 +52,17 @@ public class Statistik {
 
         System.out.println(sta.pizzaStatistik);
 
-        */
+        sta.tilføjPizzaTilFil();
 
         System.out.println(sta.læsStatistikFraFil());
-        System.out.println(sta.getOmsætningFraFil(sta.læsStatistikFraFil()));
 
+        System.out.println();
+
+        System.out.println(sta.beregnOmsætningFraFil(sta.læsStatistikFraFil()));
+
+        System.out.println();
+
+        System.out.println(sta.mestSolgtePizza(sta.læsStatistikFraFil()));
     }
 
    public void tilføjPizzaTilStatistik(ArrayList<Pizza> pizzaTilStat) {
@@ -68,19 +73,18 @@ public class Statistik {
    }
 
 
-    public void tilføjPizzaTilCsv() throws FileNotFoundException {
+    public void tilføjPizzaTilFil() throws IOException {
 
         File fout = new File("MarioPizzaBar/Ressourcer/Statistik.csv");
 
 
-        PrintWriter writer = new PrintWriter(fout);
-        writer.print("");
-        writer.println("nummer;pris");
+        FileWriter writer = new FileWriter(fout, true);
 
 
         for(int i = 0; i < pizzaStatistik.size(); i++){
-            writer.print(pizzaStatistik.get(i).getPizzaNummer() + ";");
-            writer.println(pizzaStatistik.get(i).getPris());
+            writer.append(pizzaStatistik.get(i).getPizzaNummer() + ";");
+            writer.append(pizzaStatistik.get(i).getPris() + ";");
+            writer.append(dato.toString() + "\n");
         }
         writer.close();
     }
@@ -103,6 +107,7 @@ public class Statistik {
             int nummer = Integer.parseInt(linjeSomArray[0].trim());
             int pris = Integer.parseInt(linjeSomArray[1].trim());
 
+
             Statistik tmpStat = new Statistik(nummer, pris);
             nummerOgPris.add(tmpStat);
 
@@ -112,13 +117,36 @@ public class Statistik {
 
     }
 
-    public int getOmsætningFraFil(ArrayList<Statistik> priserFraFil){
+
+    // indtast dato for omsætning
+    public String beregnOmsætningFraFil(ArrayList<Statistik> priserFraFil){
         int omsætningFraFil = 0;
         for (int i = 0; i < priserFraFil.size(); i ++){
             omsætningFraFil = omsætningFraFil + priserFraFil.get(i).getOmsætning();
         }
-        return omsætningFraFil;
+        return "Omsætning: " + omsætningFraFil + " kr.";
+    }
 
+
+    public String mestSolgtePizza(ArrayList<Statistik> numreFraFil){
+        int element = 0;
+        int count = 0;
+
+        for( int i = 0 ; i < numreFraFil.size(); i ++){
+
+            int tempEl = numreFraFil.get(i).pizzaNr;
+            int tempCount = 0;
+
+            for (int j = 0; j < numreFraFil.size(); j++)
+                if (numreFraFil.get(i).pizzaNr == tempEl)
+                    tempCount++;
+            if (tempCount>count){
+                element = tempEl;
+                count = tempCount;
+            }
+
+        }
+    return "Den mest solgte pizza er nr: " + element + " Antal: " + count;
     }
 
     @Override

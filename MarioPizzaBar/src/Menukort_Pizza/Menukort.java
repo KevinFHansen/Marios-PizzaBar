@@ -1,4 +1,5 @@
 package Menukort_Pizza;
+import java.awt.*;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -60,29 +61,10 @@ public class Menukort{
     }
 
 
-    public static void main(String[] args) throws IOException {
-        Menukort menukort = new Menukort();
-        /*
-        menukort.setPizzaListe(menukort.indlæsMenukort());
-
-        System.out.println(menukort.pizzaListe);
-
-        menukort.fjernPizza();
-        System.out.println(menukort.pizzaListe);
-        */
-
-
-        menukort.setDrikkevarerListe(menukort.indlæsDrikkevare());
-        System.out.println(menukort.drikkevarerListe);
-
-        menukort.lavOmPåDrikkevare();
-    }
-
-
 
     //Pizza getters og setters
 
-    public ArrayList<Pizza> getPizzaListe(){
+    public ArrayList<Pizza> getPizzaListe() {
         return this.pizzaListe;
     }
 
@@ -98,11 +80,14 @@ public class Menukort{
 
     //Pizza metoder:
 
-    public void visPizzaListe(){
-        System.out.println(pizzaListe);
+    public void visPizzaListe() throws FileNotFoundException {
+        Menukort menukort = new Menukort();
+        System.out.println("Menukort");
+        menukort.setPizzaListe(menukort.indlæsMenukort());
+        menukort.pizzaListe.forEach(System.out::println);
     }
 
-    public void fjernPizza() throws FileNotFoundException {
+    public void fjernPizza() throws FileNotFoundException{
         System.out.println("Skriv nummer på pizza der skal fjernes");
         int fjernNummer = scn.nextInt();
         pizzaListe.remove(fjernNummer-1);
@@ -171,8 +156,11 @@ public class Menukort{
 
     //Drikkevare metoder
 
-    public void visDrikkevarer(){
-        System.out.println(drikkevarerListe);
+    public void visDrikkevarer() throws FileNotFoundException {
+        Menukort menukort = new Menukort();
+        System.out.println("Dikkevarer");
+        menukort.setDrikkevarerListe(menukort.indlæsDrikkevare());
+        menukort.drikkevarerListe.forEach(System.out::println);
     }
 
     public void fjernDrikkevarer() throws FileNotFoundException {

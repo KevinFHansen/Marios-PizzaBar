@@ -4,6 +4,8 @@ import Menukort_Pizza.Menukort;
 import bestillingssystem.Bestillingsliste;
 import bestillingssystem.Ordre;
 
+import java.awt.*;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -59,13 +61,13 @@ public class UImenu {
 
                     gui.opdaterVindue(bestillinger.getBestillinger(), gui.getTabel());
 
-
                 }
 
-                else if (choice== 3) {
+                else if (choice == 3) {
                     System.out.println();
                     System.out.println("Du har valgt at slette en ordre - Her er din ordre liste");
                     //slet ordre metode();
+
                 }
 
                 else if (choice == 4) {
@@ -78,7 +80,6 @@ public class UImenu {
 
                 else if (choice == 5) {
                     System.out.println("Her er hovedmenuen");
-                    continue;
                 }
 
                 else {
@@ -94,19 +95,23 @@ public class UImenu {
 
                 if (choice1 == 1) {
                     System.out.println("Du har valgt at tilføje en ny pizza til menukortet");
+                    menukort.setPizzaListe(menukort.indlæsMenukort());
                     menukort.opretNyPizza();
+                    break;
                 }
 
                 else if (choice1 == 2){
                     System.out.println("Du har valgt at fjerne en pizza fra menukortet");
+                    menukort.setPizzaListe(menukort.indlæsMenukort());
                     menukort.fjernPizza();
                     }
 
                 else if (choice1 == 3){
                     System.out.println("Du har valgt at ændre en pizza på menukortet");
+                    menukort.setPizzaListe(menukort.indlæsMenukort());
                     menukort.lavOmPåPizza();
-
                 }
+
                 else if (choice1 == 4) {
                     break;
                 }
@@ -184,7 +189,7 @@ public class UImenu {
         System.out.println("Tast 5 - Gå tilbage");
     }
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, ArrayIndexOutOfBoundsException {
         UImenu uImenu = new UImenu();
         uImenu.startUI();
 
