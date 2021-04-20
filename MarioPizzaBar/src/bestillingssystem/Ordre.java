@@ -147,47 +147,48 @@ public class Ordre {
         System.out.println("Kommentar: " + getKommentar());
     }
 
-    public void tilføjDrikkevare(){
-        int valgDrikkevare = sc.nextInt();
-
-
-        while (!stopDrikkevare)
-
-
-        switch (valgDrikkevare){
-
-        }
-        Menukort menukort = new Menukort();
-        ArrayList<Drikkevarer> drikkevareListe = menukort.drikkevarerListe;
-
+    public void tilføjDrikkevare() throws FileNotFoundException {
         System.out.println("Vil du tilføje drikkevare?");
         System.out.println("Tast 1 - JA");
         System.out.println("Tast 2 - NEJ");
-        sc.nextInt();
-        if (sc.nextInt() == 1) {
-            drikkevareMenu();
-            System.out.println("Tast nr. på den drikkevare du vil tilføje ordren");
-            salgAfDrikkeVare.add(drikkevareListe.get(sc.nextInt() - 1));
-
-        }
-    }
-
-    public void vælgDrikkevare(){
-
         Menukort menukort = new Menukort();
-
         ArrayList<Drikkevarer> drikkevareListe = menukort.drikkevarerListe;
 
-        drikkevareMenu();
-        sc.nextInt();
-        if (sc.nextInt() == 1){
+        Scanner scanDrikkevare = new Scanner(System.in);
 
+        int valgDrikkevare = sc.nextInt();
+
+        while (!stopDrikkevare)
+
+        switch (valgDrikkevare){
+
+            case 1:
+                drikkevareMenu();
+
+                int valg1 = scanDrikkevare.nextInt();
+
+        if (valg1 < 5 || valg1 > 0){
+           // salgAfDrikkeVare.add(drikkevareListe.get(scanDrikkevare.nextInt() - 1));
+            salgAfDrikkeVare.add(drikkevareListe.get(scanDrikkevare.nextInt() - 1));
+            System.out.println(drikkevareListe);
+            break;
         }
 
+        else if (valg1 == 5){
+            break;
+        }
+
+            case 2: {
+                stopDrikkevare = true;
+
+            }
+        }
     }
 
+
+
     public void drikkevareMenu(){
-        System.out.println("Tilføj Drikkevare");
+        System.out.println("Tast nr. på den drikkevare du vil tilføje ordren");
         System.out.println("Tast 1 - Tilføj Sodavand (20 kr.)");
         System.out.println("Tast 2 - Tilføj Vin (25 kr.)");
         System.out.println("Tast 3 - Tilføj Øl (25 kr.)");

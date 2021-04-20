@@ -1,4 +1,4 @@
-package Statistik;
+/*package Statistik;
 import Menukort_Pizza.Pizza;
 import bestillingssystem.Bestillingsliste;
 import bestillingssystem.Ordre;
@@ -9,7 +9,6 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.sql.Time;
 import java.util.ArrayList;
-
 public class Statistik {
 
     private int omsætning = 0;
@@ -43,7 +42,7 @@ public class Statistik {
 
     /*public ArrayList<Ordre> indlæsStatistik()throws FileNotFoundException{
         File Statistik = new File(MarioPizzaBar/Ressourcer/Statistik.csv);
-    }*/
+    }
 
     public static void main(String[] args) throws FileNotFoundException {
         Statistik sta = new Statistik();
@@ -70,6 +69,7 @@ public class Statistik {
         }
         setAntalPizzaSolgt(countPizza);
         setOmsætning(countOmsætning);*/
+/*
     }
 
     public void visOmsætning(){
@@ -123,3 +123,4 @@ public class Statistik {
 
 }
 
+*/

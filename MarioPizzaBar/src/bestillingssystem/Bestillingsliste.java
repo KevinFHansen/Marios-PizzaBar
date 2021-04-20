@@ -1,4 +1,4 @@
-package bestillingssystem;
+/*package bestillingssystem;
 
 import Statistik.Statistik;
 
@@ -78,3 +78,4 @@ public class Bestillingsliste {
     }
 }
 
+*/

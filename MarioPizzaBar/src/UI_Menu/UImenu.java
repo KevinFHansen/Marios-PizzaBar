@@ -14,8 +14,6 @@ public class UImenu {
     Ordre ordre = new Ordre();
 
 
-
-
     public void startUI () throws IOException {
         printLogo();
         while (!exitProgram){
@@ -31,7 +29,8 @@ public class UImenu {
             case 1:
                 System.out.println("Her er menukortet");
                 menukort.visPizzaListe();
-                break;
+                ordre.tilføjDrikkevare();
+
 
         //Valg 2 - Håndter ordrer
             case 2:
@@ -70,8 +69,8 @@ public class UImenu {
 
                 else {
                     System.out.println("Forkert indtastning - Tast 1, 2, 3, 4 eller 5");
-                    break;
                 }
+                break;
 
             //Valg 3 - Skift Pizza
             case 3:
@@ -100,8 +99,8 @@ public class UImenu {
 
                 else {
                     System.out.println("Forkert indtastning - Tast 1, 2, 3 eller 4");
-
                 }
+
                 break;
 
 
