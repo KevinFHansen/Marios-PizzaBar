@@ -1,4 +1,5 @@
 package Menukort_Pizza;
+import java.awt.*;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -62,27 +63,28 @@ public class Menukort{
 
     public static void main(String[] args) throws IOException {
         Menukort menukort = new Menukort();
-        /*
+
         menukort.setPizzaListe(menukort.indlæsMenukort());
 
-        System.out.println(menukort.pizzaListe);
+        menukort.opretNyPizza();
 
-        menukort.fjernPizza();
-        System.out.println(menukort.pizzaListe);
-        */
+        menukort.visPizzaListe();
 
 
+        /*
         menukort.setDrikkevarerListe(menukort.indlæsDrikkevare());
         System.out.println(menukort.drikkevarerListe);
 
-        menukort.lavOmPåDrikkevare();
+
+
+         */
     }
 
 
 
     //Pizza getters og setters
 
-    public ArrayList<Pizza> getPizzaListe(){
+    public ArrayList<Pizza> getPizzaListe() {
         return this.pizzaListe;
     }
 
@@ -98,8 +100,10 @@ public class Menukort{
 
     //Pizza metoder:
 
-    public void visPizzaListe(){
-        System.out.println(pizzaListe);
+    public void visPizzaListe() throws FileNotFoundException {
+        Menukort menukort = new Menukort();
+        menukort.setPizzaListe(menukort.indlæsMenukort());
+        System.out.println(menukort.pizzaListe);
     }
 
     public void fjernPizza() throws FileNotFoundException {
@@ -171,8 +175,10 @@ public class Menukort{
 
     //Drikkevare metoder
 
-    public void visDrikkevarer(){
-        System.out.println(drikkevarerListe);
+    public void visDrikkevarer() throws FileNotFoundException {
+        Menukort menukort = new Menukort();
+        menukort.setDrikkevarerListe(menukort.indlæsDrikkevare());
+        System.out.println(menukort.drikkevarerListe);
     }
 
     public void fjernDrikkevarer() throws FileNotFoundException {

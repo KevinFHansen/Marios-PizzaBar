@@ -57,7 +57,6 @@ public class UImenu {
                     bestillinger.beregnVentetid();
                     gui.opdaterVindue(bestillinger.getBestillinger());
 
-
                 }
 
                 else if (choice== 3) {
@@ -91,6 +90,8 @@ public class UImenu {
 
                 if (choice1 == 1) {
                     System.out.println("Du har valgt at tilføje en ny pizza til menukortet");
+                    Menukort menukort = new Menukort();
+                    menukort.setPizzaListe(menukort.indlæsMenukort());
                     menukort.opretNyPizza();
                 }
 
