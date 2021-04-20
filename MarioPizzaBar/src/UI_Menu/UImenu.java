@@ -77,8 +77,8 @@ public class UImenu {
 
                 else {
                     System.out.println("Forkert indtastning - Tast 1, 2, 3, 4 eller 5");
-                    break;
                 }
+                break;
 
             //Valg 3 - Skift Pizza
             case 3:

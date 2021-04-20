@@ -12,7 +12,7 @@ public class BestillingerGUI {
         String[] overskrifter = {"Afhentningstidspunkt", "Navn", "Pizza", "Kommentar"};
 
         // tabel data
-        String [][] bestillingerTilTabel = new String[4][3];
+        String [][] bestillingerTilTabel = new String[3][4];
 
         for(int i = 0; i < bestillinger.size(); i++){
             bestillingerTilTabel[i][0] = bestillinger.get(i).ordreStreng()[0];

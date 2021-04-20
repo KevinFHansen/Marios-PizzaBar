@@ -83,10 +83,11 @@ public class Ordre {
         nyOrdre.setSamletProduktionstid(8 + (ordreListe.size() * 2));
 
         // Tilføj kommentar
-        nyOrdre.ordreKommentar();
+        System.out.println("Indtast kommentar til ordre");
+        nyOrdre.setKommentar(sc.nextLine());
 
         // afhentningstidspunkt - mangler ventetid
-        nyOrdre.setAfhentningstidspunkt(bestillingstidspunkt.plusMinutes(Bestillingsliste.ventetid + nyOrdre.getSamletProduktionstid()));
+        nyOrdre.setAfhentningstidspunkt(nyOrdre.getBestillingstidspunkt().plusMinutes(Bestillingsliste.ventetid + nyOrdre.getSamletProduktionstid()));
 
         // godkend afhentningstidspunkt
         System.out.println("1. for at godkende afhentningstidspunktet \n2. for at ændre afhentningstidspunktet");
@@ -131,7 +132,7 @@ public class Ordre {
     public void ordreKommentar(){
 
         System.out.println("Indtast kommentar til ordre");
-        String kommentar = (sc.nextLine());
+        String kommentar = sc.nextLine();
 
         setKommentar(kommentar);
     }
@@ -150,7 +151,7 @@ public class Ordre {
         String pizzaer = ordreListe.get(0).toString();
 
         for (int i = 1; i < ordreListe.size(); i++) {
-            pizzaer = pizzaer + "%n" +  ordreListe.get(i).toString();
+            pizzaer = pizzaer + "\n" +  ordreListe.get(i).toString();
         }
 
         String ordreStreng[] = {String.valueOf(afhentningstidspunkt), ordreId, pizzaer, kommentar};
