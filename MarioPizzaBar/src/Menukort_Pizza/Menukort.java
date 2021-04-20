@@ -66,10 +66,9 @@ public class Menukort{
 
         menukort.setPizzaListe(menukort.indlæsMenukort());
 
-        menukort.opretNyPizza();
 
         menukort.visPizzaListe();
-
+        menukort.visDrikkevarer();
 
         /*
         menukort.setDrikkevarerListe(menukort.indlæsDrikkevare());
@@ -102,8 +101,9 @@ public class Menukort{
 
     public void visPizzaListe() throws FileNotFoundException {
         Menukort menukort = new Menukort();
+        System.out.println("Menukort");
         menukort.setPizzaListe(menukort.indlæsMenukort());
-        System.out.println(menukort.pizzaListe);
+        menukort.pizzaListe.forEach(System.out::println);
     }
 
     public void fjernPizza() throws FileNotFoundException {
@@ -177,8 +177,9 @@ public class Menukort{
 
     public void visDrikkevarer() throws FileNotFoundException {
         Menukort menukort = new Menukort();
+        System.out.println("Dikkevarer");
         menukort.setDrikkevarerListe(menukort.indlæsDrikkevare());
-        System.out.println(menukort.drikkevarerListe);
+        menukort.drikkevarerListe.forEach(System.out::println);
     }
 
     public void fjernDrikkevarer() throws FileNotFoundException {
