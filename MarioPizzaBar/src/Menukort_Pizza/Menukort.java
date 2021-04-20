@@ -105,7 +105,7 @@ public class Menukort{
         menukort.pizzaListe.forEach(System.out::println);
     }
 
-    public void fjernPizza() throws FileNotFoundException {
+    public void fjernPizza() throws FileNotFoundException{
         System.out.println("Skriv nummer på pizza der skal fjernes");
         int fjernNummer = scn.nextInt();
         pizzaListe.remove(fjernNummer-1);
