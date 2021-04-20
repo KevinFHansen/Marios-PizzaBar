@@ -29,10 +29,8 @@ pris;navn;nummer;fyld
 74;Torino;28;tomatsauce, ost, kødstrimler og løg
 70;Nemrut;29;tomatsauce, ost, pepperoni og dressing
 72;Finale;30;tomatsauce, ost, kebab, bacon, bearnaise og dressing
-68;navn;31;van
-57;ost;31;ost
-58;ost;32;ost
-90;ossi;31;ossi
-68;nvan;35;ost
-68;man;36;man
-90;ost;36;ost
+60;osv;31;osv
+40;osv;32;osv
+60;osv;33;osv
+50;osv;34;osv
+50;osv;35;osv
