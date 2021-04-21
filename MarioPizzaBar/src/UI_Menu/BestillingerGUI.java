@@ -1,11 +1,7 @@
 package UI_Menu;
 
 import bestillingssystem.Ordre;
-
 import javax.swing.*;
-import javax.swing.table.TableModel;
-import java.awt.event.WindowEvent;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 public class BestillingerGUI {
@@ -36,6 +32,8 @@ public class BestillingerGUI {
         setTabel(tabel);
 
         tabel.setBounds(30, 40, 300, 200);
+        //tabel.doLayout();
+        //tabel.setRowHeight(40);
 
         JScrollPane sp = new JScrollPane(tabel);
 
