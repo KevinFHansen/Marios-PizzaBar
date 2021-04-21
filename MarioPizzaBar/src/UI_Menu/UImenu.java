@@ -59,7 +59,10 @@ public class UImenu {
                             System.out.println("Du har valgt at oprette en ny ordre");
                             Ordre nyOrdre = ordre.opretOrdre();
                             bestillinger.tilføjOrdreTilBestillinger(nyOrdre);
-                            bestillinger.beregnVentetid();
+                            bestillinger.beregnVentetid(bestillinger.getBestillinger().indexOf(nyOrdre));
+
+                            System.out.println("Nuværende bestillinger:");
+                            bestillinger.visBestillinger();
                             gui.opdaterVindue(bestillinger.getBestillinger(), gui.getTabel());
 
                         } else if (choice == 2){
