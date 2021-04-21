@@ -45,9 +45,9 @@ public class Bestillingsliste {
     }
 
 
-    public int beregnVentetid(){
+    public int beregnVentetid(int denneOrdre){
         int ventetid = 0;
-        for (int i = 0; i < bestillinger.size(); i++){
+        for (int i = 0; i <= denneOrdre; i++){
             ventetid = ventetid + bestillinger.get(i).getSamletProduktionstid();
             setVentetid(ventetid);
         } return ventetid;

@@ -2,7 +2,6 @@ package bestillingssystem;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-
 import Menukort_Pizza.Drikkevarer;
 import Menukort_Pizza.Menukort;
 import Menukort_Pizza.Pizza;
@@ -89,8 +88,9 @@ public class Ordre {
         System.out.println("Indtast kommentar til ordre");
         nyOrdre.setKommentar(sc.nextLine());
 
-        // afhentningstidspunkt - mangler ventetid
+        // afhentningstidspunkt
         nyOrdre.setAfhentningstidspunkt(nyOrdre.getBestillingstidspunkt().plusMinutes(Bestillingsliste.ventetid + nyOrdre.getSamletProduktionstid()));
+        nyOrdre.visOrdre();
 
         // godkend afhentningstidspunkt
         System.out.println("1. for at godkende afhentningstidspunktet \n2. for at ændre afhentningstidspunktet");
@@ -119,7 +119,9 @@ public class Ordre {
             } else {
                 flag = false;
             }
+
         }
+
     }
 
     public void ændreAfhentningstidspunkt() {
@@ -129,14 +131,6 @@ public class Ordre {
         LocalTime bestemtTidFærdig = bestillingstidspunkt.plusMinutes(sc.nextInt());
 
         setAfhentningstidspunkt(bestemtTidFærdig);
-    }
-
-    public void ordreKommentar() {
-
-        System.out.println("Indtast kommentar til ordre");
-        String kommentar = sc.nextLine();
-
-        setKommentar(kommentar);
     }
 
     public void visOrdre() {
@@ -150,10 +144,10 @@ public class Ordre {
     }
 
     public String[] ordreStreng() {
-        String pizzaer = ordreListe.get(0).toString();
+        String pizzaer = "Nr. " + String.valueOf(ordreListe.get(0).getPizzaNummer());
 
         for (int i = 1; i < ordreListe.size(); i++) {
-            pizzaer = pizzaer + "\n" + ordreListe.get(i).toString();
+            pizzaer = pizzaer + "\n" + "Nr. " + String.valueOf(ordreListe.get(i).getPizzaNummer());
         }
 
         String ordreStreng[] = {String.valueOf(afhentningstidspunkt), ordreId, pizzaer, kommentar};
@@ -162,7 +156,7 @@ public class Ordre {
     }
 
     public void tilføjDrikkevare() throws FileNotFoundException {
-        System.out.println("Vil du tilføje drikkevare?");
+        System.out.println("Vil du sælge drikkevare?");
         System.out.println("Tast 1 - JA");
         System.out.println("Tast 2 - NEJ");
         Menukort menukort = new Menukort();
@@ -179,24 +173,30 @@ public class Ordre {
                 case 1:
                     drikkevareMenu();
 
-                    int valg1 = scanDrikkevare.nextInt();
-
-                    if (valg1 < 5 || valg1 > 0) {
+                    Scanner scnTypeDrikkevare = new Scanner(System.in);
+                    int valg1 = scnTypeDrikkevare.nextInt();
+                    if (valg1 < 5 && valg1 > 0) {
                         // salgAfDrikkeVare.add(drikkevareListe.get(scanDrikkevare.nextInt() - 1));
                         salgAfDrikkeVare.add(drikkevareListe.get(scanDrikkevare.nextInt() - 1));
                         System.out.println(drikkevareListe);
-                        break;
+
                     } else if (valg1 == 5) {
-                        break;
+                        stopDrikkevare = true;
                     }
 
+                break;
                 case 2: {
                     stopDrikkevare = true;
-
+                    break;
                 }
-            }
-    }
 
+
+                default:
+                    System.out.println("Forkert indtastning - prøv igen");
+            }
+
+
+    }
 
         public void drikkevareMenu () {
             System.out.println("Tast nr. på den drikkevare du vil tilføje ordren");
