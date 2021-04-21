@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Menukort{
-    private String dato;
     private ArrayList<Pizza> pizzaListe = new ArrayList<>();
     private ArrayList<Drikkevarer> drikkevarerListe = new ArrayList<>();
     Scanner scn = new Scanner(System.in);
@@ -84,11 +83,7 @@ public class Menukort{
     //Pizza metoder:
 
     public void visPizzaListe(ArrayList<Pizza> pizzaListe) throws FileNotFoundException {
-        //Menukort menukort = new Menukort();
         System.out.println("Menukort");
-        //menukort.setPizzaListe(menukort.indlæsMenukort());
-        //menukort.pizzaListe.forEach(System.out::println);
-        //pizzaListe.forEach(System.out::println);
         for(int i = 0; i < pizzaListe.size(); i++){
             System.out.println("Nr " + (i+1) + " " + pizzaListe.get(i).getNavn() + ": " + pizzaListe.get(i).getFyld() + " kr:" + pizzaListe.get(i).getPris());
         }
