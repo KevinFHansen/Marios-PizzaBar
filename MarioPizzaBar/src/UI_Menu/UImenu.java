@@ -1,6 +1,7 @@
 package UI_Menu;
 
 import Menukort_Pizza.Menukort;
+import Statistik.Statistik;
 import bestillingssystem.Bestillingsliste;
 import bestillingssystem.Ordre;
 
@@ -18,6 +19,7 @@ public class UImenu {
     Bestillingsliste bestillinger = new Bestillingsliste();
     BestillingerGUI gui = new BestillingerGUI();
     Scanner scn = new Scanner(System.in);
+    Statistik statistik = new Statistik(0,0);
 
 
 
@@ -71,6 +73,7 @@ public class UImenu {
                     bestillinger.visBestillinger();
                     System.out.println("Indtast nr på den ordre du vil afslutte?");
                     int afslutNr = scn.nextInt()-1;
+                    // skriv til statistik
                     bestillinger.afslutOrdre(bestillinger.getBestillinger().get(afslutNr));
                 }
 
