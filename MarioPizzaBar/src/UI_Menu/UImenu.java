@@ -16,7 +16,6 @@ import java.util.Scanner;
 public class UImenu {
     public int scanUserInput;
 
-    boolean exitProgram = false;
     Menukort menukort = new Menukort();
     Ordre ordre = new Ordre();
     Bestillingsliste bestillinger = new Bestillingsliste();
@@ -25,15 +24,16 @@ public class UImenu {
     Statistik statistik = new Statistik(0,0);
 
 
+
     public void startUI () throws IOException {
         gui.opretVindue(bestillinger.getBestillinger());
         ArrayList<Pizza> pizzaListe = menukort.indlæsMenukort();
         ArrayList<Drikkevarer> drikkevarerListe = menukort.indlæsDrikkevare();
-
+        boolean afslut = false;
 
         printLogo();
 
-        while (exitProgram != true){
+        while (afslut == false){
             presentMenuOptions();
             int userInput = scn.nextInt();
 
@@ -167,8 +167,8 @@ public class UImenu {
             //Valg 5 - Afslut program - virker ikke
                 case 5:
                     System.out.println("Du har valgt at afslutte");
-                    exitProgram = true;
-                    return;
+                    gui.lukVindue();
+                    afslut = true;
             }
         }
     }
