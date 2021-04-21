@@ -1,4 +1,5 @@
 package Statistik;
+import Menukort_Pizza.Drikkevarer;
 import Menukort_Pizza.Pizza;
 import bestillingssystem.Bestillingsliste;
 import bestillingssystem.Ordre;
@@ -16,6 +17,7 @@ public class Statistik {
     private int omsætning;
     private LocalDate dato = LocalDate.now();
     private ArrayList<Pizza> pizzaStatistik = new ArrayList<>();
+    private ArrayList<Drikkevarer> drikkevarerStat = new ArrayList<>();
 
     public Statistik(int pizzaNr, int omsætning) {
         this.omsætning = omsætning;
@@ -38,44 +40,19 @@ public class Statistik {
 
 
 
-    public static void main(String[] args) throws IOException {
-
-        Statistik sta = new Statistik(0,0);
-
-
-        Ordre ordre = new Ordre();
-        ordre.tilføjPizza();
-        Bestillingsliste b = new Bestillingsliste();
-        b.tilføjOrdreTilBestillinger(ordre);
-        System.out.println(b);
-
-
-        System.out.println();
-
-
-        sta.tilføjPizzaTilStatistik(b.afslutOrdre(ordre));
-
-        System.out.println(sta.pizzaStatistik);
-
-        sta.tilføjPizzaTilFil();
-
-        System.out.println(sta.læsStatistikFraFil());
-
-        System.out.println();
-
-        System.out.println(sta.beregnOmsætningFraFil(sta.læsStatistikFraFil()));
-
-        System.out.println();
-
-        System.out.println(sta.mestSolgtePizza(sta.læsStatistikFraFil()));
-    }
-
    public void tilføjPizzaTilStatistik(ArrayList<Pizza> pizzaTilStat) {
 
         for (int i = 0; i < pizzaTilStat.size(); i ++){
             pizzaStatistik.add(pizzaTilStat.get(i));
         }
    }
+
+  public void tilføjDrikkevarerTilStat(ArrayList<Drikkevarer> drikkeStat){
+
+        for (int i = 0; i < drikkeStat.size(); i++){
+            drikkevarerStat.add(drikkeStat.get(i));
+        }
+  }
 
 
     public void tilføjPizzaTilFil() throws IOException {
@@ -89,6 +66,21 @@ public class Statistik {
         for(int i = 0; i < pizzaStatistik.size(); i++){
             writer.append(pizzaStatistik.get(i).getPizzaNummer() + ";");
             writer.append(pizzaStatistik.get(i).getPris() + ";");
+            writer.append(dato.toString() + "\n");
+        }
+        writer.close();
+    }
+
+    public void tilføjDrikkeTilFil() throws IOException {
+
+        File fout = new File("MarioPizzaBar/Ressourcer/Statistik.csv");
+
+        FileWriter writer = new FileWriter(fout, true);
+
+
+        for(int i = 0; i < drikkevarerStat.size(); i++){
+            writer.append(drikkevarerStat.get(i).getTypeDrikkevare() + ";");
+            writer.append(drikkevarerStat.get(i).getPrisPåDrikkevare() + ";");
             writer.append(dato.toString() + "\n");
         }
         writer.close();
@@ -133,7 +125,7 @@ public class Statistik {
         return "Omsætning: " + omsætningFraFil + " kr.";
     }
 
-    // meest solgte og samlet antal pizzaer
+    /* mest solgte og samlet antal pizzaer
     public String mestSolgtePizza(ArrayList<Statistik> numreFraFil){
 
         int antalPizza = 0;
@@ -161,7 +153,7 @@ public class Statistik {
         return "Total antal pizza: " + antalPizza + "\n" +
                 "Den mest solgte pizza er nr: " + element + " Antal: " + count;
     }
-
+*/
     @Override
     public String toString() {
         return "Statistik { " +
