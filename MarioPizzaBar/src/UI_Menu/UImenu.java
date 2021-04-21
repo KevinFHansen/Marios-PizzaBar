@@ -110,6 +110,7 @@ public class UImenu {
                             System.out.println("Forkert indtastning - Tast 1, 2 eller 3");
                             continue;
                         }
+
                     }
                     break;
 
@@ -147,7 +148,9 @@ public class UImenu {
                     else {
                         System.out.println("Forkert indtastning - Tast 1, 2, 3 eller 4");
                         break;
+
                     }
+
 
 
 
@@ -156,8 +159,15 @@ public class UImenu {
                     System.out.println("Du har valgt at afslutte");
                     gui.lukVindue();
                     afslut = true;
+                    break;
+
+                default:
+                    System.out.println("Forkert indtastning - prøv igen");
+
             }
+
         }
+
     }
 
 
