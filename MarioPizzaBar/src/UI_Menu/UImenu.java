@@ -1,5 +1,6 @@
 package UI_Menu;
 
+import Menukort_Pizza.Drikkevarer;
 import Menukort_Pizza.Menukort;
 import Menukort_Pizza.Pizza;
 import bestillingssystem.Bestillingsliste;
@@ -25,6 +26,7 @@ public class UImenu {
     public void startUI () throws IOException {
         gui.opretVindue(bestillinger.getBestillinger());
         ArrayList<Pizza> pizzaListe = menukort.indlæsMenukort();
+        ArrayList<Drikkevarer> drikkevarerListe = menukort.indlæsDrikkevare();
 
 
         printLogo();
