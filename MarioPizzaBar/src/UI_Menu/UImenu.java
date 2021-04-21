@@ -146,7 +146,7 @@ public class UImenu {
 
 
 
-            //Valg 4 - Afslut program - virker ikke
+            //Valg 4 - Afslut program
                 case 4:
                     System.out.println("Du har valgt at afslutte");
                     gui.lukVindue();
