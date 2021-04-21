@@ -147,7 +147,8 @@ public class UImenu {
                     }
 
                     else {
-                        System.out.println("Forkert indtastning - Tast 1, 2, 3 eller 4");
+
+                        System.out.println("Forkert indtastning - prøv igen");
                         break;
 
                     }

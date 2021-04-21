@@ -196,6 +196,8 @@ public class Ordre {
                     stopDrikkevare = true;
 
                 }
+                default:
+                    System.out.println("Forkert indtastning - prøv igen");
             }
     }
 
