@@ -66,7 +66,6 @@ public class UImenu {
                         Ordre nyOrdre = ordre.opretOrdre();
                         bestillinger.tilføjOrdreTilBestillinger(nyOrdre);
                         bestillinger.beregnVentetid();
-
                         gui.opdaterVindue(bestillinger.getBestillinger(), gui.getTabel());
 
                     }
@@ -83,13 +82,13 @@ public class UImenu {
                     System.out.println("Indtast nr på den ordre du vil afslutte?");
                     int afslutNr = scn.nextInt()-1;
                     // skriv til statistik
-                    bestillinger.afslutOrdre(bestillinger.getBestillinger().get(afslutNr));
+                    statistik.tilføjPizzaTilStatistik(bestillinger.afslutOrdre(bestillinger.getBestillinger().get(afslutNr)));
+                    statistik.tilføjPizzaTilFil();
                 }
                     else if (choice == 4) {
                         bestillinger.visBestillinger();
                         System.out.println("Indtast nr på den ordre du vil afslutte?");
                         int afslutNr = scn.nextInt()-1;
-                        bestillinger.afslutOrdre(bestillinger.getBestillinger().get(afslutNr));
                         gui.opdaterVindue(bestillinger.getBestillinger(), gui.getTabel());
                     }
 
