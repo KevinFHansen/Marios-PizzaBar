@@ -50,55 +50,33 @@ public class UImenu {
             //Valg 2 - Håndter ordrer
                 case 2:
 
-                    subMenuOrdre();
+                    while(true) {
+                        subMenuOrdre();
 
-                    int choice = scn.nextInt();
+                        int choice = scn.nextInt();
 
-                    if (choice == 1) {
-                        System.out.println();
-                        System.out.println("Her er din nuværende ordre");
-                        ordre.visOrdre();
-                        continue;
-                    }
+                        if (choice == 1) {
+                            System.out.println("Du har valgt at oprette en ny ordre");
+                            Ordre nyOrdre = ordre.opretOrdre();
+                            bestillinger.tilføjOrdreTilBestillinger(nyOrdre);
+                            bestillinger.beregnVentetid();
+                            gui.opdaterVindue(bestillinger.getBestillinger(), gui.getTabel());
 
-                    else if (choice == 2) {
-                        System.out.println("Du har valgt at oprette en ny ordre");
-                        Ordre nyOrdre = ordre.opretOrdre();
-                        bestillinger.tilføjOrdreTilBestillinger(nyOrdre);
-                        bestillinger.beregnVentetid();
+                        } else if (choice == 2) {
+                            bestillinger.visBestillinger();
+                            System.out.println("Indtast nr på den ordre du vil afslutte?");
+                            int afslutNr = scn.nextInt() - 1;
+                            bestillinger.afslutOrdre(bestillinger.getBestillinger().get(afslutNr));
+                            gui.opdaterVindue(bestillinger.getBestillinger(), gui.getTabel());
 
-                        gui.opdaterVindue(bestillinger.getBestillinger(), gui.getTabel());
+                        } else if (choice == 3) {
+                            System.out.println("Her er hovedmenuen");
+                            break;
 
-                    }
-
-                    else if (choice == 3) {
-                        System.out.println();
-                        System.out.println("Du har valgt at slette en ordre - Her er din ordre liste");
-                        //slet ordre metode();
-
-                    }
-
-                else if (choice == 4) {
-                    bestillinger.visBestillinger();
-                    System.out.println("Indtast nr på den ordre du vil afslutte?");
-                    int afslutNr = scn.nextInt()-1;
-                    // skriv til statistik
-                    bestillinger.afslutOrdre(bestillinger.getBestillinger().get(afslutNr));
-                }
-                    else if (choice == 4) {
-                        bestillinger.visBestillinger();
-                        System.out.println("Indtast nr på den ordre du vil afslutte?");
-                        int afslutNr = scn.nextInt()-1;
-                        bestillinger.afslutOrdre(bestillinger.getBestillinger().get(afslutNr));
-                        gui.opdaterVindue(bestillinger.getBestillinger(), gui.getTabel());
-                    }
-
-                    else if (choice == 5) {
-                        System.out.println("Her er hovedmenuen");
-                    }
-
-                    else {
-                        System.out.println("Forkert indtastning - Tast 1, 2, 3, 4 eller 5");
+                        } else {
+                            System.out.println("Forkert indtastning - Tast 1, 2 eller 3");
+                            continue;
+                        }
                     }
                     break;
 
@@ -186,11 +164,9 @@ public class UImenu {
 
     public void subMenuOrdre (){
         System.out.println("Håndter ordre - Du har følgende valg:");
-        System.out.println("Tast 1 - Se nuværerende ordre");
-        System.out.println("Tast 2 - Opret ordre");
-        System.out.println("Tast 3 - Slet ordre");
-        System.out.println("Tast 4 - Afslut ordre");
-        System.out.println("Tast 5 - Gå til Hovedmenu");
+        System.out.println("Tast 1 - Opret ordre");
+        System.out.println("Tast 2 - Afslut ordre");
+        System.out.println("Tast 3 - Gå til Hovedmenu");
     }
     public void subMenuPizza (){
         System.out.println("Håndter menukortet - Du har følgende valg:");
