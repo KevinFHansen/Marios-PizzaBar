@@ -70,23 +70,28 @@ public class UImenu {
 
                             if(choice2 == 1){
                                 menukort.visDrikkevarer();
+                                System.out.println();
+                                continue;
                             }
                             else if (choice2 == 2 ){
+
                                 System.out.println("Du har valgt at tilføje en drik");
                                 menukort.opretDrikkevarer();
+                                continue;
                             }
                             else if (choice2 == 3){
                                 System.out.println("Du har valgt at fjerne en drik");
                                 menukort.fjernDrikkevarer();
+                                continue;
                             }
                             else if (choice2 == 4){
                                 System.out.println("Du har valgt at ændre i drikkevarer");
-                                menukort.lavOmPåDrikkevare();
+                                continue;
                             }
                             else if (choice2 == 5){
-
+                                continue;
                             }
-                            break;
+
 
                         }
 
