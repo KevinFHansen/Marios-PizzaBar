@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 public class BestillingerGUI {
     private JTable tabel = new JTable();
+    JFrame ramme = new JFrame("Bestillinger");
 
     public JTable getTabel() {
         return tabel;
@@ -32,16 +33,17 @@ public class BestillingerGUI {
         setTabel(tabel);
 
         tabel.setBounds(30, 40, 300, 200);
-        //tabel.doLayout();
-        //tabel.setRowHeight(40);
+        tabel.doLayout();
+        tabel.setRowHeight(100);
 
         JScrollPane sp = new JScrollPane(tabel);
 
-        JFrame ramme = new JFrame("Bestillinger");
-        ramme.add(sp);
-        ramme.setSize(600, 300);
 
+        ramme.add(sp);
+        ramme.setSize(1200, 560);
         ramme.setVisible(true);
+        ramme.setDefaultCloseOperation(ramme.DISPOSE_ON_CLOSE);
+
 
     }
 
@@ -59,5 +61,9 @@ public class BestillingerGUI {
             tabel.setValueAt(null, i, 2);
             tabel.setValueAt(null, i, 3);
         }
+    }
+
+    public void lukVindue(){
+        ramme.dispose();
     }
 }
