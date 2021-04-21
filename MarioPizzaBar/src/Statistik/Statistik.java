@@ -23,7 +23,7 @@ public class Statistik {
 
     }
 
-
+    // getters og setters
     public void setOmsætning(int omsætning) {
         this.omsætning = omsætning;
     }
@@ -32,11 +32,16 @@ public class Statistik {
         return this.omsætning;
     }
 
+    public int getPizzaNr(){
+        return this.pizzaNr;
+    }
+
 
 
     public static void main(String[] args) throws IOException {
 
         Statistik sta = new Statistik(0,0);
+
 
         Ordre ordre = new Ordre();
         ordre.tilføjPizza();
@@ -106,6 +111,7 @@ public class Statistik {
 
             int nummer = Integer.parseInt(linjeSomArray[0].trim());
             int pris = Integer.parseInt(linjeSomArray[1].trim());
+            String dato = linjeSomArray[2].trim();
 
 
             Statistik tmpStat = new Statistik(nummer, pris);
@@ -118,35 +124,42 @@ public class Statistik {
     }
 
 
-    // indtast dato for omsætning
     public String beregnOmsætningFraFil(ArrayList<Statistik> priserFraFil){
         int omsætningFraFil = 0;
         for (int i = 0; i < priserFraFil.size(); i ++){
             omsætningFraFil = omsætningFraFil + priserFraFil.get(i).getOmsætning();
+
         }
         return "Omsætning: " + omsætningFraFil + " kr.";
     }
 
-
+    // meest solgte og samlet antal pizzaer
     public String mestSolgtePizza(ArrayList<Statistik> numreFraFil){
+
+        int antalPizza = 0;
+
+        for (int i = 0 ; i < numreFraFil.size(); i++){
+            antalPizza++;
+        }
         int element = 0;
         int count = 0;
 
         for( int i = 0 ; i < numreFraFil.size(); i ++){
 
-            int tempEl = numreFraFil.get(i).pizzaNr;
+            int tempEl = numreFraFil.get(i).getPizzaNr();
             int tempCount = 0;
 
             for (int j = 0; j < numreFraFil.size(); j++)
-                if (numreFraFil.get(i).pizzaNr == tempEl)
+                if (numreFraFil.get(i).getPizzaNr() == tempEl)
                     tempCount++;
             if (tempCount>count){
                 element = tempEl;
                 count = tempCount;
             }
-
         }
-    return "Den mest solgte pizza er nr: " + element + " Antal: " + count;
+
+        return "Total antal pizza: " + antalPizza + "\n" +
+                "Den mest solgte pizza er nr: " + element + " Antal: " + count;
     }
 
     @Override
