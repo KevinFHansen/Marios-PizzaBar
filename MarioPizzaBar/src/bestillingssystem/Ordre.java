@@ -70,10 +70,11 @@ public class Ordre {
 
 
     public Ordre opretOrdre() throws FileNotFoundException {
-
+        Scanner sc = new Scanner(System.in);
         Ordre nyOrdre = new Ordre();
 
         System.out.println("Indtast kundens navn");
+
         nyOrdre.setOrdreId(sc.nextLine());
 
         nyOrdre.setBestillingstidspunkt(bestillingstidspunkt.now());
@@ -115,11 +116,12 @@ public class Ordre {
             if (sc.nextInt() == 1) {
                 System.out.println("Tast nr. på den pizza du vil tilføje ordren");
                 ordreListe.add(pizzaListe.get(sc.nextInt() - 1));
-
             } else {
                 flag = false;
             }
+
         }
+
     }
 
     public void ændreAfhentningstidspunkt() {
