@@ -63,14 +63,41 @@ public class UImenu {
                             bestillinger.visBestillinger();
                             gui.opdaterVindue(bestillinger.getBestillinger(), gui.getTabel());
 
-                        } else if (choice == 2) {
+                        } else if (choice == 2){
+                            System.out.println("Tilføj drikkevare");
+                            drikkevareMenu();
+
+                            int choice2 = scn.nextInt();
+
+                            if(choice2 == 1){
+                                menukort.visDrikkevarer();
+                            }
+                            else if (choice2 == 2 ){
+                                System.out.println("Du har valgt at tilføje en drik");
+                                menukort.opretDrikkevarer();
+                            }
+                            else if (choice2 == 3){
+                                System.out.println("Du har valgt at fjerne en drik");
+                                menukort.fjernDrikkevarer();
+                            }
+                            else if (choice2 == 4){
+                                System.out.println("Du har valgt at ændre i drikkevarer");
+                            }
+                            else if (choice2 == 5){
+
+                            }
+                            break;
+
+                        }
+
+                        else if (choice == 3) {
                             bestillinger.visBestillinger();
                             System.out.println("Indtast nr på den ordre du vil afslutte?");
                             int afslutNr = scn.nextInt() - 1;
                             bestillinger.afslutOrdre(bestillinger.getBestillinger().get(afslutNr));
                             gui.opdaterVindue(bestillinger.getBestillinger(), gui.getTabel());
 
-                        } else if (choice == 3) {
+                        } else if (choice == 4) {
                             System.out.println("Her er hovedmenuen");
                             break;
 
@@ -117,34 +144,10 @@ public class UImenu {
                         break;
                     }
 
-                    //valgt 4 drikkevarer
+
+
+            //Valg 4 - Afslut program - virker ikke
                 case 4:
-                    drikkevareMenu();
-
-                    int choice2 = scn.nextInt();
-
-                    if(choice2 == 1){
-                        menukort.visDrikkevarer();
-                    }
-                    else if (choice2 == 2 ){
-                        System.out.println("Du har valgt at tilføje en drik");
-                        menukort.opretDrikkevarer();
-                    }
-                    else if (choice2 == 3){
-                        System.out.println("Du har valgt at fjerne en drik");
-                        menukort.fjernDrikkevarer();
-                    }
-                    else if (choice2 == 4){
-                        System.out.println("Du har valgt at ændre i drikkevarer");
-                    }
-                    else if (choice2 == 5){
-
-                    }
-                    break;
-
-
-            //Valg 5 - Afslut program - virker ikke
-                case 5:
                     System.out.println("Du har valgt at afslutte");
                     gui.lukVindue();
                     afslut = true;
@@ -159,15 +162,15 @@ public class UImenu {
         System.out.println("Tast 1 - Se Menukort");
         System.out.println("Tast 2 - Håndter ordrer");
         System.out.println("Tast 3 - Håndter Menukortet");
-        System.out.println("Tast 4 - Se eller håndter drikkevarer");
-        System.out.println("Tast 5 - Afslut");
+        System.out.println("Tast 4 - Afslut");
     }
 
     public void subMenuOrdre (){
         System.out.println("Håndter ordre - Du har følgende valg:");
         System.out.println("Tast 1 - Opret ordre");
-        System.out.println("Tast 2 - Afslut ordre");
-        System.out.println("Tast 3 - Gå til Hovedmenu");
+        System.out.println("Tast 2 - Drikkevare");
+        System.out.println("Tast 3 - Afslut ordre");
+        System.out.println("Tast 4 - Gå til Hovedmenu");
     }
     public void subMenuPizza (){
         System.out.println("Håndter menukortet - Du har følgende valg:");

@@ -116,11 +116,12 @@ public class Ordre {
             if (sc.nextInt() == 1) {
                 System.out.println("Tast nr. på den pizza du vil tilføje ordren");
                 ordreListe.add(pizzaListe.get(sc.nextInt() - 1));
-
             } else {
                 flag = false;
             }
+
         }
+
     }
 
     public void ændreAfhentningstidspunkt() {
