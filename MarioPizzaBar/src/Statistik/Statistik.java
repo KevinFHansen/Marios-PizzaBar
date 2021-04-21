@@ -69,6 +69,7 @@ public class Statistik {
             writer.append(dato.toString() + "\n");
         }
         writer.close();
+        pizzaStatistik.clear();
     }
 
     public void tilføjDrikkeTilFil() throws IOException {

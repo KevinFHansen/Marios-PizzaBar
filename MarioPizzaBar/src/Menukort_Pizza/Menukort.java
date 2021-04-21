@@ -160,7 +160,7 @@ public class Menukort{
     public void visDrikkevarer() throws FileNotFoundException {
         System.out.println("Dikkevarer");
         for(int i = 0; i < drikkevarerListe.size(); i++){
-            System.out.println((drikkevarerListe.get(i).getNummerPåDrikkevare() + ": " + drikkevarerListe.get(i).getTypeDrikkevare() + " kr:" + drikkevarerListe.get(i).getPrisPåDrikkevare()));
+            System.out.println(("Nr. " + (i+1) + ": " + drikkevarerListe.get(i).getTypeDrikkevare() + " kr:" + drikkevarerListe.get(i).getPrisPåDrikkevare()));
         }
     }
 
