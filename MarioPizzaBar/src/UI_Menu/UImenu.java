@@ -81,6 +81,7 @@ public class UImenu {
                             }
                             else if (choice2 == 4){
                                 System.out.println("Du har valgt at ændre i drikkevarer");
+                                menukort.lavOmPåDrikkevare();
                             }
                             else if (choice2 == 5){
 
