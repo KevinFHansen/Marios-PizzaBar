@@ -99,7 +99,8 @@ public class UImenu {
                             bestillinger.visBestillinger();
                             System.out.println("Indtast nr på den ordre du vil afslutte?");
                             int afslutNr = scn.nextInt() - 1;
-                            bestillinger.afslutOrdre(bestillinger.getBestillinger().get(afslutNr));
+                            statistik.tilføjPizzaTilStatistik(bestillinger.afslutOrdre(bestillinger.getBestillinger().get(afslutNr)));
+                            statistik.tilføjPizzaTilFil();
                             gui.opdaterVindue(bestillinger.getBestillinger(), gui.getTabel());
 
                         } else if (choice == 4) {

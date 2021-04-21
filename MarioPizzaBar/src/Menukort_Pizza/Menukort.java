@@ -1,5 +1,4 @@
 package Menukort_Pizza;
-import java.awt.*;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -93,7 +92,7 @@ public class Menukort{
         System.out.println("Skriv nummer på pizza der skal fjernes");
         int fjernNummer = scn.nextInt();
         pizzaListe.remove(fjernNummer-1);
-        lavNytKort(pizzaListe);
+        lavNytPizzaKort(pizzaListe);
 
     }
 
@@ -113,7 +112,7 @@ public class Menukort{
 
         Pizza pizzaFix = new Pizza(nyPizzaPris, nyPizzaNavn, pizzaNr+1, nyPizzaFyld);
         pizzaListe.add(pizzaNr, pizzaFix);
-        lavNytKort(pizzaListe);
+        lavNytPizzaKort(pizzaListe);
     }
 
     public void lavOmPåPizza(ArrayList<Pizza> pizzaListe) throws IOException {
@@ -134,11 +133,11 @@ public class Menukort{
         Pizza pizzaFix = new Pizza(nyPizzaPris, nyPizzaNavn, pizzaNr+1, nyPizzaFyld);
         pizzaListe.add(pizzaNr, pizzaFix);
 
-        lavNytKort(pizzaListe);
+        lavNytPizzaKort(pizzaListe);
 
     }
 
-    public void lavNytKort(ArrayList<Pizza> pizzaListe) throws FileNotFoundException {
+    public void lavNytPizzaKort(ArrayList<Pizza> pizzaListe) throws FileNotFoundException {
         File fout = new File("MarioPizzaBar/Ressourcer/PizzaListe.csv");
 
         PrintWriter writer = new PrintWriter(fout);
