@@ -29,7 +29,7 @@ public class UImenu {
 
         printLogo();
 
-        while (exitProgram != true){
+        while (!exitProgram){
             presentMenuOptions();
             int userInput = scn.nextInt();
 
@@ -131,8 +131,8 @@ public class UImenu {
             //Valg 4 - Afslut program - virker ikke
                 case 4:
                     System.out.println("Du har valgt at afslutte");
-                    exitProgram = true;
-                    return;
+                    exitProgram = !exitProgram;
+
             }
         }
     }
