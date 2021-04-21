@@ -2,6 +2,7 @@ package bestillingssystem;
 
 import Menukort_Pizza.Pizza;
 import Statistik.Statistik;
+import UI_Menu.UImenu;
 
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -50,6 +51,7 @@ public class Bestillingsliste {
             ventetid = ventetid + bestillinger.get(i).getSamletProduktionstid();
             setVentetid(ventetid);
         } return ventetid;
+
     }
 
     public void visBestillinger(){
