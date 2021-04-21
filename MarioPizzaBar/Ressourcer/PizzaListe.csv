@@ -1,5 +1,5 @@
 pris;navn;nummer;fyld
-57;Vesuvino;1;ost, skinke, tomat
+60;Vesuvino;1;ost, skinke
 53;Amerikaner;2;tomatsauce, ost, oksefars og oregano
 57;Cacciatore;3;tomatsauce, ost, kødsauce, cocktailpølser og oregano
 63;Carbona;4;tomatsauce, ost, skinke, pepperoni, cocktailpøler og oregano
@@ -28,9 +28,5 @@ pris;navn;nummer;fyld
 79;Parma;27;tomatsauce, ost, parmaskinke, pesto og salat
 74;Torino;28;tomatsauce, ost, kødstrimler og løg
 70;Nemrut;29;tomatsauce, ost, pepperoni og dressing
-72;Finale;30;tomatsauce, ost, kebab, bacon, bearnaise og dressing
-60;osv;31;osv
-40;osv;32;osv
-60;osv;33;osv
-50;osv;34;osv
-50;osv;35;osv
+72;Finale;30;ost, skinke, bacon, bearnaise og dressing
+50;ost;31;ost

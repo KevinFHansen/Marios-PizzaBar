@@ -61,25 +61,6 @@ public class Menukort{
     }
 
 
-    public static void main(String[] args) throws IOException {
-        Menukort menukort = new Menukort();
-
-        menukort.setPizzaListe(menukort.indlæsMenukort());
-
-
-        menukort.visPizzaListe();
-        menukort.visDrikkevarer();
-
-        /*
-        menukort.setDrikkevarerListe(menukort.indlæsDrikkevare());
-        System.out.println(menukort.drikkevarerListe);
-
-
-
-         */
-    }
-
-
 
     //Pizza getters og setters
 
@@ -99,22 +80,26 @@ public class Menukort{
 
     //Pizza metoder:
 
-    public void visPizzaListe() throws FileNotFoundException {
-        Menukort menukort = new Menukort();
+    public void visPizzaListe(ArrayList<Pizza> pizzaListe) throws FileNotFoundException {
+        //Menukort menukort = new Menukort();
         System.out.println("Menukort");
-        menukort.setPizzaListe(menukort.indlæsMenukort());
-        menukort.pizzaListe.forEach(System.out::println);
+        //menukort.setPizzaListe(menukort.indlæsMenukort());
+        //menukort.pizzaListe.forEach(System.out::println);
+        //pizzaListe.forEach(System.out::println);
+        for(int i = 0; i < pizzaListe.size(); i++){
+            System.out.println("Nr " + (i+1) + " " + pizzaListe.get(i).getNavn() + ": " + pizzaListe.get(i).getFyld() + " kr:" + pizzaListe.get(i).getPris());
+        }
     }
 
-    public void fjernPizza() throws FileNotFoundException {
+    public void fjernPizza(ArrayList<Pizza> pizzaListe) throws FileNotFoundException{
         System.out.println("Skriv nummer på pizza der skal fjernes");
         int fjernNummer = scn.nextInt();
         pizzaListe.remove(fjernNummer-1);
-        lavNytKort();
+        lavNytKort(pizzaListe);
 
     }
 
-    public void opretNyPizza() throws FileNotFoundException {
+    public void opretNyPizza(ArrayList<Pizza> pizzaListe) throws FileNotFoundException {
         System.out.println("Indtast nr på pizza der skal laves");
         int pizzaNr = scn.nextInt()-1;
         scn.nextLine();
@@ -130,10 +115,10 @@ public class Menukort{
 
         Pizza pizzaFix = new Pizza(nyPizzaPris, nyPizzaNavn, pizzaNr+1, nyPizzaFyld);
         pizzaListe.add(pizzaNr, pizzaFix);
-        lavNytKort();
+        lavNytKort(pizzaListe);
     }
 
-    public void lavOmPåPizza() throws IOException {
+    public void lavOmPåPizza(ArrayList<Pizza> pizzaListe) throws IOException {
         System.out.println("Indtast nr på pizza der skal ændres");
         int pizzaNr = scn.nextInt()-1;
         scn.nextLine();
@@ -151,11 +136,11 @@ public class Menukort{
         Pizza pizzaFix = new Pizza(nyPizzaPris, nyPizzaNavn, pizzaNr+1, nyPizzaFyld);
         pizzaListe.add(pizzaNr, pizzaFix);
 
-        lavNytKort();
+        lavNytKort(pizzaListe);
 
     }
 
-    public void lavNytKort() throws FileNotFoundException {
+    public void lavNytKort(ArrayList<Pizza> pizzaListe) throws FileNotFoundException {
         File fout = new File("MarioPizzaBar/Ressourcer/PizzaListe.csv");
 
         PrintWriter writer = new PrintWriter(fout);
@@ -165,7 +150,7 @@ public class Menukort{
         for(int i = 0; i < pizzaListe.size(); i++){
             writer.print(pizzaListe.get(i).getPris() + ";");
             writer.print(pizzaListe.get(i).getNavn() + ";");
-            writer.print(pizzaListe.get(i).getPizzaNummer() + ";");
+            writer.print(i + 1 + ";");
             writer.println(pizzaListe.get(i).getFyld());
         }
         writer.close();
@@ -176,10 +161,10 @@ public class Menukort{
     //Drikkevare metoder
 
     public void visDrikkevarer() throws FileNotFoundException {
-        Menukort menukort = new Menukort();
         System.out.println("Dikkevarer");
-        menukort.setDrikkevarerListe(menukort.indlæsDrikkevare());
-        menukort.drikkevarerListe.forEach(System.out::println);
+        for(int i = 0; i < drikkevarerListe.size(); i++){
+            System.out.println((drikkevarerListe.get(i).getNummerPåDrikkevare() + ": " + drikkevarerListe.get(i).getTypeDrikkevare() + " kr:" + drikkevarerListe.get(i).getPrisPåDrikkevare()));
+        }
     }
 
     public void fjernDrikkevarer() throws FileNotFoundException {

@@ -1,19 +1,24 @@
 package UI_Menu;
 
 import bestillingssystem.Ordre;
-
 import javax.swing.*;
-import java.awt.event.WindowEvent;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 public class BestillingerGUI {
+    private JTable tabel = new JTable();
 
-    public void opdaterVindue(ArrayList<Ordre> bestillinger) {
+    public JTable getTabel() {
+        return tabel;
+    }
+    public void setTabel(JTable tabel) {
+        this.tabel = tabel;
+    }
+
+    public void opretVindue(ArrayList<Ordre> bestillinger) {
         String[] overskrifter = {"Afhentningstidspunkt", "Navn", "Pizza", "Kommentar"};
 
         // tabel data
-        String [][] bestillingerTilTabel = new String[3][4];
+        String [][] bestillingerTilTabel = new String[5][4];
 
         for(int i = 0; i < bestillinger.size(); i++){
             bestillingerTilTabel[i][0] = bestillinger.get(i).ordreStreng()[0];
@@ -22,17 +27,37 @@ public class BestillingerGUI {
             bestillingerTilTabel[i][3] = bestillinger.get(i).ordreStreng()[3];
         }
 
-        JTable tabel = new JTable(bestillingerTilTabel, overskrifter);
-        tabel.setBounds(30, 40, 200, 300);
+        tabel = new JTable(bestillingerTilTabel, overskrifter);
+
+        setTabel(tabel);
+
+        tabel.setBounds(30, 40, 300, 200);
+        //tabel.doLayout();
+        //tabel.setRowHeight(40);
 
         JScrollPane sp = new JScrollPane(tabel);
 
         JFrame ramme = new JFrame("Bestillinger");
         ramme.add(sp);
         ramme.setSize(600, 300);
-        ramme.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //ramme.dispatchEvent(new WindowEvent(ramme, WindowEvent.WINDOW_CLOSING));
+
         ramme.setVisible(true);
 
+    }
+
+    public void opdaterVindue(ArrayList<Ordre> bestillinger, JTable tabel){
+
+        for(int i = 0; i < bestillinger.size(); i++){
+            tabel.setValueAt(bestillinger.get(i).ordreStreng()[0], i, 0);
+            tabel.setValueAt(bestillinger.get(i).ordreStreng()[1], i, 1);
+            tabel.setValueAt(bestillinger.get(i).ordreStreng()[2], i, 2);
+            tabel.setValueAt(bestillinger.get(i).ordreStreng()[3], i, 3);
+        }
+        for(int i = bestillinger.size(); i < 5; i++){
+            tabel.setValueAt(null, i, 0);
+            tabel.setValueAt(null, i, 1);
+            tabel.setValueAt(null, i, 2);
+            tabel.setValueAt(null, i, 3);
+        }
     }
 }
