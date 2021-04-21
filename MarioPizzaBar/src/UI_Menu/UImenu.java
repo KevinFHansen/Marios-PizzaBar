@@ -224,7 +224,6 @@ public class UImenu {
 
 
 
-
     public static void main(String[] args) throws IOException, ArrayIndexOutOfBoundsException {
         UImenu uImenu = new UImenu();
         uImenu.startUI();
