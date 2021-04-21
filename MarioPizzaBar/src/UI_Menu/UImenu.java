@@ -130,7 +130,7 @@ public class UImenu {
 
                     int option = 0;
 
-                    while (option != 5) {
+                    while (option != 6) {
                         System.out.println("Håndter Drikkevare");
                         drikkevareMenu();
                         int valg2 = scn.nextInt();
