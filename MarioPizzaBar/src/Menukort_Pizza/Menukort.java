@@ -161,10 +161,10 @@ public class Menukort{
     //Drikkevare metoder
 
     public void visDrikkevarer() throws FileNotFoundException {
-        Menukort menukort = new Menukort();
         System.out.println("Dikkevarer");
-        menukort.setDrikkevarerListe(menukort.indlæsDrikkevare());
-        menukort.drikkevarerListe.forEach(System.out::println);
+        for(int i = 0; i < drikkevarerListe.size(); i++){
+            System.out.println((drikkevarerListe.get(i).getNummerPåDrikkevare() + ": " + drikkevarerListe.get(i).getTypeDrikkevare() + " kr:" + drikkevarerListe.get(i).getPrisPåDrikkevare()));
+        }
     }
 
     public void fjernDrikkevarer() throws FileNotFoundException {

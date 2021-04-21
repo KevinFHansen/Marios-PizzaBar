@@ -1,6 +1,8 @@
 package UI_Menu;
 
+import Menukort_Pizza.Drikkevarer;
 import Menukort_Pizza.Menukort;
+import Statistik.Statistik;
 import Menukort_Pizza.Pizza;
 import bestillingssystem.Bestillingsliste;
 import bestillingssystem.Ordre;
@@ -20,11 +22,13 @@ public class UImenu {
     Bestillingsliste bestillinger = new Bestillingsliste();
     BestillingerGUI gui = new BestillingerGUI();
     Scanner scn = new Scanner(System.in);
+    Statistik statistik = new Statistik(0,0);
 
 
     public void startUI () throws IOException {
         gui.opretVindue(bestillinger.getBestillinger());
         ArrayList<Pizza> pizzaListe = menukort.indlæsMenukort();
+        ArrayList<Drikkevarer> drikkevarerListe = menukort.indlæsDrikkevare();
 
 
         printLogo();
@@ -54,6 +58,7 @@ public class UImenu {
                         System.out.println();
                         System.out.println("Her er din nuværende ordre");
                         ordre.visOrdre();
+                        continue;
                     }
 
                     else if (choice == 2) {
@@ -73,6 +78,13 @@ public class UImenu {
 
                     }
 
+                else if (choice == 4) {
+                    bestillinger.visBestillinger();
+                    System.out.println("Indtast nr på den ordre du vil afslutte?");
+                    int afslutNr = scn.nextInt()-1;
+                    // skriv til statistik
+                    bestillinger.afslutOrdre(bestillinger.getBestillinger().get(afslutNr));
+                }
                     else if (choice == 4) {
                         bestillinger.visBestillinger();
                         System.out.println("Indtast nr på den ordre du vil afslutte?");
@@ -100,42 +112,65 @@ public class UImenu {
                         System.out.println("Du har valgt at tilføje en ny pizza til menukortet");
                         //menukort.setPizzaListe(menukort.indlæsMenukort());
                         menukort.opretNyPizza(pizzaListe);
-
+                        break;
                     }
 
                     else if (choice1 == 2){
                         System.out.println("Du har valgt at fjerne en pizza fra menukortet");
                         //menukort.setPizzaListe(menukort.indlæsMenukort());
                         menukort.fjernPizza(pizzaListe);
-
+                        break;
                         }
 
                     else if (choice1 == 3){
                         System.out.println("Du har valgt at ændre en pizza på menukortet");
                         //menukort.setPizzaListe(menukort.indlæsMenukort());
                         menukort.lavOmPåPizza(pizzaListe);
-
+                        break;
                     }
 
                     else if (choice1 == 4) {
-
+                        break;
                     }
 
                     else {
                         System.out.println("Forkert indtastning - Tast 1, 2, 3 eller 4");
+                        break;
+                    }
+
+                    //valgt 4 drikkevarer
+                case 4:
+                    drikkevareMenu();
+
+                    int choice2 = scn.nextInt();
+
+                    if(choice2 == 1){
+                        menukort.visDrikkevarer();
+                    }
+                    else if (choice2 == 2 ){
+                        System.out.println("Du har valgt at tilføje en drik");
+                        menukort.opretDrikkevarer();
+                    }
+                    else if (choice2 == 3){
+                        System.out.println("Du har valgt at fjerne en drik");
+                        menukort.fjernDrikkevarer();
+                    }
+                    else if (choice2 == 4){
+                        System.out.println("Du har valgt at ændre i drikkevarer");
+                    }
+                    else if (choice2 == 5){
 
                     }
-        break;
+                    break;
 
-            //Valg 4 - Afslut program - virker ikke
-                case 4:
+
+            //Valg 5 - Afslut program - virker ikke
+                case 5:
                     System.out.println("Du har valgt at afslutte");
                     exitProgram = true;
-
+                    return;
             }
-
         }
-
     }
 
 
@@ -145,7 +180,8 @@ public class UImenu {
         System.out.println("Tast 1 - Se Menukort");
         System.out.println("Tast 2 - Håndter ordrer");
         System.out.println("Tast 3 - Håndter Menukortet");
-        System.out.println("Tast 4 - Afslut");
+        System.out.println("Tast 4 - Se eller håndter drikkevarer");
+        System.out.println("Tast 5 - Afslut");
     }
 
     public void subMenuOrdre (){
@@ -162,6 +198,15 @@ public class UImenu {
         System.out.println("Tast 2 - Slet Pizza fra Menukortet");
         System.out.println("Tast 3 - Ændre en Pizza på Menukortet");
         System.out.println("Tast 4 - Gå til Hovedmenu");
+    }
+
+    public void drikkevareMenu(){
+        System.out.println("Tast 1 - Vis drikkevarer");
+        System.out.println("Tast 2 - Tilføj en drik");
+        System.out.println("Tast 3 - Fjern en drik");
+        System.out.println("Tast 4 - Ændre i en drik");
+        System.out.println("Tast 5 - Gå tilbage");
+
     }
 
     public void printLogo (){
@@ -187,14 +232,6 @@ public class UImenu {
     }
 
 
-    public void drikkevareMenu(){
-        System.out.println("Tilføj Drikkevare");
-        System.out.println("Tast 1 - Tilføj Sodavand (20 kr.)");
-        System.out.println("Tast 2 - Tilføj Vin (25 kr.)");
-        System.out.println("Tast 3 - Tilføj Øl (25 kr.)");
-        System.out.println("Tast 4 - Tilføj Vand (20 kr.)");
-        System.out.println("Tast 5 - Gå tilbage");
-    }
 
     public static void main(String[] args) throws IOException, ArrayIndexOutOfBoundsException {
         UImenu uImenu = new UImenu();
