@@ -54,7 +54,6 @@ public class UImenu {
                         System.out.println();
                         System.out.println("Her er din nuværende ordre");
                         ordre.visOrdre();
-                        continue;
                     }
 
                     else if (choice == 2) {
@@ -101,40 +100,42 @@ public class UImenu {
                         System.out.println("Du har valgt at tilføje en ny pizza til menukortet");
                         //menukort.setPizzaListe(menukort.indlæsMenukort());
                         menukort.opretNyPizza(pizzaListe);
-                        break;
+
                     }
 
                     else if (choice1 == 2){
                         System.out.println("Du har valgt at fjerne en pizza fra menukortet");
                         //menukort.setPizzaListe(menukort.indlæsMenukort());
                         menukort.fjernPizza(pizzaListe);
-                        break;
+
                         }
 
                     else if (choice1 == 3){
                         System.out.println("Du har valgt at ændre en pizza på menukortet");
                         //menukort.setPizzaListe(menukort.indlæsMenukort());
                         menukort.lavOmPåPizza(pizzaListe);
-                        break;
+
                     }
 
                     else if (choice1 == 4) {
-                        break;
+
                     }
 
                     else {
                         System.out.println("Forkert indtastning - Tast 1, 2, 3 eller 4");
-                        break;
-                    }
 
+                    }
+        break;
 
             //Valg 4 - Afslut program - virker ikke
                 case 4:
                     System.out.println("Du har valgt at afslutte");
                     exitProgram = true;
-                    return;
+
             }
+
         }
+
     }
 
 
