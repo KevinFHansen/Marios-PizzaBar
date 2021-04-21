@@ -59,10 +59,7 @@ public class UImenu {
                             System.out.println("Du har valgt at oprette en ny ordre");
                             Ordre nyOrdre = ordre.opretOrdre();
                             bestillinger.tilføjOrdreTilBestillinger(nyOrdre);
-                            bestillinger.beregnVentetid(bestillinger.getBestillinger().indexOf(nyOrdre));
-
-                            System.out.println("Nuværende bestillinger:");
-                            bestillinger.visBestillinger();
+                            bestillinger.beregnVentetid();
                             gui.opdaterVindue(bestillinger.getBestillinger(), gui.getTabel());
 
                         } else if (choice == 2){
@@ -102,7 +99,8 @@ public class UImenu {
                             bestillinger.visBestillinger();
                             System.out.println("Indtast nr på den ordre du vil afslutte?");
                             int afslutNr = scn.nextInt() - 1;
-                            bestillinger.afslutOrdre(bestillinger.getBestillinger().get(afslutNr));
+                            statistik.tilføjPizzaTilStatistik(bestillinger.afslutOrdre(bestillinger.getBestillinger().get(afslutNr)));
+                            statistik.tilføjPizzaTilFil();
                             gui.opdaterVindue(bestillinger.getBestillinger(), gui.getTabel());
 
                         } else if (choice == 4) {
@@ -113,6 +111,7 @@ public class UImenu {
                             System.out.println("Forkert indtastning - Tast 1, 2 eller 3");
                             continue;
                         }
+
                     }
                     break;
 
@@ -148,19 +147,29 @@ public class UImenu {
                     }
 
                     else {
-                        System.out.println("Forkert indtastning - Tast 1, 2, 3 eller 4");
+
+                        System.out.println("Forkert indtastning - prøv igen");
                         break;
+
                     }
 
 
 
-            //Valg 4 - Afslut program
+
+            //Valg 4 - Afslut program - virker ikke
                 case 4:
                     System.out.println("Du har valgt at afslutte");
                     gui.lukVindue();
                     afslut = true;
+                    break;
+
+                default:
+                    System.out.println("Forkert indtastning - prøv igen");
+
             }
+
         }
+
     }
 
 
