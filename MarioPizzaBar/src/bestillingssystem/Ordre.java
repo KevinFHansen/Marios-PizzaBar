@@ -2,7 +2,6 @@ package bestillingssystem;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-
 import Menukort_Pizza.Drikkevarer;
 import Menukort_Pizza.Menukort;
 import Menukort_Pizza.Pizza;
@@ -89,8 +88,9 @@ public class Ordre {
         System.out.println("Indtast kommentar til ordre");
         nyOrdre.setKommentar(sc.nextLine());
 
-        // afhentningstidspunkt - mangler ventetid
+        // afhentningstidspunkt
         nyOrdre.setAfhentningstidspunkt(nyOrdre.getBestillingstidspunkt().plusMinutes(Bestillingsliste.ventetid + nyOrdre.getSamletProduktionstid()));
+        nyOrdre.visOrdre();
 
         // godkend afhentningstidspunkt
         System.out.println("1. for at godkende afhentningstidspunktet \n2. for at ændre afhentningstidspunktet");
@@ -131,14 +131,6 @@ public class Ordre {
         LocalTime bestemtTidFærdig = bestillingstidspunkt.plusMinutes(sc.nextInt());
 
         setAfhentningstidspunkt(bestemtTidFærdig);
-    }
-
-    public void ordreKommentar() {
-
-        System.out.println("Indtast kommentar til ordre");
-        String kommentar = sc.nextLine();
-
-        setKommentar(kommentar);
     }
 
     public void visOrdre() {
@@ -198,8 +190,6 @@ public class Ordre {
                 }
             }
     }
-
-
 
         public void drikkevareMenu () {
             System.out.println("Tast nr. på den drikkevare du vil tilføje ordren");

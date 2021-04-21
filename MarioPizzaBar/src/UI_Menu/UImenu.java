@@ -60,6 +60,8 @@ public class UImenu {
                             Ordre nyOrdre = ordre.opretOrdre();
                             bestillinger.tilføjOrdreTilBestillinger(nyOrdre);
                             bestillinger.beregnVentetid(bestillinger.getBestillinger().indexOf(nyOrdre));
+
+                            System.out.println("Nuværende bestillinger:");
                             bestillinger.visBestillinger();
                             gui.opdaterVindue(bestillinger.getBestillinger(), gui.getTabel());
 
