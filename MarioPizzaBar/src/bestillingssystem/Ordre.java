@@ -2,7 +2,6 @@ package bestillingssystem;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-
 import Menukort_Pizza.Drikkevarer;
 import Menukort_Pizza.Menukort;
 import Menukort_Pizza.Pizza;
@@ -89,8 +88,9 @@ public class Ordre {
         System.out.println("Indtast kommentar til ordre");
         nyOrdre.setKommentar(sc.nextLine());
 
-        // afhentningstidspunkt - mangler ventetid
+        // afhentningstidspunkt
         nyOrdre.setAfhentningstidspunkt(nyOrdre.getBestillingstidspunkt().plusMinutes(Bestillingsliste.ventetid + nyOrdre.getSamletProduktionstid()));
+        nyOrdre.visOrdre();
 
         // godkend afhentningstidspunkt
         System.out.println("1. for at godkende afhentningstidspunktet \n2. for at ændre afhentningstidspunktet");
@@ -133,14 +133,6 @@ public class Ordre {
         setAfhentningstidspunkt(bestemtTidFærdig);
     }
 
-    public void ordreKommentar() {
-
-        System.out.println("Indtast kommentar til ordre");
-        String kommentar = sc.nextLine();
-
-        setKommentar(kommentar);
-    }
-
     public void visOrdre() {
         System.out.println("[" + getOrdreId() + "] Afhentes: " + getAfhentningstidspunkt());
 
@@ -152,10 +144,10 @@ public class Ordre {
     }
 
     public String[] ordreStreng() {
-        String pizzaer = ordreListe.get(0).toString();
+        String pizzaer = "Nr. " + String.valueOf(ordreListe.get(0).getPizzaNummer());
 
         for (int i = 1; i < ordreListe.size(); i++) {
-            pizzaer = pizzaer + "\n" + ordreListe.get(i).toString();
+            pizzaer = pizzaer + "\n" + "Nr. " + String.valueOf(ordreListe.get(i).getPizzaNummer());
         }
 
         String ordreStreng[] = {String.valueOf(afhentningstidspunkt), ordreId, pizzaer, kommentar};
@@ -200,8 +192,6 @@ break;
                     System.out.println("Forkert indtastning - prøv igen");
             }
     }
-
-
 
         public void drikkevareMenu () {
             System.out.println("Tast nr. på den drikkevare du vil tilføje ordren");
