@@ -6,8 +6,8 @@ import java.util.Scanner;
 
 public class Menukort{
     private String dato;
-    public ArrayList<Pizza> pizzaListe = new ArrayList<>();
-    public ArrayList<Drikkevarer> drikkevarerListe = new ArrayList<>();
+    private ArrayList<Pizza> pizzaListe = new ArrayList<>();
+    private ArrayList<Drikkevarer> drikkevarerListe = new ArrayList<>();
     Scanner scn = new Scanner(System.in);
 
 
@@ -62,7 +62,7 @@ public class Menukort{
 
 
 
-    //Pizza getters og setters
+    //Getters og setters
 
     public ArrayList<Pizza> getPizzaListe() {
         return this.pizzaListe;
@@ -76,6 +76,9 @@ public class Menukort{
         this.drikkevarerListe = drikkevarerListe;
     }
 
+    public ArrayList<Drikkevarer> getDrikkevarerListe() {
+        return drikkevarerListe;
+    }
 
 
     //Pizza metoder:
