@@ -99,6 +99,7 @@ public class UImenu {
                             bestillinger.visBestillinger();
                             System.out.println("Indtast nr på den ordre du vil afslutte?");
                             int afslutNr = scn.nextInt() - 1;
+                            // fjerner ordre fra bestillinger - tilføjes til arraylist i Statistikklassen og skrives til csv-fil
                             statistik.tilføjPizzaTilStatistik(bestillinger.afslutOrdre(bestillinger.getBestillinger().get(afslutNr)));
                             statistik.tilføjPizzaTilFil();
                             gui.opdaterVindue(bestillinger.getBestillinger(), gui.getTabel());
@@ -222,7 +223,5 @@ public class UImenu {
     public static void main(String[] args) throws IOException, ArrayIndexOutOfBoundsException {
         UImenu uImenu = new UImenu();
         uImenu.startUI();
-
     }
-
 }

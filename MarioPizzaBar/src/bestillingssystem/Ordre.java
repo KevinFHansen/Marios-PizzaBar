@@ -119,9 +119,7 @@ public class Ordre {
             } else {
                 flag = false;
             }
-
         }
-
     }
 
     public void ændreAfhentningstidspunkt() {
@@ -198,7 +196,6 @@ public class Ordre {
                 }
             }
     }
-
 
 
         public void drikkevareMenu () {

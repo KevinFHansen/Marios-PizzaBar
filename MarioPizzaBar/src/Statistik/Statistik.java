@@ -86,6 +86,9 @@ public class Statistik {
         writer.close();
     }
 
+
+
+    // Læs data fra csv
     public ArrayList<Statistik> læsStatistikFraFil() throws FileNotFoundException{
 
         File pizzaFil = new File("MarioPizzaBar/Ressourcer/Statistik.csv");
@@ -108,13 +111,9 @@ public class Statistik {
 
             Statistik tmpStat = new Statistik(nummer, pris);
             nummerOgPris.add(tmpStat);
-
-
         }
         return nummerOgPris;
-
     }
-
 
     public String beregnOmsætningFraFil(ArrayList<Statistik> priserFraFil){
         int omsætningFraFil = 0;
@@ -125,35 +124,6 @@ public class Statistik {
         return "Omsætning: " + omsætningFraFil + " kr.";
     }
 
-    /* mest solgte og samlet antal pizzaer
-    public String mestSolgtePizza(ArrayList<Statistik> numreFraFil){
-
-        int antalPizza = 0;
-
-        for (int i = 0 ; i < numreFraFil.size(); i++){
-            antalPizza++;
-        }
-        int element = 0;
-        int count = 0;
-
-        for( int i = 0 ; i < numreFraFil.size(); i ++){
-
-            int tempEl = numreFraFil.get(i).getPizzaNr();
-            int tempCount = 0;
-
-            for (int j = 0; j < numreFraFil.size(); j++)
-                if (numreFraFil.get(i).getPizzaNr() == tempEl)
-                    tempCount++;
-            if (tempCount>count){
-                element = tempEl;
-                count = tempCount;
-            }
-        }
-
-        return "Total antal pizza: " + antalPizza + "\n" +
-                "Den mest solgte pizza er nr: " + element + " Antal: " + count;
-    }
-*/
     @Override
     public String toString() {
         return "Statistik { " +
