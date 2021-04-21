@@ -46,6 +46,10 @@ public class Ordre {
         return this.kommentar;
     }
 
+    public ArrayList<Drikkevarer> getSalgAfDrikkeVare() {
+        return salgAfDrikkeVare;
+    }
+
     // Setters
     public void setOrdreId(String ordreId) {
         this.ordreId = ordreId;
@@ -67,6 +71,9 @@ public class Ordre {
         this.kommentar = ordreKommentar;
     }
 
+    public void setSalgAfDrikkeVare(ArrayList<Drikkevarer> salgAfDrikkeVare) {
+        this.salgAfDrikkeVare = salgAfDrikkeVare;
+    }
 
     public Ordre opretOrdre() throws FileNotFoundException {
         Scanner sc = new Scanner(System.in);
@@ -156,56 +163,30 @@ public class Ordre {
     }
 
     public void tilføjDrikkevare() throws FileNotFoundException {
-        System.out.println("Vil du sælge drikkevare?");
-        System.out.println("Tast 1 - JA");
-        System.out.println("Tast 2 - NEJ");
+
         Menukort menukort = new Menukort();
-        ArrayList<Drikkevarer> drikkevareListe = menukort.getDrikkevarerListe();
+        ArrayList<Drikkevarer> drikkevareListe = menukort.indlæsDrikkevare();
 
-        Scanner scanDrikkevare = new Scanner(System.in);
+        System.out.println("Tast nummer på drikkevare");
 
-        int valgDrikkevare = sc.nextInt();
+        System.out.println("0. for at afslutte");
 
-        while (!stopDrikkevare)
+        menukort.visDrikkevarer();
 
-            switch (valgDrikkevare) {
-
-                case 1:
-                    drikkevareMenu();
-
-                    Scanner scnTypeDrikkevare = new Scanner(System.in);
-                    int valg1 = scnTypeDrikkevare.nextInt();
-                    if (valg1 < 5 && valg1 > 0) {
-                        // salgAfDrikkeVare.add(drikkevareListe.get(scanDrikkevare.nextInt() - 1));
-                        salgAfDrikkeVare.add(drikkevareListe.get(scanDrikkevare.nextInt() - 1));
-                        System.out.println(drikkevareListe);
-
-                    } else if (valg1 == 5) {
-                        stopDrikkevare = true;
-                    }
-
-                break;
-                case 2: {
-                    stopDrikkevare = true;
-                    break;
-                }
+        Scanner scnTypeDrikkevare = new Scanner(System.in);
+        int valg1 = scnTypeDrikkevare.nextInt();
 
 
-                default:
-                    System.out.println("Forkert indtastning - prøv igen");
-            }
+        if (valg1 < drikkevareListe.size() && valg1 > 0) {
+                salgAfDrikkeVare.add(drikkevareListe.get(valg1 - 1));
+        }
 
+        else if (valg1 == 0) {
+                stopDrikkevare = true;
+        }
 
     }
 
-        public void drikkevareMenu () {
-            System.out.println("Tast nr. på den drikkevare du vil tilføje ordren");
-            System.out.println("Tast 1 - Tilføj Sodavand (20 kr.)");
-            System.out.println("Tast 2 - Tilføj Vin (25 kr.)");
-            System.out.println("Tast 3 - Tilføj Øl (25 kr.)");
-            System.out.println("Tast 4 - Tilføj Vand (20 kr.)");
-            System.out.println("Tast 5 - Gå tilbage");
-        }
 
         @Override
         public String toString () {

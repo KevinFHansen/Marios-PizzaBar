@@ -150,6 +150,9 @@ public class UImenu {
 
                         } else if (valg2 == 5){
                             ordre.tilføjDrikkevare();
+                            statistik.tilføjDrikkevarerTilStat(ordre.getSalgAfDrikkeVare());
+                            statistik.tilføjDrikkeTilFil();
+                            //ordre.setSalgAfDrikkeVare(ordre.getSalgAfDrikkeVare().clear());
                         }
 
                         else if (valg2 == 6) {
@@ -166,7 +169,6 @@ public class UImenu {
 
                     }
                     break;
-
 
 
 

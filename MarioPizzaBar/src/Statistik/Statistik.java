@@ -85,6 +85,7 @@ public class Statistik {
             writer.append(dato.toString() + "\n");
         }
         writer.close();
+        drikkevarerStat.clear();
     }
 
 
