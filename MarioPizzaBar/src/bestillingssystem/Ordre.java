@@ -70,10 +70,11 @@ public class Ordre {
 
 
     public Ordre opretOrdre() throws FileNotFoundException {
-
+        Scanner sc = new Scanner(System.in);
         Ordre nyOrdre = new Ordre();
 
         System.out.println("Indtast kundens navn");
+
         nyOrdre.setOrdreId(sc.nextLine());
 
         nyOrdre.setBestillingstidspunkt(bestillingstidspunkt.now());
