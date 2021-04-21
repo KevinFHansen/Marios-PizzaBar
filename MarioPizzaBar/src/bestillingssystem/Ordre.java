@@ -156,7 +156,7 @@ public class Ordre {
     }
 
     public void tilføjDrikkevare() throws FileNotFoundException {
-        System.out.println("Vil du tilføje drikkevare?");
+        System.out.println("Vil du sælge drikkevare?");
         System.out.println("Tast 1 - JA");
         System.out.println("Tast 2 - NEJ");
         Menukort menukort = new Menukort();
@@ -172,25 +172,30 @@ public class Ordre {
 
                 case 1:
                     drikkevareMenu();
+
                     Scanner scnTypeDrikkevare = new Scanner(System.in);
                     int valg1 = scnTypeDrikkevare.nextInt();
-                    if (valg1 < 6 && valg1 > 0) {
+                    if (valg1 < 5 && valg1 > 0) {
                         // salgAfDrikkeVare.add(drikkevareListe.get(scanDrikkevare.nextInt() - 1));
                         salgAfDrikkeVare.add(drikkevareListe.get(scanDrikkevare.nextInt() - 1));
                         System.out.println(drikkevareListe);
 
-                    } else if (valg1 == 6) {
-                        stopDrikkevare = false;
+                    } else if (valg1 == 5) {
+                        stopDrikkevare = true;
                     }
 
-break;
+                break;
                 case 2: {
                     stopDrikkevare = true;
-
+                    break;
                 }
+
+
                 default:
                     System.out.println("Forkert indtastning - prøv igen");
             }
+
+
     }
 
         public void drikkevareMenu () {
