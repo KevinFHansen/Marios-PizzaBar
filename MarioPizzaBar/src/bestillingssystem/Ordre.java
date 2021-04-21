@@ -180,18 +180,18 @@ public class Ordre {
 
                 case 1:
                     drikkevareMenu();
-
-                    int valg1 = scanDrikkevare.nextInt();
-
-                    if (valg1 < 5 || valg1 > 0) {
+                    Scanner scnTypeDrikkevare = new Scanner(System.in);
+                    int valg1 = scnTypeDrikkevare.nextInt();
+                    if (valg1 < 6 && valg1 > 0) {
                         // salgAfDrikkeVare.add(drikkevareListe.get(scanDrikkevare.nextInt() - 1));
                         salgAfDrikkeVare.add(drikkevareListe.get(scanDrikkevare.nextInt() - 1));
                         System.out.println(drikkevareListe);
-                        break;
-                    } else if (valg1 == 5) {
-                        break;
+
+                    } else if (valg1 == 6) {
+                        stopDrikkevare = false;
                     }
 
+break;
                 case 2: {
                     stopDrikkevare = true;
 

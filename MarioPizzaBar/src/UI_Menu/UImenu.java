@@ -86,9 +86,13 @@ public class UImenu {
                             }
                             else if (choice2 == 4){
                                 System.out.println("Du har valgt at ændre i drikkevarer");
+                                menukort.lavOmPåDrikkevare();
                                 continue;
                             }
                             else if (choice2 == 5){
+
+                            }
+                            else if (choice2 == 6){
                                 continue;
                             }
 
@@ -153,11 +157,41 @@ public class UImenu {
 
                     }
 
+                case 4: {
+                    while (true) {
+                        System.out.println("Håndter Drikkevare");
+                        drikkevareMenu();
+                        int valg2 = scn.nextInt();
+
+                        if (valg2 == 1) {
+                            menukort.visDrikkevarer();
+                            System.out.println();
+
+                        } else if (valg2 == 2) {
+                            menukort.opretDrikkevarer();
+
+                        } else if (valg2 == 3) {
+                            menukort.fjernDrikkevarer();
+
+                        } else if (valg2 == 4) {
+                            menukort.lavOmPåDrikkevare();
+
+                        } else if (valg2 == 5){
+                            ordre.tilføjDrikkevare();
+                        }
+
+                        else if (valg2 == 6) {
+
+                        }
 
 
+                    }
 
-            //Valg 4 - Afslut program - virker ikke
-                case 4:
+                }
+
+
+                    //Valg 4 - Afslut program - virker ikke
+                case 5:
                     System.out.println("Du har valgt at afslutte");
                     gui.lukVindue();
                     afslut = true;
@@ -179,15 +213,16 @@ public class UImenu {
         System.out.println("Tast 1 - Se Menukort");
         System.out.println("Tast 2 - Håndter ordrer");
         System.out.println("Tast 3 - Håndter Menukortet");
-        System.out.println("Tast 4 - Afslut");
+        System.out.println("Tast 4 - Håndter Drikkevare");
+        System.out.println("Tast 5 - Afslut");
     }
 
     public void subMenuOrdre (){
         System.out.println("Håndter ordre - Du har følgende valg:");
         System.out.println("Tast 1 - Opret ordre");
         System.out.println("Tast 2 - Drikkevare");
-        System.out.println("Tast 3 - Afslut ordre");
-        System.out.println("Tast 4 - Gå til Hovedmenu");
+        System.out.println("Tast 4 - Afslut ordre");
+        System.out.println("Tast 5 - Gå til Hovedmenu");
     }
     public void subMenuPizza (){
         System.out.println("Håndter menukortet - Du har følgende valg:");
@@ -202,7 +237,8 @@ public class UImenu {
         System.out.println("Tast 2 - Tilføj en drik");
         System.out.println("Tast 3 - Fjern en drik");
         System.out.println("Tast 4 - Ændre i en drik");
-        System.out.println("Tast 5 - Gå tilbage");
+        System.out.println("Tast 5 - Sælg Drikkevare");
+        System.out.println("Tast 6 - Gå tilbage");
 
     }
 
