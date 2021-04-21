@@ -144,10 +144,10 @@ public class Ordre {
     }
 
     public String[] ordreStreng() {
-        String pizzaer = ordreListe.get(0).toString();
+        String pizzaer = "Nr. " + String.valueOf(ordreListe.get(0).getPizzaNummer());
 
         for (int i = 1; i < ordreListe.size(); i++) {
-            pizzaer = pizzaer + "\n" + ordreListe.get(i).toString();
+            pizzaer = pizzaer + "\n" + "Nr. " + String.valueOf(ordreListe.get(i).getPizzaNummer());
         }
 
         String ordreStreng[] = {String.valueOf(afhentningstidspunkt), ordreId, pizzaer, kommentar};
