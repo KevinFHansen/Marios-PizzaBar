@@ -166,7 +166,7 @@ public class Ordre {
         System.out.println("Tast 1 - JA");
         System.out.println("Tast 2 - NEJ");
         Menukort menukort = new Menukort();
-        ArrayList<Drikkevarer> drikkevareListe = menukort.drikkevarerListe;
+        ArrayList<Drikkevarer> drikkevareListe = menukort.getDrikkevarerListe();
 
         Scanner scanDrikkevare = new Scanner(System.in);
 

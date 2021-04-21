@@ -19,7 +19,7 @@ public class Statistik {
     private ArrayList<Pizza> pizzaStatistik = new ArrayList<>();
     private ArrayList<Drikkevarer> drikkevarerStat = new ArrayList<>();
 
-    public Statistik(int pizzaNr, int omsætning,) {
+    public Statistik(int pizzaNr, int omsætning) {
         this.omsætning = omsætning;
         this.pizzaNr = pizzaNr;
 
@@ -50,10 +50,8 @@ public class Statistik {
   public void tilføjDrikkevarerTilStat(ArrayList<Drikkevarer> drikkeStat){
 
         for (int i = 0; i < drikkeStat.size(); i++){
-
+            drikkevarerStat.add(drikkeStat.get(i));
         }
-
-
   }
 
 
@@ -68,6 +66,21 @@ public class Statistik {
         for(int i = 0; i < pizzaStatistik.size(); i++){
             writer.append(pizzaStatistik.get(i).getPizzaNummer() + ";");
             writer.append(pizzaStatistik.get(i).getPris() + ";");
+            writer.append(dato.toString() + "\n");
+        }
+        writer.close();
+    }
+
+    public void tilføjDrikkeTilFil() throws IOException {
+
+        File fout = new File("MarioPizzaBar/Ressourcer/Statistik.csv");
+
+        FileWriter writer = new FileWriter(fout, true);
+
+
+        for(int i = 0; i < drikkevarerStat.size(); i++){
+            writer.append(drikkevarerStat.get(i).getTypeDrikkevare() + ";");
+            writer.append(drikkevarerStat.get(i).getPrisPåDrikkevare() + ";");
             writer.append(dato.toString() + "\n");
         }
         writer.close();
