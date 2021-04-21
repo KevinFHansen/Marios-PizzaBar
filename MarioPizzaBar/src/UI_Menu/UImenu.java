@@ -127,8 +127,9 @@ public class UImenu {
 
                 case 4:
 
+                    int option = 0;
 
-                    while (true) {
+                    while (option != 5) {
                         System.out.println("Håndter Drikkevare");
                         drikkevareMenu();
                         int valg2 = scn.nextInt();
@@ -151,16 +152,19 @@ public class UImenu {
                         }
 
                         else if (valg2 == 6) {
-                            choice1 = 4;
+                        break;
+
                         }
 
                         else {
                             System.out.println("Forkert indtastning - prøv igen");
-                            continue;
+                        continue;
+
                         }
 
 
                     }
+                    break;
 
 
 
