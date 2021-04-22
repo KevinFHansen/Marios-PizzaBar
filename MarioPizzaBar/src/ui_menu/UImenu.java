@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UImenu {
-    public int scanUserInput;
 
     Menukort menukort = new Menukort();
     Ordre ordre = new Ordre();

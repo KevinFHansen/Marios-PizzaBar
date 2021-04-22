@@ -4,10 +4,6 @@ public class Drikkevarer {
     private String typeDrikkevare;
     private int prisPåDrikkevare;
     private int nummerPåDrikkevare;
-    /*private int sodavandPris = 20;
-    private int vinPris = 25;
-    private int flaskeØlPris = 25;
-    private int kandeVandPris = 20;*/
 
     //Constructor
     public Drikkevarer (int nummerPåDrikkevare, String typeDrikkevare, int prisPåDrikkevare){
@@ -34,31 +30,6 @@ public class Drikkevarer {
         return this.nummerPåDrikkevare;
     }
 
-
-    /*public int getSodavandPris(){
-        return this.sodavandPris;
-    }
-    public void setSodavandPris(){
-        this.sodavandPris = sodavandPris;
-    }
-    public int getVinPris(){
-        return this.vinPris = vinPris;
-    }
-    public void setVinPris(){
-        this.vinPris = vinPris;
-    }
-    public int getFlaskeØlPris(){
-        return this.flaskeØlPris;
-    }
-    public void setFlaskeØlPris(){
-        this.flaskeØlPris = flaskeØlPris;
-    }
-    public int getKandeVandPris(){
-        this.kandeVandPris = kandeVandPris;
-        return this.kandeVandPris;
-    }
-
-     */
     @Override
     public String toString() {
         return "" +
