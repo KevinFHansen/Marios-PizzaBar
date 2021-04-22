@@ -78,6 +78,7 @@ public class Ordre {
         this.salgAfDrikkeVare = salgAfDrikkeVare;
     }
 
+    // Metoder
     public Ordre opretOrdre() throws FileNotFoundException {
         Scanner sc = new Scanner(System.in);
         Ordre nyOrdre = new Ordre();
