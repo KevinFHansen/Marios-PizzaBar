@@ -32,14 +32,6 @@ public class Bestillingsliste {
 
 
     // metoder
-
-    // opretter instans af Bestillingsliste
-
-    public void opretBestillingsliste(){
-        Bestillingsliste nyBestillingsliste = new Bestillingsliste();
-    }
-
-
     public void tilføjOrdreTilBestillinger(Ordre ordreTilBestillingsListe){
         bestillinger.add(ordreTilBestillingsListe);
     }
@@ -51,7 +43,6 @@ public class Bestillingsliste {
             ventetid = ventetid + bestillinger.get(i).getSamletProduktionstid();
             setVentetid(ventetid);
         } return ventetid;
-
     }
 
     public void visBestillinger(){
@@ -76,10 +67,8 @@ public class Bestillingsliste {
             pizTilStat.add(ordreTilAfslut.getOrdreListe().get(i));
         }
 
-
         bestillinger.remove(ordreTilAfslut);
         return pizTilStat;
-
     }
 
     @Override

@@ -59,9 +59,7 @@ public class Statistik {
 
         File fout = new File("MarioPizzaBar/Ressourcer/Statistik.csv");
 
-
         FileWriter writer = new FileWriter(fout, true);
-
 
         for(int i = 0; i < pizzaStatistik.size(); i++){
             writer.append(pizzaStatistik.get(i).getPizzaNummer() + ";");
@@ -78,7 +76,6 @@ public class Statistik {
 
         FileWriter writer = new FileWriter(fout, true);
 
-
         for(int i = 0; i < drikkevarerStat.size(); i++){
             writer.append(drikkevarerStat.get(i).getTypeDrikkevare() + ";");
             writer.append(drikkevarerStat.get(i).getPrisPåDrikkevare() + ";");
@@ -88,43 +85,6 @@ public class Statistik {
         drikkevarerStat.clear();
     }
 
-
-
-    // Læs data fra csv
-    public ArrayList<Statistik> læsStatistikFraFil() throws FileNotFoundException{
-
-        File pizzaFil = new File("MarioPizzaBar/Ressourcer/Statistik.csv");
-
-        Scanner filScanner = new Scanner(pizzaFil);
-
-        ArrayList<Statistik> nummerOgPris = new ArrayList<Statistik>();
-
-        filScanner.nextLine();
-
-        while(filScanner.hasNext()){
-            String denneLinje = filScanner.nextLine();
-
-            String[] linjeSomArray = denneLinje.split(";");
-
-            int nummer = Integer.parseInt(linjeSomArray[0].trim());
-            int pris = Integer.parseInt(linjeSomArray[1].trim());
-            String dato = linjeSomArray[2].trim();
-
-
-            Statistik tmpStat = new Statistik(nummer, pris);
-            nummerOgPris.add(tmpStat);
-        }
-        return nummerOgPris;
-    }
-
-    public String beregnOmsætningFraFil(ArrayList<Statistik> priserFraFil){
-        int omsætningFraFil = 0;
-        for (int i = 0; i < priserFraFil.size(); i ++){
-            omsætningFraFil = omsætningFraFil + priserFraFil.get(i).getOmsætning();
-
-        }
-        return "Omsætning: " + omsætningFraFil + " kr.";
-    }
 
     @Override
     public String toString() {
