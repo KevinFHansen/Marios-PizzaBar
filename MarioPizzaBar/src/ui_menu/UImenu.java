@@ -1,9 +1,9 @@
-package UI_Menu;
+package ui_menu;
 
-import Menukort_Pizza.Drikkevarer;
-import Menukort_Pizza.Menukort;
-import Statistik.Statistik;
-import Menukort_Pizza.Pizza;
+import menukort_pizza.Drikkevarer;
+import menukort_pizza.Menukort;
+import statistik.Statistik;
+import menukort_pizza.Pizza;
 import bestillingssystem.Bestillingsliste;
 import bestillingssystem.Ordre;
 import java.io.IOException;
@@ -232,12 +232,5 @@ public class UImenu {
         System.out.println("           \\_ ~o%=@%(_)%o%%(_)%~ _/");
         System.out.println("             `\\_~~o%%%o%%%%%~~_/'");
         System.out.println("                `--..____,,--'");
-    }
-
-
-
-    public static void main(String[] args) throws IOException, ArrayIndexOutOfBoundsException {
-        UImenu uImenu = new UImenu();
-        uImenu.startUI();
     }
 }

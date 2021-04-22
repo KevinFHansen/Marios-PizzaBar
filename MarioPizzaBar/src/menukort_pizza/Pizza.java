@@ -1,7 +1,4 @@
-package Menukort_Pizza;
-
-import java.util.ArrayList;
-import java.util.Scanner;
+package menukort_pizza;
 
 public class Pizza {
     private int pris;

@@ -1,15 +1,11 @@
-package Statistik;
-import Menukort_Pizza.Drikkevarer;
-import Menukort_Pizza.Pizza;
-import bestillingssystem.Bestillingsliste;
-import bestillingssystem.Ordre;
+package statistik;
+import menukort_pizza.Drikkevarer;
+import menukort_pizza.Pizza;
 
 
 import java.io.*;
-import java.sql.Time;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Statistik {
 

@@ -1,4 +1,4 @@
-package Menukort_Pizza;
+package menukort_pizza;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;

@@ -1,4 +1,4 @@
-package UI_Menu;
+package ui_menu;
 
 import bestillingssystem.Ordre;
 import javax.swing.*;

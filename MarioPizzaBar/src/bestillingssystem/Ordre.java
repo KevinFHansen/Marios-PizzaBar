@@ -3,10 +3,10 @@ package bestillingssystem;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
-import Menukort_Pizza.Drikkevarer;
-import Menukort_Pizza.Menukort;
-import Menukort_Pizza.Pizza;
-import Statistik.Statistik;
+import menukort_pizza.Drikkevarer;
+import menukort_pizza.Menukort;
+import menukort_pizza.Pizza;
+import statistik.Statistik;
 
 import java.util.Scanner;
 import java.time.LocalTime;

@@ -1,6 +1,4 @@
-package Menukort_Pizza;
-
-import java.util.ArrayList;
+package menukort_pizza;
 
 public class Drikkevarer {
     private String typeDrikkevare;

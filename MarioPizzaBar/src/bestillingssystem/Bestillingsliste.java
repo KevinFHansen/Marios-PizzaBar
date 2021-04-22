@@ -1,10 +1,7 @@
 package bestillingssystem;
 
-import Menukort_Pizza.Pizza;
-import Statistik.Statistik;
-import UI_Menu.UImenu;
+import menukort_pizza.Pizza;
 
-import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
