@@ -1,10 +1,13 @@
 package bestillingssystem;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import Menukort_Pizza.Drikkevarer;
 import Menukort_Pizza.Menukort;
 import Menukort_Pizza.Pizza;
+import Statistik.Statistik;
+
 import java.util.Scanner;
 import java.time.LocalTime;
 
@@ -18,7 +21,7 @@ public class Ordre {
     private LocalTime afhentningstidspunkt;
     private String kommentar;
     private ArrayList<Pizza> ordreListe = new ArrayList<Pizza>();
-    private ArrayList<Drikkevarer> salgAfDrikkeVare = new ArrayList<>();
+    static ArrayList<Drikkevarer> salgAfDrikkeVare = new ArrayList<>();
     boolean stopDrikkevare = false;
 
     // Getters
@@ -162,9 +165,10 @@ public class Ordre {
         return ordreStreng;
     }
 
-    public void tilføjDrikkevare() throws FileNotFoundException {
+    public void tilføjDrikkevare() throws IOException {
 
         Menukort menukort = new Menukort();
+        Statistik statistik = new Statistik(0,0);
         ArrayList<Drikkevarer> drikkevareListe = menukort.indlæsDrikkevare();
 
         System.out.println("Tast nummer på drikkevare");
@@ -177,8 +181,11 @@ public class Ordre {
         int valg1 = scnTypeDrikkevare.nextInt();
 
 
-        if (valg1 < drikkevareListe.size() && valg1 > 0) {
-                salgAfDrikkeVare.add(drikkevareListe.get(valg1 - 1));
+        if (valg1 <= drikkevareListe.size() && valg1 > 0) {
+            salgAfDrikkeVare.add(drikkevareListe.get(valg1 - 1));
+            statistik.tilføjDrikkevarerTilStat(salgAfDrikkeVare);
+            statistik.tilføjDrikkeTilFil();
+            salgAfDrikkeVare.clear();
         }
 
         else if (valg1 == 0) {

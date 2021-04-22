@@ -6,9 +6,6 @@ import Statistik.Statistik;
 import Menukort_Pizza.Pizza;
 import bestillingssystem.Bestillingsliste;
 import bestillingssystem.Ordre;
-
-import java.awt.*;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -150,9 +147,6 @@ public class UImenu {
 
                         } else if (valg2 == 5){
                             ordre.tilføjDrikkevare();
-                            statistik.tilføjDrikkevarerTilStat(ordre.getSalgAfDrikkeVare());
-                            statistik.tilføjDrikkeTilFil();
-                            //ordre.setSalgAfDrikkeVare(ordre.getSalgAfDrikkeVare().clear());
                         }
 
                         else if (valg2 == 6) {
