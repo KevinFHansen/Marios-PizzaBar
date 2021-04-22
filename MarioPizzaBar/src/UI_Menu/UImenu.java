@@ -93,14 +93,12 @@ public class UImenu {
 
                     if (choice1 == 1) {
                         System.out.println("Du har valgt at tilføje en ny pizza til menukortet");
-                        //menukort.setPizzaListe(menukort.indlæsMenukort());
                         menukort.opretNyPizza(pizzaListe);
                         break;
                     }
 
                     else if (choice1 == 2){
                         System.out.println("Du har valgt at fjerne en pizza fra menukortet");
-                        //menukort.setPizzaListe(menukort.indlæsMenukort());
                         menukort.fjernPizza(pizzaListe);
                         break;
                         }
@@ -120,7 +118,6 @@ public class UImenu {
 
                         System.out.println("Forkert indtastning - prøv igen");
                         break;
-
                     }
 
                 case 4:
@@ -157,16 +154,14 @@ public class UImenu {
                         else {
                             System.out.println("Forkert indtastning - prøv igen");
                         continue;
-
                         }
 
-
                     }
+
                     break;
 
 
 
-                    //Valg 4 - Afslut program - virker ikke
                 case 5:
                     System.out.println("Du har valgt at afslutte");
                     gui.lukVindue();
@@ -209,9 +204,9 @@ public class UImenu {
 
     public void drikkevareMenu(){
         System.out.println("Tast 1 - Vis drikkevarer");
-        System.out.println("Tast 2 - Tilføj en drik");
-        System.out.println("Tast 3 - Fjern en drik");
-        System.out.println("Tast 4 - Ændre i en drik");
+        System.out.println("Tast 2 - Tilføj en drik til menukortet");
+        System.out.println("Tast 3 - Fjern en drik på menukortet");
+        System.out.println("Tast 4 - Ændre i en drik på menukortet");
         System.out.println("Tast 5 - Sælg Drikkevare");
         System.out.println("Tast 6 - Gå tilbage");
 
