@@ -105,7 +105,6 @@ public class UImenu {
 
                     else if (choice1 == 3){
                         System.out.println("Du har valgt at ændre en pizza på menukortet");
-                        //menukort.setPizzaListe(menukort.indlæsMenukort());
                         menukort.lavOmPåPizza(pizzaListe);
                         break;
                     }
@@ -154,6 +153,7 @@ public class UImenu {
                         else {
                             System.out.println("Forkert indtastning - prøv igen");
                         continue;
+
                         }
 
                     }
